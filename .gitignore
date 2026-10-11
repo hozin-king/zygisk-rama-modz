@@ -1,0 +1,7 @@
+# build artifacts
+app/src/main/obj/
+app/build/
+app/src/main/libs/
+*.o
+*.o.d
+*.so
