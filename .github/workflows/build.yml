@@ -26,20 +26,22 @@ jobs:
         run: |
           cd app/src/main/jni
           /tmp/android-ndk-r25c/ndk-build -j$(nproc) NDK_DEBUG=0
-          ls -la libs/arm64-v8a/libRAMA_MODZ.so libs/armeabi-v7a/libRAMA_MODZ.so
+          # ndk-build memakai app/src/main sebagai project path (naik 1 level
+          # karena AndroidManifest.xml di sana), jadi output ada di ../libs
+          ls -la ../libs/arm64-v8a/libRAMA_MODZ.so ../libs/armeabi-v7a/libRAMA_MODZ.so
 
       - name: Verify zygisk_module_entry export
         run: |
           for abi in arm64-v8a armeabi-v7a; do
             echo "== $abi =="
-            /tmp/android-ndk-r25c/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-nm -D --defined-only app/src/main/jni/libs/$abi/libRAMA_MODZ.so | grep -q " zygisk_module_entry$" && echo "zygisk_module_entry OK" || (echo "zygisk_module_entry MISSING"; exit 1)
+            /tmp/android-ndk-r25c/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-nm -D --defined-only app/src/main/libs/$abi/libRAMA_MODZ.so | grep -q " zygisk_module_entry$" && echo "zygisk_module_entry OK" || (echo "zygisk_module_entry MISSING"; exit 1)
           done
 
       - name: Assemble Zygisk module zip
         run: |
           rm -rf module && mkdir -p module/zygisk
-          cp app/src/main/jni/libs/arm64-v8a/libRAMA_MODZ.so module/zygisk/arm64-v8a.so
-          cp app/src/main/jni/libs/armeabi-v7a/libRAMA_MODZ.so module/zygisk/armeabi-v7a.so
+          cp app/src/main/libs/arm64-v8a/libRAMA_MODZ.so module/zygisk/arm64-v8a.so
+          cp app/src/main/libs/armeabi-v7a/libRAMA_MODZ.so module/zygisk/armeabi-v7a.so
           cp module.prop module/module.prop
           cat module/module.prop
           cd module && zip -r ../RAMA_MODZ-Zygisk.zip . && cd ..
