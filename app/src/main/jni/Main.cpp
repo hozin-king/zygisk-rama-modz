@@ -10,8 +10,8 @@
 #include <CydiaSubstrate.h>
 #include "Struct/Gui.hpp"
 #include <Struct/main.h>
-#include "fonts/FontAwesome6_solid.h"
-#include "ImGui/Toggle.h"
+#include "imgui/fonts/FontAwesome6_solid.h"
+#include "imgui/Toggle.h"
 #include "zygisk.hpp"
 #include "Struct/RamaModzTeam.h"
     // CREADIT: BY RAMA MODZ
