@@ -1,0 +1,6 @@
+id=ramamodz_zygisk
+name=RAMA MODZ Zygisk
+version=OB55-v1
+versionCode=1
+author=RAMA MODZ
+description=Zygisk module for Free Fire OB55 (com.dts.freefireth / com.dts.freefiremax). IL2CPP hooks via Dobby. Source by RAMA MODZ - credits retained. Built automatically via GitHub Actions.
