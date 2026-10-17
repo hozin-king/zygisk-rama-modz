@@ -2,6 +2,8 @@
 #include <unistd.h>
 #include <thread>
 #include <limits>
+#include <string>
+#include <vector>
 #include <xdl.h>
 #include <KittyUtils.h>
 #include <KittyMemory.h>
@@ -28,6 +30,51 @@ using zygisk::ServerSpecializeArgs;
 
 void hack();
 
+// ---- Auto-update / status check (tambahan Hozin) ----
+struct HookState { const char* name; bool ok; };
+static std::vector<HookState> g_hookStates;
+static std::string g_gamePkg = "?";
+static std::string g_gameVersion = "?";
+
+static void HookChecked(const char* name, void* target, void* repl, void** orig) {
+    bool ok = false;
+    if (target) ok = (DobbyHook(target, repl, orig) == 0);
+    g_hookStates.push_back({name, ok});
+    LOGD("HookCheck %s: %s", name, ok ? "OK" : "FAIL");
+}
+
+static std::string GetAppVersion(JNIEnv* env, const char* pkg) {
+    std::string ver = "?";
+    jclass atClass = env->FindClass("android/app/ActivityThread");
+    if (!atClass) return ver;
+    jmethodID curApp = env->GetStaticMethodID(atClass, "currentApplication", "()Landroid/app/Application;");
+    if (!curApp) return ver;
+    jobject app = env->CallStaticObjectMethod(atClass, curApp);
+    if (!app) return ver;
+    jclass ctxClass = env->FindClass("android/content/Context");
+    jmethodID getPM = env->GetMethodID(ctxClass, "getPackageManager", "()Landroid/content/pm/PackageManager;");
+    jobject pm = env->CallObjectMethod(app, getPM);
+    jclass pmClass = env->FindClass("android/content/pm/PackageManager");
+    jmethodID getPI = env->GetMethodID(pmClass, "getPackageInfo", "(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;");
+    jstring jp = env->NewStringUTF(pkg);
+    jobject pi = env->CallObjectMethod(pm, getPI, jp, 0);
+    env->DeleteLocalRef(jp);
+    if (!pi) return ver;
+    jclass piClass = env->FindClass("android/content/pm/PackageInfo");
+    jfieldID fv = env->GetFieldID(piClass, "versionName", "Ljava/lang/String;");
+    jstring vs = (jstring)env->GetObjectField(pi, fv);
+    if (vs) {
+        const char* c = env->GetStringUTFChars(vs, nullptr);
+        if (c) { ver = c; env->ReleaseStringUTFChars(vs, c); }
+        env->DeleteLocalRef(vs);
+    }
+    env->DeleteLocalRef(pi);
+    env->DeleteLocalRef(pm);
+    env->DeleteLocalRef(app);
+    return ver;
+}
+// ---- akhir tambahan ----
+
 class MyModule : public zygisk::ModuleBase {
  public:
   void onLoad(Api *api, JNIEnv *env) override {
@@ -43,6 +90,7 @@ class MyModule : public zygisk::ModuleBase {
     for (const auto *package: packages) {
       is_game_ = (strcmp(process, package) == 0);
       if (is_game_) {
+        g_gamePkg = package;
         break;
       }
     }
@@ -51,6 +99,8 @@ class MyModule : public zygisk::ModuleBase {
   void postAppSpecialize(const AppSpecializeArgs *args) override {
     if (is_game_) {
        genv->GetJavaVM(&jvm);
+      g_gameVersion = GetAppVersion(genv, g_gamePkg.c_str());
+      LOGD("Game %s version %s", g_gamePkg.c_str(), g_gameVersion.c_str());
       std::thread{hack}.detach();
     }
   }
@@ -389,6 +439,45 @@ void DrawMainUI() {
                 ImGui::EndTabItem();
             }
             
+            if (ImGui::BeginTabItem(ICON_FA_SYNC " UPDATE")) {
+                ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.0f, 0.8f, 1.0f, 1.0f));
+                ImGui::Text(ICON_FA_SYNC " AUTO-UPDATE CHECK");
+                ImGui::PopStyleColor();
+                ImGui::Separator();
+                ImGui::Spacing();
+
+                ImGui::Text("Game    : %s", g_gamePkg.c_str());
+                ImGui::Text("Versi   : %s", g_gameVersion.c_str());
+                ImGui::Text("il2cpp  : 0x%lx", (unsigned long)il2cpp_base);
+                ImGui::Spacing();
+                ImGui::Separator();
+                ImGui::Spacing();
+
+                int okCount = 0;
+                for (size_t i = 0; i < g_hookStates.size(); i++) {
+                    if (g_hookStates[i].ok) okCount++;
+                    if (g_hookStates[i].ok) ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.2f, 1.0f, 0.4f, 1.0f));
+                    else ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 0.3f, 0.3f, 1.0f));
+                    ImGui::Text("%s  %s", g_hookStates[i].ok ? "[OK] " : "[GAGAL]", g_hookStates[i].name);
+                    ImGui::PopStyleColor();
+                }
+                ImGui::Spacing();
+                ImGui::Separator();
+                ImGui::Spacing();
+
+                if (!g_hookStates.empty() && okCount == (int)g_hookStates.size()) {
+                    ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.2f, 1.0f, 0.4f, 1.0f));
+                    ImGui::TextWrapped("Semua %d hook aktif. Modul cocok dengan OB game ini.", okCount);
+                    ImGui::PopStyleColor();
+                } else {
+                    ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 0.7f, 0.2f, 1.0f));
+                    ImGui::TextWrapped("%d/%d hook aktif. Kalau game baru update OB, mapping hook perlu diperbarui - catat versi di atas lalu update modul.", okCount, (int)g_hookStates.size());
+                    ImGui::PopStyleColor();
+                }
+
+                ImGui::EndTabItem();
+            }
+
             if (ImGui::BeginTabItem(ICON_FA_INFO_CIRCLE " ABOUT")) {
                 
                 ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.0f, 0.8f, 1.0f, 1.0f));
@@ -526,7 +615,6 @@ inline void StartGUI() {
 
 void hack_thread(pid_t pid) {
     LOGD("Hack Thread initiated for PID: %i", pid);
-
     for (int i = 0; i < 10; i++) {
         il2cpp_base = get_module_base(pid, "libil2cpp.so");
         if (il2cpp_base != 0) break;
@@ -542,19 +630,21 @@ void hack_thread(pid_t pid) {
     sleep(10);
     Il2CppAttach();
     InitBypass();
+    g_hookStates.push_back({"AimSilent (OnCalcDamage)", g_BypassInstalled});
+    LOGD("HookCheck AimSilent (OnCalcDamage): %s", g_BypassInstalled ? "OK" : "FAIL");
     // CREADIT: BY RAMA MODZ
     // TELEGRAM OWNER: @RAMA_MODZ
     // CHANEL TELEGRAM: t.me/ramachanel
     // FUCK YOU DELETE CREDIT 
-DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("FollowCamera"), OBFUSCATE("get_OffsetForNormal"), 0),(void *)_GetCameraHeightRateValue, (void **)&GetCameraHeightRateValue);
-DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW"), OBFUSCATE("GameConfig"), OBFUSCATE("get_ResetGuest"), 0), (void *)_ResetGuest, (void **)&ResetGuest);
-DobbyHook((void *)Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("GetCurrentDashSpeed"), 0),(void *)hook_Rama_Modz,(void **)&old_Rama_Modz);
-	
-DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("get_MaxJumpHeight"), 0), (void*)my_get_MaxJumpHeight, (void**)&orig_get_MaxJumpHeight);
-DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("get_CustomGravity"), 0), (void*)my_get_CustomGravity, (void**)&orig_get_CustomGravity);
-DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("get_RisingGravity"), 0), (void*)my_get_RisingGravity, (void**)&orig_get_RisingGravity);
-DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("get_FallingGravity"), 0), (void*)my_get_FallingGravity, (void**)&orig_get_FallingGravity);
-	
+HookChecked("Camera (FollowCamera.get_OffsetForNormal)", Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("FollowCamera"), OBFUSCATE("get_OffsetForNormal"), 0),(void *)_GetCameraHeightRateValue, (void **)&GetCameraHeightRateValue);
+HookChecked("ResetGuest (GameConfig.get_ResetGuest)", Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW"), OBFUSCATE("GameConfig"), OBFUSCATE("get_ResetGuest"), 0), (void *)_ResetGuest, (void **)&ResetGuest);
+HookChecked("DashSpeed (Player.GetCurrentDashSpeed)", (void *)Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("GetCurrentDashSpeed"), 0),(void *)hook_Rama_Modz,(void **)&old_Rama_Modz);
+
+HookChecked("Jump (Player.get_MaxJumpHeight)", Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("get_MaxJumpHeight"), 0), (void*)my_get_MaxJumpHeight, (void**)&orig_get_MaxJumpHeight);
+HookChecked("Gravity (Player.get_CustomGravity)", Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("get_CustomGravity"), 0), (void*)my_get_CustomGravity, (void**)&orig_get_CustomGravity);
+HookChecked("Gravity (Player.get_RisingGravity)", Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("get_RisingGravity"), 0), (void*)my_get_RisingGravity, (void**)&orig_get_RisingGravity);
+HookChecked("Gravity (Player.get_FallingGravity)", Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("get_FallingGravity"), 0), (void*)my_get_FallingGravity, (void**)&orig_get_FallingGravity);
+
 
     StartGUI();
 }
