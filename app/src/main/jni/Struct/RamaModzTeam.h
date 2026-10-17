@@ -189,13 +189,33 @@ void hook_OnCalcDamage(void *weapon, void *hitInfo) {
   if (orig_OnCalcDamage) orig_OnCalcDamage(weapon, hitInfo);
 }
 
-void InitBypass() {
+void InitBypass(const char* gameVer) {
   if (g_BypassInstalled) return;
 
-  uintptr_t addr = offset_OnCalcDamage;  
-  if (!addr || addr < 0x100000) return;  
+  // Nama obfuscated GANTI tiap build OB — tambah baris baru saat dump OB baru tersedia.
+  // versionPrefix: awalan versionName game ("" = cocok semua, jadi fallback).
+  struct ObfCandidate { const char* versionPrefix; const char* klass; const char* method; };
+  static const ObfCandidate candidates[] = {
+    {"", "HBIBDMMOOOK", "LHNJLFOINDO"}, // OB55
+  };
 
-  DobbyHook((void *)addr, (void *)hook_OnCalcDamage, (void **)&orig_OnCalcDamage);
+  uintptr_t addr = 0;
+  for (unsigned i = 0; i < sizeof(candidates)/sizeof(candidates[0]); i++) {
+    const char* pre = candidates[i].versionPrefix;
+    if (pre[0]) {
+      if (!gameVer) continue;
+      const char* a = gameVer; const char* b = pre;
+      while (*b && *a == *b) { a++; b++; }
+      if (*b) continue; // prefix tidak cocok
+    }
+    uintptr_t cand = (uintptr_t)Il2CppGetMethodOffset(
+        OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"),
+        candidates[i].klass, candidates[i].method, 1);
+    if (cand && cand >= 0x100000) { addr = cand; break; }
+  }
+  if (!addr) return;
+
+  if (DobbyHook((void *)addr, (void *)hook_OnCalcDamage, (void **)&orig_OnCalcDamage) != 0) return;
   g_BypassInstalled = true;
 }
 

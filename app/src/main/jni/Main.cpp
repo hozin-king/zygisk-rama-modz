@@ -630,7 +630,7 @@ void hack_thread(pid_t pid) {
     LOGD("IL2CPP base address: 0x%" PRIxPTR, il2cpp_base);
     sleep(10);
     Il2CppAttach();
-    InitBypass();
+    InitBypass(g_gameVersion.c_str());
     g_hookStates.push_back({"AimSilent (OnCalcDamage)", g_BypassInstalled});
     LOGD("HookCheck AimSilent (OnCalcDamage): %s", g_BypassInstalled ? "OK" : "FAIL");
     // CREADIT: BY RAMA MODZ
