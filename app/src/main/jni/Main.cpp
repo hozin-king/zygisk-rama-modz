@@ -31,6 +31,7 @@ using zygisk::ServerSpecializeArgs;
 void hack();
 
 // ---- Auto-update / status check (tambahan Hozin) ----
+extern uintptr_t il2cpp_base; // didefinisikan di bawah, forward decl utk DrawMainUI()
 struct HookState { const char* name; bool ok; };
 static std::vector<HookState> g_hookStates;
 static std::string g_gamePkg = "?";
