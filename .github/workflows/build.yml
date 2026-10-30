@@ -17,7 +17,7 @@ jobs:
 
       - uses: actions/setup-java@v4
         with:
-          java-version: "17"
+          java-version: '17'
           distribution: temurin
 
       - name: Install Android cmdline-tools + NDK
@@ -30,10 +30,10 @@ jobs:
           wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O cmdtools.zip
           unzip -q cmdtools.zip -d "$HOME/android-sdk/cmdline-tools"
           mv "$HOME/android-sdk/cmdline-tools/cmdline-tools" "$HOME/android-sdk/cmdline-tools/latest"
-          echo "ANDROID_HOME=$HOME/android-sdk" >> $GITHUB_ENV
-          echo "ANDROID_SDK_ROOT=$HOME/android-sdk" >> $GITHUB_ENV
-          echo "$HOME/android-sdk/cmdline-tools/latest/bin" >> $GITHUB_PATH
-          echo "$HOME/android-sdk/platform-tools" >> $GITHUB_PATH
+          echo "ANDROID_HOME=$HOME/android-sdk" >> "$GITHUB_ENV"
+          echo "ANDROID_SDK_ROOT=$HOME/android-sdk" >> "$GITHUB_ENV"
+          echo "$HOME/android-sdk/cmdline-tools/latest/bin" >> "$GITHUB_PATH"
+          echo "$HOME/android-sdk/platform-tools" >> "$GITHUB_PATH"
 
       - name: Accept licenses + install packages
         run: |
@@ -42,24 +42,23 @@ jobs:
           sdkmanager --sdk_root=$HOME/android-sdk \
             "platform-tools" "build-tools;34.0.0" "platforms;android-34" "ndk;25.2.9519653"
           set -e
-          echo "ANDROID_NDK_HOME=$HOME/android-sdk/ndk/25.2.9519653" >> $GITHUB_ENV
+          echo "ANDROID_NDK_HOME=$HOME/android-sdk/ndk/25.2.9519653" >> "$GITHUB_ENV"
+          echo "sdk.dir=$HOME/android-sdk" > local.properties
+          cat local.properties
 
       - name: Setup Gradle wrapper
         run: |
-          if command -v gradle >/dev/null 2>&1; then
-            gradle wrapper --gradle-version 8.5
-          else
-            wget -q https://services.gradle.org/distributions/gradle-8.5-bin.zip -O /tmp/g.zip
-            sudo unzip -q /tmp/g.zip -d /opt
-            /opt/gradle-8.5/bin/gradle wrapper --gradle-version 8.5
-          fi
+          wget -q https://services.gradle.org/distributions/gradle-8.5-bin.zip -O /tmp/g.zip
+          sudo unzip -q /tmp/g.zip -d /opt
+          /opt/gradle-8.5/bin/gradle wrapper --gradle-version 8.5
           chmod +x gradlew
+          ./gradlew --version
 
       - name: Assemble release APK
         run: |
-          ./gradlew :root-apk:assembleRelease --no-daemon
+          ./gradlew :root-apk:assembleRelease --no-daemon --stacktrace
           mkdir -p dist
-          find root-apk/build/outputs/apk -name "*.apk" -exec cp -v {} dist/ \;
+          find root-apk/build/outputs/apk -name '*.apk' -exec cp -v {} dist/ \;
           ls -la dist/
 
       - uses: actions/upload-artifact@v4
@@ -88,5 +87,5 @@ jobs:
           test -n "$(ls -A release-assets)" || exit 1
           gh release create "$TAG" release-assets/* \
             --title "RAMA MODZ Root APK $TAG" \
-            --notes "Root injector APK only (Zygisk CI disabled). Credits: RAMA MODZ." \
+            --notes "Root injector APK (Zygisk CI off). Credits: RAMA MODZ." \
             --latest
