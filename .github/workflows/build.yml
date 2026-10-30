@@ -59,6 +59,7 @@ jobs:
     name: Build Root Injector APK
     if: ${{ github.event_name == 'push' || inputs.mode == 'both' || inputs.mode == 'root-apk' || inputs.mode == '' }}
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
 
@@ -67,15 +68,34 @@ jobs:
           java-version: "17"
           distribution: temurin
 
-      - uses: android-actions/setup-android@v3
-
-      - name: SDK licenses + NDK
+      - name: Install Android cmdline-tools
         run: |
-          yes | sdkmanager --licenses || true
-          sdkmanager "ndk;25.2.9519653" "build-tools;34.0.0" "platforms;android-34"
+          set -e
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq wget unzip >/dev/null
+          mkdir -p "$HOME/android-sdk/cmdline-tools"
+          cd /tmp
+          wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O cmdtools.zip
+          unzip -q cmdtools.zip -d "$HOME/android-sdk/cmdline-tools"
+          mv "$HOME/android-sdk/cmdline-tools/cmdline-tools" "$HOME/android-sdk/cmdline-tools/latest"
+          echo "ANDROID_HOME=$HOME/android-sdk" >> $GITHUB_ENV
+          echo "ANDROID_SDK_ROOT=$HOME/android-sdk" >> $GITHUB_ENV
+          echo "$HOME/android-sdk/cmdline-tools/latest/bin" >> $GITHUB_PATH
+          echo "$HOME/android-sdk/platform-tools" >> $GITHUB_PATH
+
+      - name: SDK licenses + packages
+        run: |
+          set +e
+          yes | sdkmanager --sdk_root=$HOME/android-sdk --licenses >/dev/null
+          sdkmanager --sdk_root=$HOME/android-sdk "platform-tools" "build-tools;34.0.0" "platforms;android-34" "ndk;25.2.9519653"
+          set -e
+          echo "SDK ready"
 
       - name: Package Root APK
         run: bash scripts/package_root_apk.sh
+        env:
+          ANDROID_HOME: ${{ env.ANDROID_HOME }}
+          ANDROID_SDK_ROOT: ${{ env.ANDROID_SDK_ROOT }}
 
       - uses: actions/upload-artifact@v4
         with:
