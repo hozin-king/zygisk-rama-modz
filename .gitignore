@@ -5,3 +5,8 @@ app/src/main/libs/
 *.o
 *.o.d
 *.so
+
+dist/
+module/
+app/src/main/libs/
+app/src/main/obj/
