@@ -1,0 +1,3 @@
+rootProject.name = 'RAMA_MODZ'
+include ':root-apk'
+project(':root-apk').projectDir = file('root-apk')

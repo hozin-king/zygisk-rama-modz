@@ -1,0 +1,22 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'com.bench.ramamodz'
+    compileSdk 34
+    defaultConfig {
+        applicationId "com.bench.ramamodz.root"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "OB55-root-1"
+        ndk { abiFilters 'arm64-v8a', 'armeabi-v7a' }
+        externalNativeBuild {
+            ndkBuild { arguments "APP_ABI=arm64-v8a armeabi-v7a", "APP_PLATFORM=android-24" }
+        }
+    }
+    externalNativeBuild { ndkBuild { path file('src/main/jni/Android.mk') } }
+    buildTypes {
+        release { minifyEnabled false; signingConfig signingConfigs.debug }
+        debug { signingConfig signingConfigs.debug }
+    }
+    packaging { jniLibs { useLegacyPackaging true } }
+}
