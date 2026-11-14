@@ -1,5 +1,6 @@
 #ifndef RAMA_STEALTH_H
 #define RAMA_STEALTH_H
+#include <dlfcn.h>
 // CONSTRAINT: include SETELAH header provider DobbyHook (Struct/main.h / RamaModzTeam.h).
 // Semua hook independen: gagal satu = layer lain tetap jalan, status dilog per hook.
 #include <android/log.h>

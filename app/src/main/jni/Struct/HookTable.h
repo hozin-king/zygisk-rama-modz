@@ -1,5 +1,7 @@
 #ifndef RAMA_HOOKTABLE_H
 #define RAMA_HOOKTABLE_H
+#include <Il2Cpp.h>
+#include "Struct/obfuscate.h"
 // CONSTRAINT: include SETELAH Il2Cpp.h + provider OBFUSCATE (rantai include Main.cpp).
 //
 // PROVENANCE (hasil-dump hozin-king, diverifikasi 2026-10-17, dicek ulang 2026-11-14):

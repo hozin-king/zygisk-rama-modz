@@ -4,6 +4,8 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
+#include <csignal>
+#include <cstdint>
 #include <cerrno>
 #include <unistd.h>
 #include <dlfcn.h>
@@ -32,8 +34,8 @@ static void setup_call(regs_t &r, uintptr_t fn, uintptr_t a0, uintptr_t a1, uint
 static uintptr_t retval(const regs_t &r) { return r.regs[0]; }
 static uintptr_t curpc(const regs_t &r) { return r.pc; }
 #elif defined(__arm__)
-#include <sys/user.h>
-typedef struct user_regs regs_t;
+struct rama_arm_regs { unsigned long uregs[18]; };  // layout 72 byte, tidak bergantung sys/user.h
+typedef struct rama_arm_regs regs_t;
 static bool get_regs(pid_t p, regs_t &r) { return ptrace(PTRACE_GETREGS, p, 0, &r) == 0; }
 static bool set_regs(pid_t p, const regs_t &r) { return ptrace(PTRACE_SETREGS, p, 0, (void*)&r) == 0; }
 static void setup_call(regs_t &r, uintptr_t fn, uintptr_t a0, uintptr_t a1, uintptr_t a2) {
