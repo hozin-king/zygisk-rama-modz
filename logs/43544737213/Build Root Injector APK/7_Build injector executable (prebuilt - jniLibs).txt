@@ -1,0 +1,31 @@
+﻿2026-11-14T02:11:04.9587195Z ##[group]Run set -e
+2026-11-14T02:11:04.9587555Z [36;1mset -e[0m
+2026-11-14T02:11:04.9587761Z [36;1m"$ANDROID_NDK_HOME/ndk-build" \[0m
+2026-11-14T02:11:04.9588027Z [36;1m  NDK_PROJECT_PATH=null \[0m
+2026-11-14T02:11:04.9588801Z [36;1m  APP_BUILD_SCRIPT="$PWD/root-apk/injector.mk" \[0m
+2026-11-14T02:11:04.9589182Z [36;1m  NDK_APPLICATION_MK="$PWD/root-apk/injector-app.mk" \[0m
+2026-11-14T02:11:04.9589540Z [36;1m  NDK_LIBS_OUT="$PWD/root-apk/src/main/jniLibs" \[0m
+2026-11-14T02:11:04.9589855Z [36;1m  NDK_OUT="$PWD/build/injector-obj" \[0m
+2026-11-14T02:11:04.9590121Z [36;1m  -j4[0m
+2026-11-14T02:11:04.9590392Z [36;1mfor f in root-apk/src/main/jniLibs/*/librama_inject; do[0m
+2026-11-14T02:11:04.9590740Z [36;1m  if [ -f "$f" ]; then mv "$f" "$f.so"; fi[0m
+2026-11-14T02:11:04.9591000Z [36;1mdone[0m
+2026-11-14T02:11:04.9591262Z [36;1mfind root-apk/src/main/jniLibs -type f -exec ls -la {} \;[0m
+2026-11-14T02:11:04.9650040Z shell: /usr/bin/bash -e {0}
+2026-11-14T02:11:04.9650244Z env:
+2026-11-14T02:11:04.9650499Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T02:11:04.9650796Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T02:11:04.9651045Z   ANDROID_HOME: /home/runner/android-sdk
+2026-11-14T02:11:04.9651217Z   ANDROID_SDK_ROOT: /home/runner/android-sdk
+2026-11-14T02:11:04.9651420Z   ANDROID_NDK_HOME: /home/runner/android-sdk/ndk/25.2.9519653
+2026-11-14T02:11:04.9651615Z ##[endgroup]
+2026-11-14T02:11:05.3179474Z [arm64-v8a] Compile++      : rama_inject <= inject_main.cpp
+2026-11-14T02:11:05.3209025Z [armeabi-v7a] Compile++ thumb: rama_inject <= inject_main.cpp
+2026-11-14T02:11:05.4180359Z [arm64-v8a] Compile++      : rama_inject <= memory.cpp
+2026-11-14T02:11:05.4189203Z [armeabi-v7a] Compile++ thumb: rama_inject <= memory.cpp
+2026-11-14T02:11:05.4388418Z [armeabi-v7a] Executable     : librama_inject
+2026-11-14T02:11:05.4404058Z [arm64-v8a] Executable     : librama_inject
+2026-11-14T02:11:05.4452600Z [armeabi-v7a] Install        : librama_inject => /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jniLibs/armeabi-v7a/librama_inject
+2026-11-14T02:11:05.4458594Z [arm64-v8a] Install        : librama_inject => /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jniLibs/arm64-v8a/librama_inject
+2026-11-14T02:11:05.4530099Z -rwxr-xr-x 1 runner runner 189584 Nov 14 02:11 root-apk/src/main/jniLibs/arm64-v8a/librama_inject.so
+2026-11-14T02:11:05.4562321Z -rwxr-xr-x 1 runner runner 90524 Nov 14 02:11 root-apk/src/main/jniLibs/armeabi-v7a/librama_inject.so

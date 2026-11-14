@@ -1,0 +1,45 @@
+﻿2026-11-14T02:10:36.7260917Z ##[group]Run wget -q https://services.gradle.org/distributions/gradle-8.5-bin.zip -O /tmp/g.zip
+2026-11-14T02:10:36.7261330Z [36;1mwget -q https://services.gradle.org/distributions/gradle-8.5-bin.zip -O /tmp/g.zip[0m
+2026-11-14T02:10:36.7261609Z [36;1msudo unzip -q /tmp/g.zip -d /opt[0m
+2026-11-14T02:10:36.7261819Z [36;1m/opt/gradle-8.5/bin/gradle wrapper --gradle-version 8.5[0m
+2026-11-14T02:10:36.7262015Z [36;1mchmod +x gradlew[0m
+2026-11-14T02:10:36.7262158Z [36;1m./gradlew --version[0m
+2026-11-14T02:10:36.7303522Z shell: /usr/bin/bash -e {0}
+2026-11-14T02:10:36.7303674Z env:
+2026-11-14T02:10:36.7303850Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T02:10:36.7304128Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T02:10:36.7304353Z   ANDROID_HOME: /home/runner/android-sdk
+2026-11-14T02:10:36.7304525Z   ANDROID_SDK_ROOT: /home/runner/android-sdk
+2026-11-14T02:10:36.7304722Z   ANDROID_NDK_HOME: /home/runner/android-sdk/ndk/25.2.9519653
+2026-11-14T02:10:36.7304950Z ##[endgroup]
+2026-11-14T02:10:40.3391910Z 
+2026-11-14T02:10:40.3392841Z Welcome to Gradle 8.5!
+2026-11-14T02:10:40.3394747Z 
+2026-11-14T02:10:40.3395305Z Here are the highlights of this release:
+2026-11-14T02:10:40.3395626Z  - Support for running on Java 21
+2026-11-14T02:10:40.3395920Z  - Faster first use with Kotlin DSL
+2026-11-14T02:10:40.3397021Z  - Improved error and warning messages
+2026-11-14T02:10:40.3397245Z 
+2026-11-14T02:10:40.3399387Z For more details see https://docs.gradle.org/8.5/release-notes.html
+2026-11-14T02:10:40.3399705Z 
+2026-11-14T02:10:40.5389158Z Starting a Gradle Daemon (subsequent builds will be faster)
+2026-11-14T02:11:02.6371146Z > Task :wrapper
+2026-11-14T02:11:02.6371718Z 
+2026-11-14T02:11:02.6372112Z BUILD SUCCESSFUL in 22s
+2026-11-14T02:11:02.6374247Z 1 actionable task: 1 executed
+2026-11-14T02:11:03.0370874Z Downloading https://services.gradle.org/distributions/gradle-8.5-bin.zip
+2026-11-14T02:11:04.1766196Z ............10%.............20%............30%.............40%.............50%............60%.............70%.............80%............90%.............100%
+2026-11-14T02:11:04.9412191Z 
+2026-11-14T02:11:04.9413545Z ------------------------------------------------------------
+2026-11-14T02:11:04.9414183Z Gradle 8.5
+2026-11-14T02:11:04.9414794Z ------------------------------------------------------------
+2026-11-14T02:11:04.9415258Z 
+2026-11-14T02:11:04.9415514Z Build time:   2023-11-29 14:08:57 UTC
+2026-11-14T02:11:04.9416643Z Revision:     28aca86a7180baa17117e0e5ba01d8ea9feca598
+2026-11-14T02:11:04.9416954Z 
+2026-11-14T02:11:04.9417208Z Kotlin:       1.9.20
+2026-11-14T02:11:04.9417628Z Groovy:       3.0.17
+2026-11-14T02:11:04.9419023Z Ant:          Apache Ant(TM) version 1.10.13 compiled on January 4 2023
+2026-11-14T02:11:04.9420273Z JVM:          17.0.21 (Eclipse Adoptium 17.0.21+9)
+2026-11-14T02:11:04.9420954Z OS:           Linux 7.0.0-1019-azure amd64
+2026-11-14T02:11:04.9421274Z 

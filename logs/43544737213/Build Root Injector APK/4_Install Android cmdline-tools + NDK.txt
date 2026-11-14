@@ -1,0 +1,18 @@
+﻿2026-11-14T02:10:00.0479986Z ##[group]Run set -e
+2026-11-14T02:10:00.0480396Z [36;1mset -e[0m
+2026-11-14T02:10:00.0480663Z [36;1msudo apt-get update -qq[0m
+2026-11-14T02:10:00.0481030Z [36;1msudo apt-get install -y -qq wget unzip >/dev/null[0m
+2026-11-14T02:10:00.0481450Z [36;1mmkdir -p "$HOME/android-sdk/cmdline-tools"[0m
+2026-11-14T02:10:00.0481807Z [36;1mcd /tmp[0m
+2026-11-14T02:10:00.0482354Z [36;1mwget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O cmdtools.zip[0m
+2026-11-14T02:10:00.0483007Z [36;1munzip -q cmdtools.zip -d "$HOME/android-sdk/cmdline-tools"[0m
+2026-11-14T02:10:00.0483580Z [36;1mmv "$HOME/android-sdk/cmdline-tools/cmdline-tools" "$HOME/android-sdk/cmdline-tools/latest"[0m
+2026-11-14T02:10:00.0484135Z [36;1mecho "ANDROID_HOME=$HOME/android-sdk" >> "$GITHUB_ENV"[0m
+2026-11-14T02:10:00.0484575Z [36;1mecho "ANDROID_SDK_ROOT=$HOME/android-sdk" >> "$GITHUB_ENV"[0m
+2026-11-14T02:10:00.0485054Z [36;1mecho "$HOME/android-sdk/cmdline-tools/latest/bin" >> "$GITHUB_PATH"[0m
+2026-11-14T02:10:00.0485582Z [36;1mecho "$HOME/android-sdk/platform-tools" >> "$GITHUB_PATH"[0m
+2026-11-14T02:10:00.0545187Z shell: /usr/bin/bash -e {0}
+2026-11-14T02:10:00.0545546Z env:
+2026-11-14T02:10:00.0545902Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T02:10:00.0546449Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T02:10:00.0546863Z ##[endgroup]

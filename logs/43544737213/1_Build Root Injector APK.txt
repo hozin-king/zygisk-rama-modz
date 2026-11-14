@@ -1,0 +1,1166 @@
+﻿2026-11-14T02:09:56.3487647Z Current runner version: '2.338.2'
+2026-11-14T02:09:56.3507632Z ##[group]Runner Image Provisioner
+2026-11-14T02:09:56.3508412Z Hosted Compute Agent
+2026-11-14T02:09:56.3508774Z Version: 20261103.629
+2026-11-14T02:09:56.3509206Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-14T02:09:56.3509656Z Build Date: 2026-11-03T17:26:59Z
+2026-11-14T02:09:56.3510075Z Worker ID: {fd0ab934-567f-4b48-98e1-2c640fae8e8e}
+2026-11-14T02:09:56.3510611Z Region: southcentralus
+2026-11-14T02:09:56.3510967Z Cloud: Azure
+2026-11-14T02:09:56.3511337Z ##[endgroup]
+2026-11-14T02:09:56.3512193Z ##[group]Operating System
+2026-11-14T02:09:56.3512562Z Ubuntu
+2026-11-14T02:09:56.3512977Z 26.04.1
+2026-11-14T02:09:56.3513293Z LTS
+2026-11-14T02:09:56.3513638Z ##[endgroup]
+2026-11-14T02:09:56.3513985Z ##[group]Runner Image
+2026-11-14T02:09:56.3514358Z Image: ubuntu-26.04
+2026-11-14T02:09:56.3514794Z Version: 20261111.196.1
+2026-11-14T02:09:56.3515573Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261111.196/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-14T02:09:56.3516516Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261111.196
+2026-11-14T02:09:56.3517111Z ##[endgroup]
+2026-11-14T02:09:56.3518353Z ##[group]GITHUB_TOKEN Permissions
+2026-11-14T02:09:56.3520163Z Contents: write
+2026-11-14T02:09:56.3520720Z Metadata: read
+2026-11-14T02:09:56.3521115Z ##[endgroup]
+2026-11-14T02:09:56.3522748Z Secret source: Actions
+2026-11-14T02:09:56.3523343Z Cache mode: write
+2026-11-14T02:09:56.3523812Z Prepare workflow directory
+2026-11-14T02:09:56.3790255Z Prepare all required actions
+2026-11-14T02:09:56.3823289Z Getting action download info
+2026-11-14T02:09:56.6436810Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-14T02:09:56.7363057Z Download action repository 'actions/setup-java@v4' (SHA:cf277c60eb25467037889841efdb72551f06f6c3)
+2026-11-14T02:09:57.2754643Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-14T02:09:57.4544225Z Complete job name: Build Root Injector APK
+2026-11-14T02:09:57.5195229Z ##[group]Run actions/checkout@v4
+2026-11-14T02:09:57.5195722Z with:
+2026-11-14T02:09:57.5195988Z   repository: hozin-king/zygisk-rama-modz
+2026-11-14T02:09:57.5198853Z   token: ***
+2026-11-14T02:09:57.5199102Z   ssh-strict: true
+2026-11-14T02:09:57.5199353Z   ssh-user: git
+2026-11-14T02:09:57.5199605Z   persist-credentials: true
+2026-11-14T02:09:57.5199881Z   clean: true
+2026-11-14T02:09:57.5200136Z   sparse-checkout-cone-mode: true
+2026-11-14T02:09:57.5200425Z   fetch-depth: 1
+2026-11-14T02:09:57.5200674Z   fetch-tags: false
+2026-11-14T02:09:57.5200927Z   show-progress: true
+2026-11-14T02:09:57.5201194Z   lfs: false
+2026-11-14T02:09:57.5201447Z   submodules: false
+2026-11-14T02:09:57.5201700Z   set-safe-directory: true
+2026-11-14T02:09:57.5201992Z   allow-unsafe-pr-checkout: false
+2026-11-14T02:09:57.5202498Z ##[endgroup]
+2026-11-14T02:09:57.7060869Z Syncing repository: hozin-king/zygisk-rama-modz
+2026-11-14T02:09:57.7062897Z ##[group]Getting Git version info
+2026-11-14T02:09:57.7063689Z Working directory is '/home/runner/work/zygisk-rama-modz/zygisk-rama-modz'
+2026-11-14T02:09:57.7064661Z [command]/usr/bin/git version
+2026-11-14T02:09:57.7072175Z git version 2.56.1
+2026-11-14T02:09:57.7085088Z ##[endgroup]
+2026-11-14T02:09:57.7097617Z Temporarily overriding HOME='/home/runner/work/_temp/6841f3a9-dbb2-41a0-bb41-9ba067b3a789' before making global git config changes
+2026-11-14T02:09:57.7099135Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-14T02:09:57.7101752Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/zygisk-rama-modz/zygisk-rama-modz
+2026-11-14T02:09:57.7156915Z Deleting the contents of '/home/runner/work/zygisk-rama-modz/zygisk-rama-modz'
+2026-11-14T02:09:57.7159755Z ##[group]Initializing the repository
+2026-11-14T02:09:57.7163157Z [command]/usr/bin/git init /home/runner/work/zygisk-rama-modz/zygisk-rama-modz
+2026-11-14T02:09:57.7247237Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-14T02:09:57.7248450Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-14T02:09:57.7249405Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-14T02:09:57.7250181Z hint: call:
+2026-11-14T02:09:57.7250603Z hint:
+2026-11-14T02:09:57.7251152Z hint: 	git config --global init.defaultBranch <name>
+2026-11-14T02:09:57.7251788Z hint:
+2026-11-14T02:09:57.7252355Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-14T02:09:57.7253278Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-14T02:09:57.7254219Z hint:
+2026-11-14T02:09:57.7254827Z hint: 	git branch -m <name>
+2026-11-14T02:09:57.7255580Z hint:
+2026-11-14T02:09:57.7256596Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-14T02:09:57.7257657Z Initialized empty Git repository in /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/.git/
+2026-11-14T02:09:57.7264636Z [command]/usr/bin/git remote add origin https://github.com/hozin-king/zygisk-rama-modz
+2026-11-14T02:09:57.7312234Z ##[endgroup]
+2026-11-14T02:09:57.7313003Z ##[group]Disabling automatic garbage collection
+2026-11-14T02:09:57.7314857Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-14T02:09:57.7345218Z ##[endgroup]
+2026-11-14T02:09:57.7345922Z ##[group]Setting up auth
+2026-11-14T02:09:57.7350877Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-14T02:09:57.7391192Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-14T02:09:57.7763891Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-14T02:09:57.7797715Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-14T02:09:57.8035914Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-14T02:09:57.8067443Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-14T02:09:57.8302548Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-14T02:09:57.8914218Z ##[endgroup]
+2026-11-14T02:09:57.8915034Z ##[group]Fetching the repository
+2026-11-14T02:09:57.8922321Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +47de42f37a39a2de8d607d24bf5ca7a6c23f543c:refs/remotes/origin/main
+2026-11-14T02:09:59.7612887Z From https://github.com/hozin-king/zygisk-rama-modz
+2026-11-14T02:09:59.7613373Z  * [new ref]         47de42f37a39a2de8d607d24bf5ca7a6c23f543c -> origin/main
+2026-11-14T02:09:59.7622527Z ##[endgroup]
+2026-11-14T02:09:59.7623161Z ##[group]Determining the checkout info
+2026-11-14T02:09:59.7623476Z ##[endgroup]
+2026-11-14T02:09:59.7623719Z [command]/usr/bin/git sparse-checkout disable
+2026-11-14T02:09:59.7667247Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-14T02:09:59.7693441Z ##[group]Checking out the ref
+2026-11-14T02:09:59.7702579Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-11-14T02:09:59.8624593Z Switched to a new branch 'main'
+2026-11-14T02:09:59.8634890Z branch 'main' set up to track 'origin/main'.
+2026-11-14T02:09:59.8637880Z ##[endgroup]
+2026-11-14T02:09:59.8680975Z [command]/usr/bin/git log -1 --format=%H
+2026-11-14T02:09:59.8704395Z 47de42f37a39a2de8d607d24bf5ca7a6c23f543c
+2026-11-14T02:09:59.8998963Z ##[group]Run actions/setup-java@v4
+2026-11-14T02:09:59.8999221Z with:
+2026-11-14T02:09:59.8999378Z   java-version: 17
+2026-11-14T02:09:59.8999545Z   distribution: temurin
+2026-11-14T02:09:59.8999857Z   java-package: jdk
+2026-11-14T02:09:59.9000029Z   check-latest: false
+2026-11-14T02:09:59.9000192Z   server-id: github
+2026-11-14T02:09:59.9000357Z   server-username: GITHUB_ACTOR
+2026-11-14T02:09:59.9000550Z   server-password: GITHUB_TOKEN
+2026-11-14T02:09:59.9000743Z   overwrite-settings: true
+2026-11-14T02:09:59.9000917Z   job-status: success
+2026-11-14T02:09:59.9002409Z   token: ***
+2026-11-14T02:09:59.9002568Z ##[endgroup]
+2026-11-14T02:10:00.0183947Z ##[warning]setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+2026-11-14T02:10:00.0189699Z ##[group]Installed distributions
+2026-11-14T02:10:00.0251390Z Resolved Java 17.0.21+9 from tool-cache
+2026-11-14T02:10:00.0251809Z Setting Java 17.0.21+9 as the default
+2026-11-14T02:10:00.0259162Z (node:2176) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-14T02:10:00.0259943Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-14T02:10:00.0261811Z Creating toolchains.xml for JDK version 17 from temurin
+2026-11-14T02:10:00.0325563Z Writing to /home/runner/.m2/toolchains.xml
+2026-11-14T02:10:00.0326089Z 
+2026-11-14T02:10:00.0326311Z Java configuration:
+2026-11-14T02:10:00.0326627Z   Distribution: temurin
+2026-11-14T02:10:00.0326900Z   Version: 17.0.21+9
+2026-11-14T02:10:00.0327287Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T02:10:00.0327598Z 
+2026-11-14T02:10:00.0329617Z ##[endgroup]
+2026-11-14T02:10:00.0348205Z Creating settings.xml with server-id: github
+2026-11-14T02:10:00.0354417Z Writing to /home/runner/.m2/settings.xml
+2026-11-14T02:10:00.0480021Z ##[group]Run set -e
+2026-11-14T02:10:00.0480399Z [36;1mset -e[0m
+2026-11-14T02:10:00.0480667Z [36;1msudo apt-get update -qq[0m
+2026-11-14T02:10:00.0481035Z [36;1msudo apt-get install -y -qq wget unzip >/dev/null[0m
+2026-11-14T02:10:00.0481453Z [36;1mmkdir -p "$HOME/android-sdk/cmdline-tools"[0m
+2026-11-14T02:10:00.0481812Z [36;1mcd /tmp[0m
+2026-11-14T02:10:00.0482359Z [36;1mwget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O cmdtools.zip[0m
+2026-11-14T02:10:00.0483011Z [36;1munzip -q cmdtools.zip -d "$HOME/android-sdk/cmdline-tools"[0m
+2026-11-14T02:10:00.0483584Z [36;1mmv "$HOME/android-sdk/cmdline-tools/cmdline-tools" "$HOME/android-sdk/cmdline-tools/latest"[0m
+2026-11-14T02:10:00.0484139Z [36;1mecho "ANDROID_HOME=$HOME/android-sdk" >> "$GITHUB_ENV"[0m
+2026-11-14T02:10:00.0484579Z [36;1mecho "ANDROID_SDK_ROOT=$HOME/android-sdk" >> "$GITHUB_ENV"[0m
+2026-11-14T02:10:00.0485100Z [36;1mecho "$HOME/android-sdk/cmdline-tools/latest/bin" >> "$GITHUB_PATH"[0m
+2026-11-14T02:10:00.0485585Z [36;1mecho "$HOME/android-sdk/platform-tools" >> "$GITHUB_PATH"[0m
+2026-11-14T02:10:00.0545218Z shell: /usr/bin/bash -e {0}
+2026-11-14T02:10:00.0545550Z env:
+2026-11-14T02:10:00.0545907Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T02:10:00.0546453Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T02:10:00.0546866Z ##[endgroup]
+2026-11-14T02:10:08.6186700Z ##[group]Run set +e
+2026-11-14T02:10:08.6186893Z [36;1mset +e[0m
+2026-11-14T02:10:08.6187084Z [36;1myes | sdkmanager --sdk_root=$HOME/android-sdk --licenses >/dev/null[0m
+2026-11-14T02:10:08.6187330Z [36;1msdkmanager --sdk_root=$HOME/android-sdk \[0m
+2026-11-14T02:10:08.6187596Z [36;1m  "platform-tools" "build-tools;34.0.0" "platforms;android-34" "ndk;25.2.9519653"[0m
+2026-11-14T02:10:08.6187838Z [36;1mset -e[0m
+2026-11-14T02:10:08.6188179Z [36;1mecho "ANDROID_NDK_HOME=$HOME/android-sdk/ndk/25.2.9519653" >> "$GITHUB_ENV"[0m
+2026-11-14T02:10:08.6188476Z [36;1mecho "sdk.dir=$HOME/android-sdk" > local.properties[0m
+2026-11-14T02:10:08.6188676Z [36;1mcat local.properties[0m
+2026-11-14T02:10:08.6230188Z shell: /usr/bin/bash -e {0}
+2026-11-14T02:10:08.6230341Z env:
+2026-11-14T02:10:08.6230527Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T02:10:08.6230998Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T02:10:08.6231225Z   ANDROID_HOME: /home/runner/android-sdk
+2026-11-14T02:10:08.6231392Z   ANDROID_SDK_ROOT: /home/runner/android-sdk
+2026-11-14T02:10:08.6231551Z ##[endgroup]
+2026-11-14T02:10:12.7205576Z yes: standard output: Broken pipe
+2026-11-14T02:10:12.9006213Z Loading package information...                                                  
+2026-11-14T02:10:12.9038464Z Loading local repository...                                                     
+2026-11-14T02:10:12.9040321Z [                                       ] 3% Loading local repository...        
+2026-11-14T02:10:12.9189007Z [                                       ] 3% Fetch remote repository...         
+2026-11-14T02:10:13.2807851Z [=                                      ] 3% Fetch remote repository...         
+2026-11-14T02:10:13.3148902Z [=                                      ] 4% Fetch remote repository...         
+2026-11-14T02:10:13.3309323Z [=                                      ] 5% Fetch remote repository...         
+2026-11-14T02:10:13.3538181Z [==                                     ] 5% Fetch remote repository...         
+2026-11-14T02:10:13.3968547Z [==                                     ] 6% Fetch remote repository...         
+2026-11-14T02:10:13.4347411Z [==                                     ] 7% Fetch remote repository...         
+2026-11-14T02:10:13.4348439Z [==                                     ] 7% Computing updates...               
+2026-11-14T02:10:13.4475413Z [===                                    ] 8% Computing updates...               
+2026-11-14T02:10:13.4701385Z [===                                    ] 10% Computing updates...              
+2026-11-14T02:10:13.7405025Z [===                                    ] 10% Installing NDK (Side by side) 25.2
+2026-11-14T02:10:13.9873190Z [===                                    ] 10% Downloading android-ndk-r25c-linux
+2026-11-14T02:10:14.3062817Z [====                                   ] 10% Downloading android-ndk-r25c-linux
+2026-11-14T02:10:15.1006645Z [====                                   ] 11% Downloading android-ndk-r25c-linux
+2026-11-14T02:10:15.8634916Z [====                                   ] 12% Downloading android-ndk-r25c-linux
+2026-11-14T02:10:16.6428555Z [=====                                  ] 13% Downloading android-ndk-r25c-linux
+2026-11-14T02:10:17.3804492Z [=====                                  ] 14% Downloading android-ndk-r25c-linux
+2026-11-14T02:10:17.7937083Z [=====                                  ] 15% Downloading android-ndk-r25c-linux
+2026-11-14T02:10:18.2051555Z [======                                 ] 15% Downloading android-ndk-r25c-linux
+2026-11-14T02:10:18.2946579Z [======                                 ] 16% Downloading android-ndk-r25c-linux
+2026-11-14T02:10:18.5209962Z [======                                 ] 16% Unzipping...                      
+2026-11-14T02:10:18.5229338Z [======                                 ] 16% Unzipping... android-ndk-r25c/    
+2026-11-14T02:10:18.5258942Z [======                                 ] 16% Unzipping... android-ndk-r25c/CHAN
+2026-11-14T02:10:18.5288535Z [======                                 ] 16% Unzipping... android-ndk-r25c/wrap
+2026-11-14T02:10:18.5779683Z [======                                 ] 16% Unzipping... android-ndk-r25c/preb
+2026-11-14T02:10:18.6090296Z [======                                 ] 16% Unzipping... android-ndk-r25c/buil
+2026-11-14T02:10:18.6109535Z [======                                 ] 16% Unzipping... android-ndk-r25c/NOTI
+2026-11-14T02:10:18.6129076Z [======                                 ] 16% Unzipping... android-ndk-r25c/ndk-
+2026-11-14T02:10:18.6158972Z [======                                 ] 16% Unzipping... android-ndk-r25c/NOTI
+2026-11-14T02:10:18.6159636Z [======                                 ] 16% Unzipping... android-ndk-r25c/meta
+2026-11-14T02:10:18.6188718Z [======                                 ] 16% Unzipping... android-ndk-r25c/ndk-
+2026-11-14T02:10:18.6189606Z [======                                 ] 16% Unzipping... android-ndk-r25c/pyth
+2026-11-14T02:10:19.0181904Z [======                                 ] 16% Unzipping... android-ndk-r25c/sour
+2026-11-14T02:10:19.2174376Z [======                                 ] 16% Unzipping... android-ndk-r25c/simp
+2026-11-14T02:10:19.2177921Z [======                                 ] 16% Unzipping... android-ndk-r25c/ndk-
+2026-11-14T02:10:19.2178520Z [======                                 ] 16% Unzipping... android-ndk-r25c/READ
+2026-11-14T02:10:20.3890627Z [======                                 ] 16% Unzipping... android-ndk-r25c/tool
+2026-11-14T02:10:21.9453574Z [======                                 ] 17% Unzipping... android-ndk-r25c/tool
+2026-11-14T02:10:24.7414902Z [=======                                ] 18% Unzipping... android-ndk-r25c/tool
+2026-11-14T02:10:26.6201107Z [=======                                ] 19% Unzipping... android-ndk-r25c/tool
+2026-11-14T02:10:27.5885808Z [=======                                ] 20% Unzipping... android-ndk-r25c/tool
+2026-11-14T02:10:29.4824013Z [========                               ] 20% Unzipping... android-ndk-r25c/tool
+2026-11-14T02:10:31.1724054Z [========                               ] 21% Unzipping... android-ndk-r25c/tool
+2026-11-14T02:10:31.1724845Z [========                               ] 21% Unzipping... android-ndk-r25c/ndk-
+2026-11-14T02:10:31.3981678Z [========                               ] 21% Unzipping... android-ndk-r25c/shad
+2026-11-14T02:10:31.6653524Z [============                           ] 33% Unzipping... android-ndk-r25c/shad
+2026-11-14T02:10:31.7569898Z [============                           ] 33% Installing Android SDK Platform 34
+2026-11-14T02:10:31.9311177Z [============                           ] 33% Downloading platform-34-ext7_r03.z
+2026-11-14T02:10:32.0803122Z [=============                          ] 33% Downloading platform-34-ext7_r03.z
+2026-11-14T02:10:32.1757058Z [=============                          ] 34% Downloading platform-34-ext7_r03.z
+2026-11-14T02:10:32.2240799Z [=============                          ] 35% Downloading platform-34-ext7_r03.z
+2026-11-14T02:10:32.2704531Z [==============                         ] 35% Downloading platform-34-ext7_r03.z
+2026-11-14T02:10:32.3636103Z [==============                         ] 36% Downloading platform-34-ext7_r03.z
+2026-11-14T02:10:32.4473785Z [==============                         ] 37% Downloading platform-34-ext7_r03.z
+2026-11-14T02:10:32.5054673Z [===============                        ] 38% Downloading platform-34-ext7_r03.z
+2026-11-14T02:10:32.6730275Z [===============                        ] 38% Unzipping... android-ndk-r25c/shad
+2026-11-14T02:10:32.6749141Z [===============                        ] 38% Unzipping... android-34/          
+2026-11-14T02:10:32.6887968Z [===============                        ] 38% Unzipping... android-34/android.ja
+2026-11-14T02:10:32.7194958Z [===============                        ] 39% Unzipping... android-34/android.ja
+2026-11-14T02:10:32.7292414Z [===============                        ] 40% Unzipping... android-34/android.ja
+2026-11-14T02:10:32.8571737Z [================                       ] 40% Unzipping... android-34/android.ja
+2026-11-14T02:10:32.8572230Z [================                       ] 40% Unzipping... android-34/optional/ 
+2026-11-14T02:10:32.8579900Z [================                       ] 40% Unzipping... android-34/optional/a
+2026-11-14T02:10:32.8588805Z [================                       ] 40% Unzipping... android-34/optional/l
+2026-11-14T02:10:32.8600147Z [================                       ] 40% Unzipping... android-34/optional/o
+2026-11-14T02:10:32.8601428Z [================                       ] 40% Unzipping... android-34/optional/a
+2026-11-14T02:10:32.8602247Z [================                       ] 40% Unzipping... android-34/optional/o
+2026-11-14T02:10:32.8634119Z [================                       ] 40% Unzipping... android-34/templates/
+2026-11-14T02:10:32.8684093Z [================                       ] 40% Unzipping... android-34/core-for-s
+2026-11-14T02:10:32.8685146Z [================                       ] 40% Unzipping... android-34/build.prop
+2026-11-14T02:10:32.8717191Z [================                       ] 40% Unzipping... android-34/android-st
+2026-11-14T02:10:32.8950761Z [================                       ] 41% Unzipping... android-34/android-st
+2026-11-14T02:10:32.8952865Z [================                       ] 41% Unzipping... android-34/uiautomato
+2026-11-14T02:10:32.8953650Z [================                       ] 41% Unzipping... android-34/source.pro
+2026-11-14T02:10:32.8954088Z [================                       ] 41% Unzipping... android-34/data/     
+2026-11-14T02:10:32.8955034Z [================                       ] 41% Unzipping... android-34/data/servi
+2026-11-14T02:10:32.8980163Z [================                       ] 41% Unzipping... android-34/data/NOTIC
+2026-11-14T02:10:32.8981013Z [================                       ] 41% Unzipping... android-34/data/widge
+2026-11-14T02:10:32.8982300Z [================                       ] 41% Unzipping... android-34/data/broad
+2026-11-14T02:10:32.9085838Z [================                       ] 41% Unzipping... android-34/data/api-v
+2026-11-14T02:10:32.9087651Z [================                       ] 41% Unzipping... android-34/data/featu
+2026-11-14T02:10:32.9095654Z [================                       ] 41% Unzipping... android-34/data/annot
+2026-11-14T02:10:32.9096064Z [================                       ] 41% Unzipping... android-34/data/res/ 
+2026-11-14T02:10:32.9102467Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T02:10:32.9105606Z [================                       ] 41% Unzipping... android-34/data/res/l
+2026-11-14T02:10:32.9750425Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T02:10:32.9751033Z [================                       ] 41% Unzipping... android-34/data/res/m
+2026-11-14T02:10:32.9802989Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T02:10:32.9809829Z [================                       ] 41% Unzipping... android-34/data/res/a
+2026-11-14T02:10:32.9889690Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.0100340Z [================                       ] 41% Unzipping... android-34/data/res/d
+2026-11-14T02:10:33.0121639Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.0123498Z [================                       ] 41% Unzipping... android-34/data/res/x
+2026-11-14T02:10:33.0131842Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.0133250Z [================                       ] 41% Unzipping... android-34/data/res/l
+2026-11-14T02:10:33.0134301Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.0550405Z [================                       ] 41% Unzipping... android-34/data/res/l
+2026-11-14T02:10:33.0574904Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.0576285Z [================                       ] 41% Unzipping... android-34/data/res/r
+2026-11-14T02:10:33.0686202Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.0686985Z [================                       ] 41% Unzipping... android-34/data/res/x
+2026-11-14T02:10:33.0715101Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.0716328Z [================                       ] 41% Unzipping... android-34/data/res/r
+2026-11-14T02:10:33.0764946Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.0898474Z [================                       ] 41% Unzipping... android-34/data/res/a
+2026-11-14T02:10:33.0985005Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.0985790Z [================                       ] 41% Unzipping... android-34/data/res/r
+2026-11-14T02:10:33.1001802Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.1003923Z [================                       ] 41% Unzipping... android-34/data/res/c
+2026-11-14T02:10:33.1005264Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.1862818Z [================                       ] 41% Unzipping... android-34/data/res/d
+2026-11-14T02:10:33.1912333Z [================                       ] 42% Unzipping... android-34/data/res/d
+2026-11-14T02:10:33.1924435Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.1931593Z [================                       ] 42% Unzipping... android-34/data/res/t
+2026-11-14T02:10:33.1945500Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.1949788Z [================                       ] 42% Unzipping... android-34/data/res/x
+2026-11-14T02:10:33.2232019Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.2232904Z [================                       ] 42% Unzipping... android-34/data/res/r
+2026-11-14T02:10:33.2313672Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.2315791Z [================                       ] 42% Unzipping... android-34/data/res/r
+2026-11-14T02:10:33.2321558Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.2322503Z [================                       ] 42% Unzipping... android-34/data/res/l
+2026-11-14T02:10:33.2567450Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.2569342Z [================                       ] 42% Unzipping... android-34/data/res/r
+2026-11-14T02:10:33.2573404Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.2608254Z [================                       ] 42% Unzipping... android-34/data/res/d
+2026-11-14T02:10:33.2658447Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.2812110Z [================                       ] 42% Unzipping... android-34/data/res/d
+2026-11-14T02:10:33.2992133Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.2992993Z [================                       ] 42% Unzipping... android-34/data/res/r
+2026-11-14T02:10:33.3153710Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.3154611Z [================                       ] 42% Unzipping... android-34/data/res/r
+2026-11-14T02:10:33.3514478Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.3521510Z [================                       ] 42% Unzipping... android-34/data/res/m
+2026-11-14T02:10:33.3523222Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.3524678Z [================                       ] 42% Unzipping... android-34/data/res/r
+2026-11-14T02:10:33.3543406Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.3546408Z [================                       ] 42% Unzipping... android-34/data/res/c
+2026-11-14T02:10:33.3549845Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.3551505Z [================                       ] 42% Unzipping... android-34/data/res/r
+2026-11-14T02:10:33.3573371Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.3575176Z [================                       ] 42% Unzipping... android-34/data/res/r
+2026-11-14T02:10:33.3690284Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.4416739Z [================                       ] 42% Unzipping... android-34/data/res/d
+2026-11-14T02:10:33.4462509Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.4464153Z [================                       ] 42% Unzipping... android-34/data/res/r
+2026-11-14T02:10:33.4481067Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.4483908Z [================                       ] 42% Unzipping... android-34/data/res/c
+2026-11-14T02:10:33.4561584Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.4563665Z [================                       ] 42% Unzipping... android-34/data/res/m
+2026-11-14T02:10:33.4615395Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.4617479Z [================                       ] 42% Unzipping... android-34/data/res/r
+2026-11-14T02:10:33.4696088Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.4697842Z [================                       ] 42% Unzipping... android-34/data/res/r
+2026-11-14T02:10:33.4722362Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.4725130Z [================                       ] 42% Unzipping... android-34/data/res/i
+2026-11-14T02:10:33.4765704Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.4777152Z [================                       ] 42% Unzipping... android-34/data/res/d
+2026-11-14T02:10:33.4806294Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.4808780Z [================                       ] 42% Unzipping... android-34/data/res/m
+2026-11-14T02:10:33.4812609Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.5202242Z [================                       ] 42% Unzipping... android-34/data/res/d
+2026-11-14T02:10:33.5264566Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.5265562Z [================                       ] 42% Unzipping... android-34/data/res/d
+2026-11-14T02:10:33.5293523Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.5339206Z [================                       ] 42% Unzipping... android-34/data/res/d
+2026-11-14T02:10:33.5377571Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.5405446Z [================                       ] 42% Unzipping... android-34/data/res/d
+2026-11-14T02:10:33.5427054Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T02:10:33.5707085Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.5812627Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T02:10:33.5845830Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.5852226Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T02:10:33.5861848Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.5903026Z [=================                      ] 43% Unzipping... android-34/data/res/x
+2026-11-14T02:10:33.5952260Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.5953632Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T02:10:33.5994905Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.6957282Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T02:10:33.7039092Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.7040601Z [=================                      ] 43% Unzipping... android-34/data/res/a
+2026-11-14T02:10:33.7451034Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.7452227Z [=================                      ] 43% Unzipping... android-34/data/res/r
+2026-11-14T02:10:33.7482328Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.7484157Z [=================                      ] 43% Unzipping... android-34/data/res/m
+2026-11-14T02:10:33.7485811Z [=================                      ] 43% Unzipping... android-34/data/res/x
+2026-11-14T02:10:33.7548346Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.7675376Z [=================                      ] 43% Unzipping... android-34/data/res/a
+2026-11-14T02:10:33.7763338Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.7797802Z [=================                      ] 43% Unzipping... android-34/data/res/i
+2026-11-14T02:10:33.7910120Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.7912018Z [=================                      ] 43% Unzipping... android-34/data/res/r
+2026-11-14T02:10:33.7931124Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.7933493Z [=================                      ] 43% Unzipping... android-34/data/res/r
+2026-11-14T02:10:33.7940509Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.7942323Z [=================                      ] 43% Unzipping... android-34/data/res/r
+2026-11-14T02:10:33.8001049Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.8005555Z [=================                      ] 43% Unzipping... android-34/data/res/l
+2026-11-14T02:10:33.8010784Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.8011903Z [=================                      ] 43% Unzipping... android-34/data/res/l
+2026-11-14T02:10:33.8063965Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.8079540Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T02:10:33.8080728Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.8082022Z [=================                      ] 43% Unzipping... android-34/data/res/l
+2026-11-14T02:10:33.8130669Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.8132243Z [=================                      ] 43% Unzipping... android-34/data/res/m
+2026-11-14T02:10:33.8177131Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.8181811Z [=================                      ] 43% Unzipping... android-34/data/res/r
+2026-11-14T02:10:33.8187795Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.8196228Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T02:10:33.8293073Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.8293727Z [=================                      ] 43% Unzipping... android-34/data/res/l
+2026-11-14T02:10:33.8315381Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.8323800Z [=================                      ] 43% Unzipping... android-34/data/res/l
+2026-11-14T02:10:33.8373205Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.8374188Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T02:10:33.8379334Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.8381759Z [=================                      ] 43% Unzipping... android-34/data/res/l
+2026-11-14T02:10:33.8384790Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.8447860Z [=================                      ] 43% Unzipping... android-34/data/res/c
+2026-11-14T02:10:33.8496421Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:33.8498326Z [=================                      ] 43% Unzipping... android-34/data/res/r
+2026-11-14T02:10:33.8501990Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:34.0497516Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T02:10:34.0700523Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:34.0703486Z [=================                      ] 43% Unzipping... android-34/data/res/m
+2026-11-14T02:10:34.0738382Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:34.0740229Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T02:10:34.0742806Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:34.0745423Z [=================                      ] 43% Unzipping... android-34/data/res/m
+2026-11-14T02:10:34.0753861Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:34.0755289Z [=================                      ] 43% Unzipping... android-34/data/res/r
+2026-11-14T02:10:34.0761103Z [=================                      ] 43% Unzipping... android-34/data/res/l
+2026-11-14T02:10:34.0878406Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:34.0880262Z [=================                      ] 43% Unzipping... android-34/data/res/r
+2026-11-14T02:10:34.0898354Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:34.1488470Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T02:10:34.1641601Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:34.1642985Z [=================                      ] 43% Unzipping... android-34/data/res/r
+2026-11-14T02:10:34.1717525Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:34.1731630Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T02:10:34.1745518Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:34.1752125Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T02:10:34.1826609Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T02:10:34.1827157Z [=================                      ] 43% Unzipping... android-34/data/categ
+2026-11-14T02:10:34.1828670Z [=================                      ] 43% Unzipping... android-34/data/activ
+2026-11-14T02:10:34.1829676Z [=================                      ] 43% Unzipping... android-34/sdk.proper
+2026-11-14T02:10:34.1829943Z [=================                      ] 43% Unzipping... android-34/skins/    
+2026-11-14T02:10:34.1840506Z [=================                      ] 43% Unzipping... android-34/skins/WXGA
+2026-11-14T02:10:34.1850276Z [=================                      ] 43% Unzipping... android-34/skins/WQVG
+2026-11-14T02:10:34.1875135Z [=================                      ] 43% Unzipping... android-34/skins/NOTI
+2026-11-14T02:10:34.1885121Z [=================                      ] 43% Unzipping... android-34/skins/HVGA
+2026-11-14T02:10:34.1895955Z [=================                      ] 43% Unzipping... android-34/skins/WVGA
+2026-11-14T02:10:34.1910464Z [=================                      ] 43% Unzipping... android-34/skins/WQVG
+2026-11-14T02:10:34.1921199Z [=================                      ] 43% Unzipping... android-34/skins/WVGA
+2026-11-14T02:10:34.1930612Z [=================                      ] 43% Unzipping... android-34/skins/QVGA
+2026-11-14T02:10:34.1940725Z [=================                      ] 43% Unzipping... android-34/skins/WXGA
+2026-11-14T02:10:34.1950087Z [=================                      ] 43% Unzipping... android-34/skins/WSVG
+2026-11-14T02:10:34.1959564Z [=================                      ] 43% Unzipping... android-34/skins/WXGA
+2026-11-14T02:10:34.1961997Z [=================                      ] 43% Unzipping... android-34/framework.
+2026-11-14T02:10:34.2040799Z [=================                      ] 44% Unzipping... android-34/framework.
+2026-11-14T02:10:34.2088614Z [=====================                  ] 55% Unzipping... android-34/framework.
+2026-11-14T02:10:34.2690971Z [=====================                  ] 55% Installing Android SDK Build-Tools
+2026-11-14T02:10:34.4111173Z [=====================                  ] 55% Downloading build-tools_r34-linux.
+2026-11-14T02:10:34.4928835Z [======================                 ] 55% Downloading build-tools_r34-linux.
+2026-11-14T02:10:34.5668184Z [======================                 ] 56% Downloading build-tools_r34-linux.
+2026-11-14T02:10:34.6429840Z [======================                 ] 57% Downloading build-tools_r34-linux.
+2026-11-14T02:10:34.7276283Z [=======================                ] 58% Downloading build-tools_r34-linux.
+2026-11-14T02:10:34.7940558Z [=======================                ] 59% Downloading build-tools_r34-linux.
+2026-11-14T02:10:34.8341344Z [=======================                ] 60% Downloading build-tools_r34-linux.
+2026-11-14T02:10:34.8680254Z [========================               ] 60% Downloading build-tools_r34-linux.
+2026-11-14T02:10:34.8827607Z [========================               ] 61% Downloading build-tools_r34-linux.
+2026-11-14T02:10:34.8852402Z [========================               ] 61% Unzipping... android-34/framework.
+2026-11-14T02:10:34.8889953Z [========================               ] 61% Unzipping... android-14/NOTICE.txt
+2026-11-14T02:10:34.8955898Z [========================               ] 61% Unzipping... android-14/aapt      
+2026-11-14T02:10:34.9177207Z [========================               ] 61% Unzipping... android-14/aapt2     
+2026-11-14T02:10:34.9178994Z [========================               ] 61% Unzipping... android-14/aarch64-li
+2026-11-14T02:10:34.9314725Z [========================               ] 61% Unzipping... android-14/aidl      
+2026-11-14T02:10:34.9315787Z [========================               ] 61% Unzipping... android-14/apksigner 
+2026-11-14T02:10:34.9316692Z [========================               ] 61% Unzipping... android-14/arm-linux-
+2026-11-14T02:10:34.9319581Z [========================               ] 61% Unzipping... android-14/bcc_compat
+2026-11-14T02:10:34.9320970Z [========================               ] 61% Unzipping... android-14/core-lambd
+2026-11-14T02:10:34.9321908Z [========================               ] 61% Unzipping... android-14/d8        
+2026-11-14T02:10:34.9592164Z [========================               ] 61% Unzipping... android-14/dexdump   
+2026-11-14T02:10:34.9593672Z [========================               ] 61% Unzipping... android-14/i686-linux
+2026-11-14T02:10:34.9595069Z [========================               ] 61% Unzipping... android-14/lld       
+2026-11-14T02:10:34.9636773Z [========================               ] 61% Unzipping... android-14/llvm-rs-cc
+2026-11-14T02:10:34.9637597Z [========================               ] 61% Unzipping... android-14/mipsel-lin
+2026-11-14T02:10:34.9638574Z [========================               ] 61% Unzipping... android-14/runtime.pr
+2026-11-14T02:10:34.9639327Z [========================               ] 61% Unzipping... android-14/source.pro
+2026-11-14T02:10:34.9701042Z [========================               ] 61% Unzipping... android-14/split-sele
+2026-11-14T02:10:34.9701700Z [========================               ] 61% Unzipping... android-14/x86_64-lin
+2026-11-14T02:10:34.9714434Z [========================               ] 61% Unzipping... android-14/zipalign  
+2026-11-14T02:10:34.9752063Z [========================               ] 61% Unzipping... android-14/lib/apksig
+2026-11-14T02:10:34.9783298Z [========================               ] 61% Unzipping... android-14/lib/d8.jar
+2026-11-14T02:10:35.0956901Z [========================               ] 62% Unzipping... android-14/lib/d8.jar
+2026-11-14T02:10:35.1012871Z [========================               ] 62% Unzipping... android-14/lib64/libL
+2026-11-14T02:10:35.3234588Z [=========================              ] 63% Unzipping... android-14/lib64/libL
+2026-11-14T02:10:35.3271862Z [=========================              ] 63% Unzipping... android-14/lib64/libb
+2026-11-14T02:10:35.3295080Z [=========================              ] 63% Unzipping... android-14/lib64/libc
+2026-11-14T02:10:35.4190012Z [=========================              ] 64% Unzipping... android-14/lib64/libc
+2026-11-14T02:10:35.4289894Z [=========================              ] 64% Unzipping... android-14/lld-bin/ll
+2026-11-14T02:10:35.4790181Z [=========================              ] 65% Unzipping... android-14/lld-bin/ll
+2026-11-14T02:10:35.5401420Z [==========================             ] 65% Unzipping... android-14/lld-bin/ll
+2026-11-14T02:10:35.6639631Z [==========================             ] 66% Unzipping... android-14/lld-bin/ll
+2026-11-14T02:10:35.8249084Z [==========================             ] 66% Unzipping... android-14/renderscri
+2026-11-14T02:10:35.8319341Z [==============================         ] 78% Unzipping... android-14/renderscri
+2026-11-14T02:10:35.9869556Z [==============================         ] 78% Installing Android SDK Platform-To
+2026-11-14T02:10:36.1922051Z [==============================         ] 78% Downloading platform-tools_r37.0.1
+2026-11-14T02:10:36.3429031Z [===============================        ] 78% Downloading platform-tools_r37.0.1
+2026-11-14T02:10:36.3564146Z [===============================        ] 79% Downloading platform-tools_r37.0.1
+2026-11-14T02:10:36.3574935Z [===============================        ] 80% Downloading platform-tools_r37.0.1
+2026-11-14T02:10:36.3588307Z [================================       ] 80% Downloading platform-tools_r37.0.1
+2026-11-14T02:10:36.4572016Z [================================       ] 81% Downloading platform-tools_r37.0.1
+2026-11-14T02:10:36.4743471Z [================================       ] 82% Downloading platform-tools_r37.0.1
+2026-11-14T02:10:36.5681390Z [=================================      ] 83% Downloading platform-tools_r37.0.1
+2026-11-14T02:10:36.5683654Z [=================================      ] 83% Unzipping... android-14/renderscri
+2026-11-14T02:10:36.5719862Z [=================================      ] 83% Unzipping... platform-tools/NOTICE
+2026-11-14T02:10:36.5747045Z [=================================      ] 83% Unzipping... platform-tools/adb   
+2026-11-14T02:10:36.5895406Z [=================================      ] 84% Unzipping... platform-tools/adb   
+2026-11-14T02:10:36.5975436Z [=================================      ] 85% Unzipping... platform-tools/adb   
+2026-11-14T02:10:36.6043805Z [==================================     ] 85% Unzipping... platform-tools/adb   
+2026-11-14T02:10:36.6118246Z [==================================     ] 86% Unzipping... platform-tools/adb   
+2026-11-14T02:10:36.6134114Z [==================================     ] 86% Unzipping... platform-tools/etc1to
+2026-11-14T02:10:36.6182124Z [==================================     ] 86% Unzipping... platform-tools/fastbo
+2026-11-14T02:10:36.6255107Z [==================================     ] 87% Unzipping... platform-tools/fastbo
+2026-11-14T02:10:36.6257134Z [==================================     ] 87% Unzipping... platform-tools/hprof-
+2026-11-14T02:10:36.6309245Z [==================================     ] 87% Unzipping... platform-tools/lib64/
+2026-11-14T02:10:36.6336049Z [==================================     ] 87% Unzipping... platform-tools/make_f
+2026-11-14T02:10:36.6341526Z [==================================     ] 87% Unzipping... platform-tools/mke2fs
+2026-11-14T02:10:36.6378198Z [===================================    ] 88% Unzipping... platform-tools/mke2fs
+2026-11-14T02:10:36.6378770Z [===================================    ] 88% Unzipping... platform-tools/source
+2026-11-14T02:10:36.6494421Z [===================================    ] 88% Unzipping... platform-tools/sqlite
+2026-11-14T02:10:36.6553151Z [===================================    ] 89% Unzipping... platform-tools/sqlite
+2026-11-14T02:10:36.6553605Z [=======================================] 100% Unzipping... platform-tools/sqlit
+2026-11-14T02:10:36.6582802Z 
+2026-11-14T02:10:36.7226076Z sdk.dir=/home/runner/android-sdk
+2026-11-14T02:10:36.7260925Z ##[group]Run wget -q https://services.gradle.org/distributions/gradle-8.5-bin.zip -O /tmp/g.zip
+2026-11-14T02:10:36.7261332Z [36;1mwget -q https://services.gradle.org/distributions/gradle-8.5-bin.zip -O /tmp/g.zip[0m
+2026-11-14T02:10:36.7261611Z [36;1msudo unzip -q /tmp/g.zip -d /opt[0m
+2026-11-14T02:10:36.7261821Z [36;1m/opt/gradle-8.5/bin/gradle wrapper --gradle-version 8.5[0m
+2026-11-14T02:10:36.7262017Z [36;1mchmod +x gradlew[0m
+2026-11-14T02:10:36.7262159Z [36;1m./gradlew --version[0m
+2026-11-14T02:10:36.7303530Z shell: /usr/bin/bash -e {0}
+2026-11-14T02:10:36.7303676Z env:
+2026-11-14T02:10:36.7303853Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T02:10:36.7304130Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T02:10:36.7304355Z   ANDROID_HOME: /home/runner/android-sdk
+2026-11-14T02:10:36.7304528Z   ANDROID_SDK_ROOT: /home/runner/android-sdk
+2026-11-14T02:10:36.7304760Z   ANDROID_NDK_HOME: /home/runner/android-sdk/ndk/25.2.9519653
+2026-11-14T02:10:36.7304952Z ##[endgroup]
+2026-11-14T02:10:40.3391978Z 
+2026-11-14T02:10:40.3392859Z Welcome to Gradle 8.5!
+2026-11-14T02:10:40.3394763Z 
+2026-11-14T02:10:40.3395310Z Here are the highlights of this release:
+2026-11-14T02:10:40.3395629Z  - Support for running on Java 21
+2026-11-14T02:10:40.3395924Z  - Faster first use with Kotlin DSL
+2026-11-14T02:10:40.3397025Z  - Improved error and warning messages
+2026-11-14T02:10:40.3397250Z 
+2026-11-14T02:10:40.3399392Z For more details see https://docs.gradle.org/8.5/release-notes.html
+2026-11-14T02:10:40.3399708Z 
+2026-11-14T02:10:40.5389202Z Starting a Gradle Daemon (subsequent builds will be faster)
+2026-11-14T02:11:02.6371204Z > Task :wrapper
+2026-11-14T02:11:02.6371724Z 
+2026-11-14T02:11:02.6372117Z BUILD SUCCESSFUL in 22s
+2026-11-14T02:11:02.6374263Z 1 actionable task: 1 executed
+2026-11-14T02:11:03.0370924Z Downloading https://services.gradle.org/distributions/gradle-8.5-bin.zip
+2026-11-14T02:11:04.1766317Z ............10%.............20%............30%.............40%.............50%............60%.............70%.............80%............90%.............100%
+2026-11-14T02:11:04.9412256Z 
+2026-11-14T02:11:04.9413552Z ------------------------------------------------------------
+2026-11-14T02:11:04.9414187Z Gradle 8.5
+2026-11-14T02:11:04.9414798Z ------------------------------------------------------------
+2026-11-14T02:11:04.9415262Z 
+2026-11-14T02:11:04.9415519Z Build time:   2023-11-29 14:08:57 UTC
+2026-11-14T02:11:04.9416647Z Revision:     28aca86a7180baa17117e0e5ba01d8ea9feca598
+2026-11-14T02:11:04.9416956Z 
+2026-11-14T02:11:04.9417211Z Kotlin:       1.9.20
+2026-11-14T02:11:04.9417630Z Groovy:       3.0.17
+2026-11-14T02:11:04.9419028Z Ant:          Apache Ant(TM) version 1.10.13 compiled on January 4 2023
+2026-11-14T02:11:04.9420279Z JVM:          17.0.21 (Eclipse Adoptium 17.0.21+9)
+2026-11-14T02:11:04.9420957Z OS:           Linux 7.0.0-1019-azure amd64
+2026-11-14T02:11:04.9421278Z 
+2026-11-14T02:11:04.9587215Z ##[group]Run set -e
+2026-11-14T02:11:04.9587558Z [36;1mset -e[0m
+2026-11-14T02:11:04.9587763Z [36;1m"$ANDROID_NDK_HOME/ndk-build" \[0m
+2026-11-14T02:11:04.9588030Z [36;1m  NDK_PROJECT_PATH=null \[0m
+2026-11-14T02:11:04.9588804Z [36;1m  APP_BUILD_SCRIPT="$PWD/root-apk/injector.mk" \[0m
+2026-11-14T02:11:04.9589184Z [36;1m  NDK_APPLICATION_MK="$PWD/root-apk/injector-app.mk" \[0m
+2026-11-14T02:11:04.9589542Z [36;1m  NDK_LIBS_OUT="$PWD/root-apk/src/main/jniLibs" \[0m
+2026-11-14T02:11:04.9589858Z [36;1m  NDK_OUT="$PWD/build/injector-obj" \[0m
+2026-11-14T02:11:04.9590123Z [36;1m  -j4[0m
+2026-11-14T02:11:04.9590395Z [36;1mfor f in root-apk/src/main/jniLibs/*/librama_inject; do[0m
+2026-11-14T02:11:04.9590742Z [36;1m  if [ -f "$f" ]; then mv "$f" "$f.so"; fi[0m
+2026-11-14T02:11:04.9591003Z [36;1mdone[0m
+2026-11-14T02:11:04.9591264Z [36;1mfind root-apk/src/main/jniLibs -type f -exec ls -la {} \;[0m
+2026-11-14T02:11:04.9650053Z shell: /usr/bin/bash -e {0}
+2026-11-14T02:11:04.9650290Z env:
+2026-11-14T02:11:04.9650502Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T02:11:04.9650798Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T02:11:04.9651047Z   ANDROID_HOME: /home/runner/android-sdk
+2026-11-14T02:11:04.9651218Z   ANDROID_SDK_ROOT: /home/runner/android-sdk
+2026-11-14T02:11:04.9651422Z   ANDROID_NDK_HOME: /home/runner/android-sdk/ndk/25.2.9519653
+2026-11-14T02:11:04.9651616Z ##[endgroup]
+2026-11-14T02:11:05.3179540Z [arm64-v8a] Compile++      : rama_inject <= inject_main.cpp
+2026-11-14T02:11:05.3209054Z [armeabi-v7a] Compile++ thumb: rama_inject <= inject_main.cpp
+2026-11-14T02:11:05.4180411Z [arm64-v8a] Compile++      : rama_inject <= memory.cpp
+2026-11-14T02:11:05.4189218Z [armeabi-v7a] Compile++ thumb: rama_inject <= memory.cpp
+2026-11-14T02:11:05.4388482Z [armeabi-v7a] Executable     : librama_inject
+2026-11-14T02:11:05.4404083Z [arm64-v8a] Executable     : librama_inject
+2026-11-14T02:11:05.4452667Z [armeabi-v7a] Install        : librama_inject => /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jniLibs/armeabi-v7a/librama_inject
+2026-11-14T02:11:05.4458596Z [arm64-v8a] Install        : librama_inject => /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jniLibs/arm64-v8a/librama_inject
+2026-11-14T02:11:05.4530143Z -rwxr-xr-x 1 runner runner 189584 Nov 14 02:11 root-apk/src/main/jniLibs/arm64-v8a/librama_inject.so
+2026-11-14T02:11:05.4562349Z -rwxr-xr-x 1 runner runner 90524 Nov 14 02:11 root-apk/src/main/jniLibs/armeabi-v7a/librama_inject.so
+2026-11-14T02:11:05.4618487Z ##[group]Run ./gradlew :root-apk:assembleRelease --no-daemon --stacktrace
+2026-11-14T02:11:05.4618858Z [36;1m./gradlew :root-apk:assembleRelease --no-daemon --stacktrace[0m
+2026-11-14T02:11:05.4619082Z [36;1mmkdir -p dist[0m
+2026-11-14T02:11:05.4619295Z [36;1mfind root-apk/build/outputs/apk -name '*.apk' -exec cp -v {} dist/ \;[0m
+2026-11-14T02:11:05.4619528Z [36;1mls -la dist/[0m
+2026-11-14T02:11:05.4662236Z shell: /usr/bin/bash -e {0}
+2026-11-14T02:11:05.4662389Z env:
+2026-11-14T02:11:05.4662577Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T02:11:05.4662878Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T02:11:05.4663111Z   ANDROID_HOME: /home/runner/android-sdk
+2026-11-14T02:11:05.4663281Z   ANDROID_SDK_ROOT: /home/runner/android-sdk
+2026-11-14T02:11:05.4663484Z   ANDROID_NDK_HOME: /home/runner/android-sdk/ndk/25.2.9519653
+2026-11-14T02:11:05.4663676Z ##[endgroup]
+2026-11-14T02:11:05.8700690Z To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+2026-11-14T02:11:06.6659841Z Daemon will be stopped at the end of the build 
+2026-11-14T02:11:11.3670264Z > Task :root-apk:preBuild UP-TO-DATE
+2026-11-14T02:11:11.3679184Z > Task :root-apk:preReleaseBuild UP-TO-DATE
+2026-11-14T02:11:11.4679221Z > Task :root-apk:javaPreCompileRelease
+2026-11-14T02:11:11.4708774Z > Task :root-apk:checkReleaseAarMetadata
+2026-11-14T02:11:11.4718814Z > Task :root-apk:generateReleaseResValues
+2026-11-14T02:11:11.4719815Z > Task :root-apk:mapReleaseSourceSetPaths
+2026-11-14T02:11:11.4720327Z > Task :root-apk:generateReleaseResources
+2026-11-14T02:11:12.4651924Z > Task :root-apk:packageReleaseResources
+2026-11-14T02:11:12.4652424Z > Task :root-apk:mergeReleaseResources
+2026-11-14T02:11:12.8660222Z > Task :root-apk:createReleaseCompatibleScreenManifests
+2026-11-14T02:11:12.8663981Z > Task :root-apk:extractDeepLinksRelease
+2026-11-14T02:11:12.9652173Z > Task :root-apk:parseReleaseLocalResources
+2026-11-14T02:11:12.9654952Z 
+2026-11-14T02:11:12.9655579Z > Task :root-apk:processReleaseMainManifest
+2026-11-14T02:11:12.9656416Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/AndroidManifest.xml:12:9-41 Warning:
+2026-11-14T02:11:12.9658277Z 	android:extractNativeLibs should not be specified in this source AndroidManifest.xml file. See https://d.android.com/guide/topics/manifest/application-element#extractNativeLibs for more information.
+2026-11-14T02:11:12.9659493Z The AGP Upgrade Assistant can remove the attribute from the AndroidManifest.xml file and update the build file accordingly. See https://d.android.com/studio/build/agp-upgrade-assistant for more information.
+2026-11-14T02:11:13.1656147Z 
+2026-11-14T02:11:13.1656897Z > Task :root-apk:processReleaseManifest
+2026-11-14T02:11:13.1657292Z > Task :root-apk:extractProguardFiles
+2026-11-14T02:11:13.3652940Z > Task :root-apk:configureNdkBuildRelease[arm64-v8a]
+2026-11-14T02:11:17.2651366Z 
+2026-11-14T02:11:17.2652001Z > Task :root-apk:buildNdkBuildRelease[arm64-v8a] FAILED
+2026-11-14T02:11:17.2668228Z C/C++: In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:19:
+2026-11-14T02:11:17.2669240Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/Stealth.h:185:41: error: use of undeclared identifier 'SYS_fstatat'
+2026-11-14T02:11:17.2669981Z C/C++:     if (!orig_stat) return (int)syscall(SYS_fstatat, AT_FDCWD, path, st, 0);
+2026-11-14T02:11:17.2670369Z C/C++:                                         ^
+2026-11-14T02:11:17.2670963Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/Stealth.h:190:42: error: use of undeclared identifier 'SYS_fstatat'
+2026-11-14T02:11:17.2672354Z C/C++:     if (!orig_lstat) return (int)syscall(SYS_fstatat, AT_FDCWD, path, st, AT_SYMLINK_NOFOLLOW);
+2026-11-14T02:11:17.2672740Z C/C++:                                          ^
+2026-11-14T02:11:17.2673249Z C/C++: In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.2674025Z C/C++: In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.2674745Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:40:24: error: redefinition of 'generate_key'
+2026-11-14T02:11:17.2675169Z C/C++:     constexpr key_type generate_key(key_type seed)
+2026-11-14T02:11:17.2675367Z C/C++:                        ^
+2026-11-14T02:11:17.2675735Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:40:24: note: previous definition is here
+2026-11-14T02:11:17.2676137Z C/C++:     constexpr key_type generate_key(key_type seed)
+2026-11-14T02:11:17.2676320Z C/C++:                        ^
+2026-11-14T02:11:17.2676638Z C/C++: In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.2677160Z C/C++: In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.2677721Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:57:20: error: redefinition of 'cipher'
+2026-11-14T02:11:17.2678538Z C/C++:     constexpr void cipher(char* data, size_type size, key_type key)
+2026-11-14T02:11:17.2678753Z C/C++:                    ^
+2026-11-14T02:11:17.2679286Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:57:20: note: previous definition is here
+2026-11-14T02:11:17.2679715Z C/C++:     constexpr void cipher(char* data, size_type size, key_type key)
+2026-11-14T02:11:17.2679922Z C/C++:                    ^
+2026-11-14T02:11:17.2680235Z C/C++: In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.2680753Z C/C++: In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.2681362Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:68:11: error: redefinition of 'obfuscator'
+2026-11-14T02:11:17.2681881Z C/C++:     class obfuscator
+2026-11-14T02:11:17.2682017Z C/C++:           ^
+2026-11-14T02:11:17.2682359Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:68:11: note: previous definition is here
+2026-11-14T02:11:17.2682920Z C/C++:     class obfuscator
+2026-11-14T02:11:17.2683125Z C/C++:           ^
+2026-11-14T02:11:17.2683679Z C/C++: In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.2684291Z C/C++: In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.2684877Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:107:11: error: redefinition of 'obfuscated_data'
+2026-11-14T02:11:17.2685280Z C/C++:     class obfuscated_data
+2026-11-14T02:11:17.2685440Z C/C++:           ^
+2026-11-14T02:11:17.2685917Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:107:11: note: previous definition is here
+2026-11-14T02:11:17.2686293Z C/C++:     class obfuscated_data
+2026-11-14T02:11:17.2686433Z C/C++:           ^
+2026-11-14T02:11:17.2686736Z C/C++: In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.2687256Z C/C++: In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.2687832Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:181:20: error: redefinition of 'make_obfuscator'
+2026-11-14T02:11:17.2688429Z C/C++:     constexpr auto make_obfuscator(const char(&data)[N])
+2026-11-14T02:11:17.2688620Z C/C++:                    ^
+2026-11-14T02:11:17.2688978Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:181:20: note: previous definition is here
+2026-11-14T02:11:17.2689391Z C/C++:     constexpr auto make_obfuscator(const char(&data)[N])
+2026-11-14T02:11:17.2689576Z C/C++:                    ^
+2026-11-14T02:11:17.2689713Z C/C++: 7 errors generated.
+2026-11-14T02:11:17.2690216Z C/C++: make: *** [/home/runner/android-sdk/ndk/25.2.9519653/build/core/build-binary.mk:424: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/obj/local/arm64-v8a/objs/RAMA_MODZ/Main.o] Error 1
+2026-11-14T02:11:17.3671465Z 
+2026-11-14T02:11:17.3671809Z 
+2026-11-14T02:11:17.3672387Z FAILURE: Build failed with an exception.
+2026-11-14T02:11:17.3673177Z 
+2026-11-14T02:11:17.3673272Z * What went wrong:
+2026-11-14T02:11:17.3673570Z Execution failed for task ':root-apk:buildNdkBuildRelease[arm64-v8a]'.
+2026-11-14T02:11:17.3674169Z > com.android.ide.common.process.ProcessException: [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_impl_android.cpp
+2026-11-14T02:11:17.3674713Z   [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_impl_opengl3.cpp
+2026-11-14T02:11:17.3675089Z   [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_tables.cpp
+2026-11-14T02:11:17.3675439Z   [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_demo.cpp
+2026-11-14T02:11:17.3675749Z   [arm64-v8a] Compile        : RAMA_MODZ <= xdl.c
+2026-11-14T02:11:17.3676063Z   [arm64-v8a] Compile        : RAMA_MODZ <= xdl_iterate.c
+2026-11-14T02:11:17.3676389Z   [arm64-v8a] Compile        : RAMA_MODZ <= xdl_linker.c
+2026-11-14T02:11:17.3676712Z   [arm64-v8a] Compile        : RAMA_MODZ <= xdl_lzma.c
+2026-11-14T02:11:17.3677024Z   [arm64-v8a] Compile        : RAMA_MODZ <= xdl_util.c
+2026-11-14T02:11:17.3677380Z   [arm64-v8a] Compile++      : RAMA_MODZ <= KittyArm64.cpp
+2026-11-14T02:11:17.3677708Z   [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_draw.cpp
+2026-11-14T02:11:17.3678208Z   [arm64-v8a] Compile++      : RAMA_MODZ <= KittyMemory.cpp
+2026-11-14T02:11:17.3678779Z   [arm64-v8a] Compile++      : RAMA_MODZ <= KittyScanner.cpp
+2026-11-14T02:11:17.3679158Z   [arm64-v8a] Compile++      : RAMA_MODZ <= KittyUtils.cpp
+2026-11-14T02:11:17.3679500Z   [arm64-v8a] Compile++      : RAMA_MODZ <= MemoryBackup.cpp
+2026-11-14T02:11:17.3679859Z   [arm64-v8a] Compile++      : RAMA_MODZ <= MemoryPatch.cpp
+2026-11-14T02:11:17.3680224Z   [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_widgets.cpp
+2026-11-14T02:11:17.3680678Z   [arm64-v8a] Compile++      : RAMA_MODZ <= Il2Cpp.cpp
+2026-11-14T02:11:17.3681027Z   [arm64-v8a] Compile++      : RAMA_MODZ <= And64InlineHook.cpp
+2026-11-14T02:11:17.3681382Z   [arm64-v8a] Compile++      : ramaroot <= injector.cpp
+2026-11-14T02:11:17.3681713Z   [arm64-v8a] Compile++      : ramaroot <= memory.cpp
+2026-11-14T02:11:17.3682026Z   [arm64-v8a] SharedLibrary  : libramaroot.so
+2026-11-14T02:11:17.3682338Z   [arm64-v8a] Compile++      : RAMA_MODZ <= imgui.cpp
+2026-11-14T02:11:17.3682658Z   [arm64-v8a] Compile++      : RAMA_MODZ <= Main.cpp
+2026-11-14T02:11:17.3682951Z   
+2026-11-14T02:11:17.3683396Z   C++ build system [build] failed while executing:
+2026-11-14T02:11:17.3683744Z       /home/runner/android-sdk/ndk/25.2.9519653/ndk-build \
+2026-11-14T02:11:17.3684216Z         NDK_PROJECT_PATH=null \
+2026-11-14T02:11:17.3684696Z         APP_BUILD_SCRIPT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/Android.mk \
+2026-11-14T02:11:17.3685434Z         NDK_APPLICATION_MK=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/Application.mk \
+2026-11-14T02:11:17.3685949Z         APP_ABI=arm64-v8a \
+2026-11-14T02:11:17.3686191Z         NDK_ALL_ABIS=arm64-v8a \
+2026-11-14T02:11:17.3686531Z         NDK_DEBUG=0 \
+2026-11-14T02:11:17.3698778Z > Task :root-apk:processReleaseManifestForPackage
+2026-11-14T02:11:17.3731927Z         APP_PLATFORM=android-24 \
+2026-11-14T02:11:17.3790792Z         NDK_OUT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/obj \
+2026-11-14T02:11:17.3818536Z         NDK_LIBS_OUT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/lib \
+2026-11-14T02:11:17.3832959Z         -j4 \
+2026-11-14T02:11:17.3833236Z 15 actionable tasks: 15 executed
+2026-11-14T02:11:17.3835104Z         APP_CFLAGS=-DRAMA_ROOTINJECT \
+2026-11-14T02:11:17.3835554Z         RAMA_MODZ \
+2026-11-14T02:11:17.3839107Z         ramaroot
+2026-11-14T02:11:17.3848634Z     from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk
+2026-11-14T02:11:17.3854694Z   In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:19:
+2026-11-14T02:11:17.3860869Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/Stealth.h:185:41: error: use of undeclared identifier 'SYS_fstatat'
+2026-11-14T02:11:17.3862661Z       if (!orig_stat) return (int)syscall(SYS_fstatat, AT_FDCWD, path, st, 0);
+2026-11-14T02:11:17.3888942Z                                           ^
+2026-11-14T02:11:17.3889889Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/Stealth.h:190:42: error: use of undeclared identifier 'SYS_fstatat'
+2026-11-14T02:11:17.3890603Z       if (!orig_lstat) return (int)syscall(SYS_fstatat, AT_FDCWD, path, st, AT_SYMLINK_NOFOLLOW);
+2026-11-14T02:11:17.3890968Z                                            ^
+2026-11-14T02:11:17.3891411Z   In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.3892039Z   In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.3892730Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:40:24: error: redefinition of 'generate_key'
+2026-11-14T02:11:17.3893240Z       constexpr key_type generate_key(key_type seed)
+2026-11-14T02:11:17.3893528Z                          ^
+2026-11-14T02:11:17.3893985Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:40:24: note: previous definition is here
+2026-11-14T02:11:17.3894475Z       constexpr key_type generate_key(key_type seed)
+2026-11-14T02:11:17.3894752Z                          ^
+2026-11-14T02:11:17.3895169Z   In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.3895781Z   In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.3896440Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:57:20: error: redefinition of 'cipher'
+2026-11-14T02:11:17.3896953Z       constexpr void cipher(char* data, size_type size, key_type key)
+2026-11-14T02:11:17.3897475Z                      ^
+2026-11-14T02:11:17.3897922Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:57:20: note: previous definition is here
+2026-11-14T02:11:17.3898889Z       constexpr void cipher(char* data, size_type size, key_type key)
+2026-11-14T02:11:17.3899228Z                      ^
+2026-11-14T02:11:17.3899718Z   In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.3900419Z   In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.3900984Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:68:11: error: redefinition of 'obfuscator'
+2026-11-14T02:11:17.3901356Z       class obfuscator
+2026-11-14T02:11:17.3901482Z             ^
+2026-11-14T02:11:17.3901819Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:68:11: note: previous definition is here
+2026-11-14T02:11:17.3902187Z       class obfuscator
+2026-11-14T02:11:17.3902310Z             ^
+2026-11-14T02:11:17.3902606Z   In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.3903119Z   In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.3903839Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:107:11: error: redefinition of 'obfuscated_data'
+2026-11-14T02:11:17.3904226Z       class obfuscated_data
+2026-11-14T02:11:17.3904361Z             ^
+2026-11-14T02:11:17.3904693Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:107:11: note: previous definition is here
+2026-11-14T02:11:17.3905072Z       class obfuscated_data
+2026-11-14T02:11:17.3905204Z             ^
+2026-11-14T02:11:17.3905492Z   In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.3906004Z   In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.3906571Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:181:20: error: redefinition of 'make_obfuscator'
+2026-11-14T02:11:17.3906990Z       constexpr auto make_obfuscator(const char(&data)[N])
+2026-11-14T02:11:17.3907174Z                      ^
+2026-11-14T02:11:17.3907519Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:181:20: note: previous definition is here
+2026-11-14T02:11:17.3907918Z       constexpr auto make_obfuscator(const char(&data)[N])
+2026-11-14T02:11:17.3908387Z                      ^
+2026-11-14T02:11:17.3908587Z   7 errors generated.
+2026-11-14T02:11:17.3909376Z   make: *** [/home/runner/android-sdk/ndk/25.2.9519653/build/core/build-binary.mk:424: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/obj/local/arm64-v8a/objs/RAMA_MODZ/Main.o] Error 1
+2026-11-14T02:11:17.3910183Z 
+2026-11-14T02:11:17.3910257Z * Try:
+2026-11-14T02:11:17.3910516Z > Run with --info or --debug option to get more log output.
+2026-11-14T02:11:17.3910863Z > Run with --scan to get full insights.
+2026-11-14T02:11:17.3911172Z > Get more help at https://help.gradle.org.
+2026-11-14T02:11:17.3911359Z 
+2026-11-14T02:11:17.3911446Z * Exception is:
+2026-11-14T02:11:17.3911917Z org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':root-apk:buildNdkBuildRelease[arm64-v8a]'.
+2026-11-14T02:11:17.3913371Z 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:148)
+2026-11-14T02:11:17.3913848Z 	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:282)
+2026-11-14T02:11:17.3914266Z 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:146)
+2026-11-14T02:11:17.3914802Z 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:134)
+2026-11-14T02:11:17.3915341Z 	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+2026-11-14T02:11:17.3915908Z 	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+2026-11-14T02:11:17.3916482Z 	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+2026-11-14T02:11:17.3917006Z 	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+2026-11-14T02:11:17.3917501Z 	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+2026-11-14T02:11:17.3918014Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+2026-11-14T02:11:17.3918957Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+2026-11-14T02:11:17.3919673Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+2026-11-14T02:11:17.3920636Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+2026-11-14T02:11:17.3921482Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+2026-11-14T02:11:17.3922018Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+2026-11-14T02:11:17.3922481Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+2026-11-14T02:11:17.3922960Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+2026-11-14T02:11:17.3923439Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+2026-11-14T02:11:17.3923908Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+2026-11-14T02:11:17.3924377Z 	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+2026-11-14T02:11:17.3924848Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+2026-11-14T02:11:17.3925287Z 	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+2026-11-14T02:11:17.3925763Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
+2026-11-14T02:11:17.3926318Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
+2026-11-14T02:11:17.3926911Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+2026-11-14T02:11:17.3927448Z 	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:80)
+2026-11-14T02:11:17.3927963Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+2026-11-14T02:11:17.3928992Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+2026-11-14T02:11:17.3929923Z 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
+2026-11-14T02:11:17.3930575Z 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
+2026-11-14T02:11:17.3931222Z 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+2026-11-14T02:11:17.3931879Z 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+2026-11-14T02:11:17.3932711Z Caused by: org.gradle.internal.UncheckedException: com.android.ide.common.process.ProcessException: [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_impl_android.cpp
+2026-11-14T02:11:17.3933397Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_impl_opengl3.cpp
+2026-11-14T02:11:17.3933738Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_tables.cpp
+2026-11-14T02:11:17.3934059Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_demo.cpp
+2026-11-14T02:11:17.3934373Z [arm64-v8a] Compile        : RAMA_MODZ <= xdl.c
+2026-11-14T02:11:17.3934694Z [arm64-v8a] Compile        : RAMA_MODZ <= xdl_iterate.c
+2026-11-14T02:11:17.3935018Z [arm64-v8a] Compile        : RAMA_MODZ <= xdl_linker.c
+2026-11-14T02:11:17.3935344Z [arm64-v8a] Compile        : RAMA_MODZ <= xdl_lzma.c
+2026-11-14T02:11:17.3935651Z [arm64-v8a] Compile        : RAMA_MODZ <= xdl_util.c
+2026-11-14T02:11:17.3935969Z [arm64-v8a] Compile++      : RAMA_MODZ <= KittyArm64.cpp
+2026-11-14T02:11:17.3936341Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_draw.cpp
+2026-11-14T02:11:17.3936675Z [arm64-v8a] Compile++      : RAMA_MODZ <= KittyMemory.cpp
+2026-11-14T02:11:17.3937192Z [arm64-v8a] Compile++      : RAMA_MODZ <= KittyScanner.cpp
+2026-11-14T02:11:17.3937543Z [arm64-v8a] Compile++      : RAMA_MODZ <= KittyUtils.cpp
+2026-11-14T02:11:17.3937893Z [arm64-v8a] Compile++      : RAMA_MODZ <= MemoryBackup.cpp
+2026-11-14T02:11:17.3939288Z [arm64-v8a] Compile++      : RAMA_MODZ <= MemoryPatch.cpp
+2026-11-14T02:11:17.3939657Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_widgets.cpp
+2026-11-14T02:11:17.3940003Z [arm64-v8a] Compile++      : RAMA_MODZ <= Il2Cpp.cpp
+2026-11-14T02:11:17.3940319Z [arm64-v8a] Compile++      : RAMA_MODZ <= And64InlineHook.cpp
+2026-11-14T02:11:17.3940603Z [arm64-v8a] Compile++      : ramaroot <= injector.cpp
+2026-11-14T02:11:17.3940804Z [arm64-v8a] Compile++      : ramaroot <= memory.cpp
+2026-11-14T02:11:17.3941000Z [arm64-v8a] SharedLibrary  : libramaroot.so
+2026-11-14T02:11:17.3941187Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui.cpp
+2026-11-14T02:11:17.3941383Z [arm64-v8a] Compile++      : RAMA_MODZ <= Main.cpp
+2026-11-14T02:11:17.3941510Z 
+2026-11-14T02:11:17.3941591Z C++ build system [build] failed while executing:
+2026-11-14T02:11:17.3941807Z     /home/runner/android-sdk/ndk/25.2.9519653/ndk-build \
+2026-11-14T02:11:17.3941999Z       NDK_PROJECT_PATH=null \
+2026-11-14T02:11:17.3942280Z       APP_BUILD_SCRIPT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/Android.mk \
+2026-11-14T02:11:17.3942709Z       NDK_APPLICATION_MK=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/Application.mk \
+2026-11-14T02:11:17.3943004Z       APP_ABI=arm64-v8a \
+2026-11-14T02:11:17.3943151Z       NDK_ALL_ABIS=arm64-v8a \
+2026-11-14T02:11:17.3943292Z       NDK_DEBUG=0 \
+2026-11-14T02:11:17.3943427Z       APP_PLATFORM=android-24 \
+2026-11-14T02:11:17.3943722Z       NDK_OUT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/obj \
+2026-11-14T02:11:17.3944174Z       NDK_LIBS_OUT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/lib \
+2026-11-14T02:11:17.3944506Z       -j4 \
+2026-11-14T02:11:17.3944640Z       APP_CFLAGS=-DRAMA_ROOTINJECT \
+2026-11-14T02:11:17.3944794Z       RAMA_MODZ \
+2026-11-14T02:11:17.3944913Z       ramaroot
+2026-11-14T02:11:17.3945090Z   from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk
+2026-11-14T02:11:17.3945919Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:19:
+2026-11-14T02:11:17.3946495Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/Stealth.h:185:41: error: use of undeclared identifier 'SYS_fstatat'
+2026-11-14T02:11:17.3946963Z     if (!orig_stat) return (int)syscall(SYS_fstatat, AT_FDCWD, path, st, 0);
+2026-11-14T02:11:17.3947182Z                                         ^
+2026-11-14T02:11:17.3947571Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/Stealth.h:190:42: error: use of undeclared identifier 'SYS_fstatat'
+2026-11-14T02:11:17.3948222Z     if (!orig_lstat) return (int)syscall(SYS_fstatat, AT_FDCWD, path, st, AT_SYMLINK_NOFOLLOW);
+2026-11-14T02:11:17.3948606Z                                          ^
+2026-11-14T02:11:17.3949124Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.3949961Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.3950893Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:40:24: error: redefinition of 'generate_key'
+2026-11-14T02:11:17.3951621Z     constexpr key_type generate_key(key_type seed)
+2026-11-14T02:11:17.3951936Z                        ^
+2026-11-14T02:11:17.3952516Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:40:24: note: previous definition is here
+2026-11-14T02:11:17.3953090Z     constexpr key_type generate_key(key_type seed)
+2026-11-14T02:11:17.3953261Z                        ^
+2026-11-14T02:11:17.3953569Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.3954083Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.3954634Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:57:20: error: redefinition of 'cipher'
+2026-11-14T02:11:17.3955050Z     constexpr void cipher(char* data, size_type size, key_type key)
+2026-11-14T02:11:17.3955247Z                    ^
+2026-11-14T02:11:17.3955593Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:57:20: note: previous definition is here
+2026-11-14T02:11:17.3956010Z     constexpr void cipher(char* data, size_type size, key_type key)
+2026-11-14T02:11:17.3956210Z                    ^
+2026-11-14T02:11:17.3956504Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.3957016Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.3957571Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:68:11: error: redefinition of 'obfuscator'
+2026-11-14T02:11:17.3957944Z     class obfuscator
+2026-11-14T02:11:17.3958221Z           ^
+2026-11-14T02:11:17.3958664Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:68:11: note: previous definition is here
+2026-11-14T02:11:17.3959040Z     class obfuscator
+2026-11-14T02:11:17.3959164Z           ^
+2026-11-14T02:11:17.3959452Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.3960080Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.3960642Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:107:11: error: redefinition of 'obfuscated_data'
+2026-11-14T02:11:17.3961021Z     class obfuscated_data
+2026-11-14T02:11:17.3961156Z           ^
+2026-11-14T02:11:17.3961484Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:107:11: note: previous definition is here
+2026-11-14T02:11:17.3961860Z     class obfuscated_data
+2026-11-14T02:11:17.3961988Z           ^
+2026-11-14T02:11:17.3962433Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.3963232Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.3964159Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:181:20: error: redefinition of 'make_obfuscator'
+2026-11-14T02:11:17.3964841Z     constexpr auto make_obfuscator(const char(&data)[N])
+2026-11-14T02:11:17.3965140Z                    ^
+2026-11-14T02:11:17.3965717Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:181:20: note: previous definition is here
+2026-11-14T02:11:17.3966429Z     constexpr auto make_obfuscator(const char(&data)[N])
+2026-11-14T02:11:17.3966743Z                    ^
+2026-11-14T02:11:17.3967119Z 7 errors generated.
+2026-11-14T02:11:17.3968004Z make: *** [/home/runner/android-sdk/ndk/25.2.9519653/build/core/build-binary.mk:424: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/obj/local/arm64-v8a/objs/RAMA_MODZ/Main.o] Error 1
+2026-11-14T02:11:17.3969441Z 	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:68)
+2026-11-14T02:11:17.3970189Z 	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:41)
+2026-11-14T02:11:17.3970796Z 	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:128)
+2026-11-14T02:11:17.3971439Z 	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.doExecute(StandardTaskAction.java:58)
+2026-11-14T02:11:17.3972216Z 	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
+2026-11-14T02:11:17.3972982Z 	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
+2026-11-14T02:11:17.3973674Z 	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:248)
+2026-11-14T02:11:17.3974398Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+2026-11-14T02:11:17.3975211Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
+2026-11-14T02:11:17.3976021Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+2026-11-14T02:11:17.3976811Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+2026-11-14T02:11:17.3977598Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+2026-11-14T02:11:17.3978541Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+2026-11-14T02:11:17.3979298Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
+2026-11-14T02:11:17.3980064Z 	at org.gradle.internal.operations.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:68)
+2026-11-14T02:11:17.3980805Z 	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:233)
+2026-11-14T02:11:17.3981702Z 	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:216)
+2026-11-14T02:11:17.3982192Z 	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:199)
+2026-11-14T02:11:17.3982639Z 	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:166)
+2026-11-14T02:11:17.3983021Z 	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:105)
+2026-11-14T02:11:17.3983391Z 	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:44)
+2026-11-14T02:11:17.3983763Z 	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:59)
+2026-11-14T02:11:17.3984091Z 	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:56)
+2026-11-14T02:11:17.3984555Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+2026-11-14T02:11:17.3985149Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+2026-11-14T02:11:17.3985675Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+2026-11-14T02:11:17.3986144Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+2026-11-14T02:11:17.3986614Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+2026-11-14T02:11:17.3987086Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+2026-11-14T02:11:17.3987696Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+2026-11-14T02:11:17.3988354Z 	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+2026-11-14T02:11:17.3988770Z 	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:56)
+2026-11-14T02:11:17.3989106Z 	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:44)
+2026-11-14T02:11:17.3989508Z 	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:67)
+2026-11-14T02:11:17.3989985Z 	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:37)
+2026-11-14T02:11:17.3990497Z 	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:41)
+2026-11-14T02:11:17.3990912Z 	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:74)
+2026-11-14T02:11:17.3991290Z 	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+2026-11-14T02:11:17.3991659Z 	at org.gradle.internal.execution.steps.CreateOutputsStep.execute(CreateOutputsStep.java:50)
+2026-11-14T02:11:17.3992058Z 	at org.gradle.internal.execution.steps.CreateOutputsStep.execute(CreateOutputsStep.java:28)
+2026-11-14T02:11:17.3992614Z 	at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.executeDelegateBroadcastingChanges(CaptureStateAfterExecutionStep.java:100)
+2026-11-14T02:11:17.3993231Z 	at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.execute(CaptureStateAfterExecutionStep.java:72)
+2026-11-14T02:11:17.3993769Z 	at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.execute(CaptureStateAfterExecutionStep.java:50)
+2026-11-14T02:11:17.3994270Z 	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:40)
+2026-11-14T02:11:17.3994736Z 	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:29)
+2026-11-14T02:11:17.3995195Z 	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:179)
+2026-11-14T02:11:17.3995610Z 	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:70)
+2026-11-14T02:11:17.3996032Z 	at org.gradle.internal.Either$Right.fold(Either.java:175)
+2026-11-14T02:11:17.3996319Z 	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:59)
+2026-11-14T02:11:17.3996670Z 	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:68)
+2026-11-14T02:11:17.3997035Z 	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:46)
+2026-11-14T02:11:17.3997444Z 	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:36)
+2026-11-14T02:11:17.3997894Z 	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:25)
+2026-11-14T02:11:17.3998640Z 	at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:36)
+2026-11-14T02:11:17.3999029Z 	at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:22)
+2026-11-14T02:11:17.3999444Z 	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:91)
+2026-11-14T02:11:17.3999866Z 	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:55)
+2026-11-14T02:11:17.4000278Z 	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:55)
+2026-11-14T02:11:17.4000672Z 	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:37)
+2026-11-14T02:11:17.4001073Z 	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:65)
+2026-11-14T02:11:17.4001476Z 	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:36)
+2026-11-14T02:11:17.4002087Z 	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+2026-11-14T02:11:17.4002699Z 	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+2026-11-14T02:11:17.4003238Z 	at org.gradle.internal.execution.steps.ResolveCachingStateStep.execute(ResolveCachingStateStep.java:76)
+2026-11-14T02:11:17.4003697Z 	at org.gradle.internal.execution.steps.ResolveCachingStateStep.execute(ResolveCachingStateStep.java:37)
+2026-11-14T02:11:17.4004100Z 	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:108)
+2026-11-14T02:11:17.4004451Z 	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:55)
+2026-11-14T02:11:17.4004902Z 	at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:71)
+2026-11-14T02:11:17.4005439Z 	at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:45)
+2026-11-14T02:11:17.4005967Z 	at org.gradle.internal.execution.steps.SkipEmptyWorkStep.executeWithNonEmptySources(SkipEmptyWorkStep.java:177)
+2026-11-14T02:11:17.4006426Z 	at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:81)
+2026-11-14T02:11:17.4006826Z 	at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:53)
+2026-11-14T02:11:17.4007301Z 	at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:32)
+2026-11-14T02:11:17.4007861Z 	at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:21)
+2026-11-14T02:11:17.4008562Z 	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+2026-11-14T02:11:17.4009132Z 	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+2026-11-14T02:11:17.4009668Z 	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+2026-11-14T02:11:17.4010166Z 	at org.gradle.internal.execution.steps.CleanupStaleOutputsStep.execute(CleanupStaleOutputsStep.java:75)
+2026-11-14T02:11:17.4010712Z 	at org.gradle.internal.execution.steps.CleanupStaleOutputsStep.execute(CleanupStaleOutputsStep.java:41)
+2026-11-14T02:11:17.4011258Z 	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:66)
+2026-11-14T02:11:17.4011865Z 	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:66)
+2026-11-14T02:11:17.4012450Z 	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:38)
+2026-11-14T02:11:17.4012968Z 	at org.gradle.internal.execution.steps.AssignWorkspaceStep.lambda$execute$0(AssignWorkspaceStep.java:32)
+2026-11-14T02:11:17.4013403Z 	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:293)
+2026-11-14T02:11:17.4013812Z 	at org.gradle.internal.execution.steps.AssignWorkspaceStep.execute(AssignWorkspaceStep.java:30)
+2026-11-14T02:11:17.4014228Z 	at org.gradle.internal.execution.steps.AssignWorkspaceStep.execute(AssignWorkspaceStep.java:21)
+2026-11-14T02:11:17.4014628Z 	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:37)
+2026-11-14T02:11:17.4015023Z 	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:27)
+2026-11-14T02:11:17.4015394Z 	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:47)
+2026-11-14T02:11:17.4015744Z 	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34)
+2026-11-14T02:11:17.4016142Z 	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
+2026-11-14T02:11:17.4016727Z 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
+2026-11-14T02:11:17.4017261Z 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:134)
+2026-11-14T02:11:17.4017789Z 	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+2026-11-14T02:11:17.4018464Z 	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+2026-11-14T02:11:17.4019015Z 	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+2026-11-14T02:11:17.4019519Z 	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+2026-11-14T02:11:17.4020009Z 	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+2026-11-14T02:11:17.4020500Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+2026-11-14T02:11:17.4020968Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+2026-11-14T02:11:17.4021427Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+2026-11-14T02:11:17.4021941Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+2026-11-14T02:11:17.4022530Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+2026-11-14T02:11:17.4023062Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+2026-11-14T02:11:17.4023520Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+2026-11-14T02:11:17.4023987Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+2026-11-14T02:11:17.4024461Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+2026-11-14T02:11:17.4025077Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+2026-11-14T02:11:17.4025559Z 	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+2026-11-14T02:11:17.4026034Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+2026-11-14T02:11:17.4026465Z 	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+2026-11-14T02:11:17.4026932Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
+2026-11-14T02:11:17.4027483Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
+2026-11-14T02:11:17.4028223Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+2026-11-14T02:11:17.4028754Z 	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:80)
+2026-11-14T02:11:17.4029274Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+2026-11-14T02:11:17.4029868Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+2026-11-14T02:11:17.4030375Z 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
+2026-11-14T02:11:17.4030782Z 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
+2026-11-14T02:11:17.4031299Z 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+2026-11-14T02:11:17.4031720Z 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+2026-11-14T02:11:17.4032176Z Caused by: com.android.ide.common.process.ProcessException: [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_impl_android.cpp
+2026-11-14T02:11:17.4032547Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_impl_opengl3.cpp
+2026-11-14T02:11:17.4032774Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_tables.cpp
+2026-11-14T02:11:17.4032993Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_demo.cpp
+2026-11-14T02:11:17.4033195Z [arm64-v8a] Compile        : RAMA_MODZ <= xdl.c
+2026-11-14T02:11:17.4033394Z [arm64-v8a] Compile        : RAMA_MODZ <= xdl_iterate.c
+2026-11-14T02:11:17.4033598Z [arm64-v8a] Compile        : RAMA_MODZ <= xdl_linker.c
+2026-11-14T02:11:17.4033794Z [arm64-v8a] Compile        : RAMA_MODZ <= xdl_lzma.c
+2026-11-14T02:11:17.4033992Z [arm64-v8a] Compile        : RAMA_MODZ <= xdl_util.c
+2026-11-14T02:11:17.4034194Z [arm64-v8a] Compile++      : RAMA_MODZ <= KittyArm64.cpp
+2026-11-14T02:11:17.4034410Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_draw.cpp
+2026-11-14T02:11:17.4034618Z [arm64-v8a] Compile++      : RAMA_MODZ <= KittyMemory.cpp
+2026-11-14T02:11:17.4034834Z [arm64-v8a] Compile++      : RAMA_MODZ <= KittyScanner.cpp
+2026-11-14T02:11:17.4035047Z [arm64-v8a] Compile++      : RAMA_MODZ <= KittyUtils.cpp
+2026-11-14T02:11:17.4035257Z [arm64-v8a] Compile++      : RAMA_MODZ <= MemoryBackup.cpp
+2026-11-14T02:11:17.4035474Z [arm64-v8a] Compile++      : RAMA_MODZ <= MemoryPatch.cpp
+2026-11-14T02:11:17.4035692Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_widgets.cpp
+2026-11-14T02:11:17.4035899Z [arm64-v8a] Compile++      : RAMA_MODZ <= Il2Cpp.cpp
+2026-11-14T02:11:17.4036115Z [arm64-v8a] Compile++      : RAMA_MODZ <= And64InlineHook.cpp
+2026-11-14T02:11:17.4036331Z [arm64-v8a] Compile++      : ramaroot <= injector.cpp
+2026-11-14T02:11:17.4036533Z [arm64-v8a] Compile++      : ramaroot <= memory.cpp
+2026-11-14T02:11:17.4036722Z [arm64-v8a] SharedLibrary  : libramaroot.so
+2026-11-14T02:11:17.4036911Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui.cpp
+2026-11-14T02:11:17.4037102Z [arm64-v8a] Compile++      : RAMA_MODZ <= Main.cpp
+2026-11-14T02:11:17.4037228Z 
+2026-11-14T02:11:17.4037393Z C++ build system [build] failed while executing:
+2026-11-14T02:11:17.4037601Z     /home/runner/android-sdk/ndk/25.2.9519653/ndk-build \
+2026-11-14T02:11:17.4037787Z       NDK_PROJECT_PATH=null \
+2026-11-14T02:11:17.4038180Z       APP_BUILD_SCRIPT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/Android.mk \
+2026-11-14T02:11:17.4038600Z       NDK_APPLICATION_MK=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/Application.mk \
+2026-11-14T02:11:17.4038895Z       APP_ABI=arm64-v8a \
+2026-11-14T02:11:17.4039041Z       NDK_ALL_ABIS=arm64-v8a \
+2026-11-14T02:11:17.4039184Z       NDK_DEBUG=0 \
+2026-11-14T02:11:17.4039320Z       APP_PLATFORM=android-24 \
+2026-11-14T02:11:17.4039613Z       NDK_OUT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/obj \
+2026-11-14T02:11:17.4040056Z       NDK_LIBS_OUT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/lib \
+2026-11-14T02:11:17.4040370Z       -j4 \
+2026-11-14T02:11:17.4040501Z       APP_CFLAGS=-DRAMA_ROOTINJECT \
+2026-11-14T02:11:17.4040655Z       RAMA_MODZ \
+2026-11-14T02:11:17.4040777Z       ramaroot
+2026-11-14T02:11:17.4040956Z   from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk
+2026-11-14T02:11:17.4041333Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:19:
+2026-11-14T02:11:17.4041906Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/Stealth.h:185:41: error: use of undeclared identifier 'SYS_fstatat'
+2026-11-14T02:11:17.4042454Z     if (!orig_stat) return (int)syscall(SYS_fstatat, AT_FDCWD, path, st, 0);
+2026-11-14T02:11:17.4042677Z                                         ^
+2026-11-14T02:11:17.4043066Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/Stealth.h:190:42: error: use of undeclared identifier 'SYS_fstatat'
+2026-11-14T02:11:17.4043544Z     if (!orig_lstat) return (int)syscall(SYS_fstatat, AT_FDCWD, path, st, AT_SYMLINK_NOFOLLOW);
+2026-11-14T02:11:17.4043794Z                                          ^
+2026-11-14T02:11:17.4044116Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.4044626Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.4045190Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:40:24: error: redefinition of 'generate_key'
+2026-11-14T02:11:17.4045597Z     constexpr key_type generate_key(key_type seed)
+2026-11-14T02:11:17.4045773Z                        ^
+2026-11-14T02:11:17.4046117Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:40:24: note: previous definition is here
+2026-11-14T02:11:17.4046507Z     constexpr key_type generate_key(key_type seed)
+2026-11-14T02:11:17.4046678Z                        ^
+2026-11-14T02:11:17.4046977Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.4047553Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.4048216Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:57:20: error: redefinition of 'cipher'
+2026-11-14T02:11:17.4048636Z     constexpr void cipher(char* data, size_type size, key_type key)
+2026-11-14T02:11:17.4048837Z                    ^
+2026-11-14T02:11:17.4049266Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:57:20: note: previous definition is here
+2026-11-14T02:11:17.4049682Z     constexpr void cipher(char* data, size_type size, key_type key)
+2026-11-14T02:11:17.4049880Z                    ^
+2026-11-14T02:11:17.4050174Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.4050685Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.4051239Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:68:11: error: redefinition of 'obfuscator'
+2026-11-14T02:11:17.4051609Z     class obfuscator
+2026-11-14T02:11:17.4051733Z           ^
+2026-11-14T02:11:17.4052058Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:68:11: note: previous definition is here
+2026-11-14T02:11:17.4052426Z     class obfuscator
+2026-11-14T02:11:17.4052552Z           ^
+2026-11-14T02:11:17.4052842Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.4053346Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.4053911Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:107:11: error: redefinition of 'obfuscated_data'
+2026-11-14T02:11:17.4054389Z     class obfuscated_data
+2026-11-14T02:11:17.4054522Z           ^
+2026-11-14T02:11:17.4054847Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:107:11: note: previous definition is here
+2026-11-14T02:11:17.4055218Z     class obfuscated_data
+2026-11-14T02:11:17.4055349Z           ^
+2026-11-14T02:11:17.4055640Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.4056149Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.4056714Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:181:20: error: redefinition of 'make_obfuscator'
+2026-11-14T02:11:17.4057192Z     constexpr auto make_obfuscator(const char(&data)[N])
+2026-11-14T02:11:17.4057375Z                    ^
+2026-11-14T02:11:17.4057710Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:181:20: note: previous definition is here
+2026-11-14T02:11:17.4058223Z     constexpr auto make_obfuscator(const char(&data)[N])
+2026-11-14T02:11:17.4058398Z                    ^
+2026-11-14T02:11:17.4058528Z 7 errors generated.
+2026-11-14T02:11:17.4059015Z make: *** [/home/runner/android-sdk/ndk/25.2.9519653/build/core/build-binary.mk:424: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/obj/local/arm64-v8a/objs/RAMA_MODZ/Main.o] Error 1
+2026-11-14T02:11:17.4059673Z 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.execute(ExecuteProcess.kt:288)
+2026-11-14T02:11:17.4060123Z 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt$executeProcess$1.invoke(ExecuteProcess.kt:108)
+2026-11-14T02:11:17.4060590Z 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt$executeProcess$1.invoke(ExecuteProcess.kt:106)
+2026-11-14T02:11:17.4061045Z 	at com.android.build.gradle.internal.cxx.timing.TimingEnvironmentKt.time(TimingEnvironment.kt:32)
+2026-11-14T02:11:17.4061487Z 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.executeProcess(ExecuteProcess.kt:106)
+2026-11-14T02:11:17.4062052Z 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.executeProcess$default(ExecuteProcess.kt:85)
+2026-11-14T02:11:17.4062551Z 	at com.android.build.gradle.internal.cxx.build.CxxRegularBuilder.executeProcessBatch(CxxRegularBuilder.kt:332)
+2026-11-14T02:11:17.4063009Z 	at com.android.build.gradle.internal.cxx.build.CxxRegularBuilder.build(CxxRegularBuilder.kt:129)
+2026-11-14T02:11:17.4063469Z 	at com.android.build.gradle.tasks.ExternalNativeBuildTask$doTaskAction$$inlined$recordTaskAction$1.invoke(BaseTask.kt:70)
+2026-11-14T02:11:17.4063882Z 	at com.android.build.gradle.internal.tasks.Blocks.recordSpan(Blocks.java:51)
+2026-11-14T02:11:17.4064272Z 	at com.android.build.gradle.tasks.ExternalNativeBuildTask.doTaskAction(ExternalNativeBuildTask.kt:145)
+2026-11-14T02:11:17.4064749Z 	at com.android.build.gradle.internal.tasks.UnsafeOutputsTask$taskAction$$inlined$recordTaskAction$1.invoke(BaseTask.kt:65)
+2026-11-14T02:11:17.4065158Z 	at com.android.build.gradle.internal.tasks.Blocks.recordSpan(Blocks.java:51)
+2026-11-14T02:11:17.4065535Z 	at com.android.build.gradle.internal.tasks.UnsafeOutputsTask.taskAction(UnsafeOutputsTask.kt:63)
+2026-11-14T02:11:17.4065915Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2026-11-14T02:11:17.4066299Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+2026-11-14T02:11:17.4066741Z 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+2026-11-14T02:11:17.4067127Z 	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
+2026-11-14T02:11:17.4067343Z 	... 118 more
+2026-11-14T02:11:17.4069011Z Caused by: com.android.ide.common.process.ProcessException: Error while executing process /home/runner/android-sdk/ndk/25.2.9519653/ndk-build with arguments {NDK_PROJECT_PATH=null APP_BUILD_SCRIPT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/Android.mk NDK_APPLICATION_MK=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/Application.mk APP_ABI=arm64-v8a NDK_ALL_ABIS=arm64-v8a NDK_DEBUG=0 APP_PLATFORM=android-24 NDK_OUT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/obj NDK_LIBS_OUT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/lib -j4 APP_CFLAGS=-DRAMA_ROOTINJECT RAMA_MODZ ramaroot}
+2026-11-14T02:11:17.4070669Z 	at com.android.build.gradle.internal.process.GradleProcessResult.buildProcessException(GradleProcessResult.java:73)
+2026-11-14T02:11:17.4071194Z 	at com.android.build.gradle.internal.process.GradleProcessResult.assertNormalExitValue(GradleProcessResult.java:48)
+2026-11-14T02:11:17.4071675Z 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.execute(ExecuteProcess.kt:277)
+2026-11-14T02:11:17.4071959Z 	... 135 more
+2026-11-14T02:11:17.4072309Z Caused by: org.gradle.process.internal.ExecException: Process 'command '/home/runner/android-sdk/ndk/25.2.9519653/ndk-build'' finished with non-zero exit value 2
+2026-11-14T02:11:17.4072844Z 	at org.gradle.process.internal.DefaultExecHandle$ExecResultImpl.assertNormalExitValue(DefaultExecHandle.java:431)
+2026-11-14T02:11:17.4073352Z 	at com.android.build.gradle.internal.process.GradleProcessResult.assertNormalExitValue(GradleProcessResult.java:46)
+2026-11-14T02:11:17.4073686Z 	... 136 more
+2026-11-14T02:11:17.4073755Z 
+2026-11-14T02:11:17.4073758Z 
+2026-11-14T02:11:17.4073814Z BUILD FAILED in 11s
+2026-11-14T02:11:17.7116593Z ##[error]Process completed with exit code 1.
+2026-11-14T02:11:17.7211370Z Post job cleanup.
+2026-11-14T02:11:17.8429718Z (node:3002) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-14T02:11:17.8430467Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-14T02:11:17.8639445Z Post job cleanup.
+2026-11-14T02:11:17.9329698Z [command]/usr/bin/git version
+2026-11-14T02:11:17.9385329Z git version 2.56.1
+2026-11-14T02:11:17.9431211Z Temporarily overriding HOME='/home/runner/work/_temp/de732867-9ac4-40d5-bcab-4e5e51c49e51' before making global git config changes
+2026-11-14T02:11:17.9431949Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-14T02:11:17.9432599Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/zygisk-rama-modz/zygisk-rama-modz
+2026-11-14T02:11:17.9473940Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-14T02:11:17.9515223Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-14T02:11:17.9807852Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-14T02:11:17.9833370Z http.https://github.com/.extraheader
+2026-11-14T02:11:17.9843087Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-14T02:11:17.9884305Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-14T02:11:18.0114528Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-14T02:11:18.0141876Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-14T02:11:18.0477742Z Cleaning up orphan processes
+2026-11-14T02:11:18.0696520Z Terminate orphan process: pid (2544) (java)
+2026-11-14T02:11:18.0758230Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

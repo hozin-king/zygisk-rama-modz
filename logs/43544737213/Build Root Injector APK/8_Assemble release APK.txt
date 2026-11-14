@@ -1,0 +1,558 @@
+﻿2026-11-14T02:11:05.4618471Z ##[group]Run ./gradlew :root-apk:assembleRelease --no-daemon --stacktrace
+2026-11-14T02:11:05.4618856Z [36;1m./gradlew :root-apk:assembleRelease --no-daemon --stacktrace[0m
+2026-11-14T02:11:05.4619080Z [36;1mmkdir -p dist[0m
+2026-11-14T02:11:05.4619292Z [36;1mfind root-apk/build/outputs/apk -name '*.apk' -exec cp -v {} dist/ \;[0m
+2026-11-14T02:11:05.4619527Z [36;1mls -la dist/[0m
+2026-11-14T02:11:05.4662231Z shell: /usr/bin/bash -e {0}
+2026-11-14T02:11:05.4662384Z env:
+2026-11-14T02:11:05.4662575Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T02:11:05.4662876Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T02:11:05.4663109Z   ANDROID_HOME: /home/runner/android-sdk
+2026-11-14T02:11:05.4663280Z   ANDROID_SDK_ROOT: /home/runner/android-sdk
+2026-11-14T02:11:05.4663481Z   ANDROID_NDK_HOME: /home/runner/android-sdk/ndk/25.2.9519653
+2026-11-14T02:11:05.4663675Z ##[endgroup]
+2026-11-14T02:11:05.8700551Z To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+2026-11-14T02:11:06.6659788Z Daemon will be stopped at the end of the build 
+2026-11-14T02:11:11.3670210Z > Task :root-apk:preBuild UP-TO-DATE
+2026-11-14T02:11:11.3679167Z > Task :root-apk:preReleaseBuild UP-TO-DATE
+2026-11-14T02:11:11.4679168Z > Task :root-apk:javaPreCompileRelease
+2026-11-14T02:11:11.4708753Z > Task :root-apk:checkReleaseAarMetadata
+2026-11-14T02:11:11.4718801Z > Task :root-apk:generateReleaseResValues
+2026-11-14T02:11:11.4719812Z > Task :root-apk:mapReleaseSourceSetPaths
+2026-11-14T02:11:11.4720324Z > Task :root-apk:generateReleaseResources
+2026-11-14T02:11:12.4651861Z > Task :root-apk:packageReleaseResources
+2026-11-14T02:11:12.4652420Z > Task :root-apk:mergeReleaseResources
+2026-11-14T02:11:12.8660132Z > Task :root-apk:createReleaseCompatibleScreenManifests
+2026-11-14T02:11:12.8663971Z > Task :root-apk:extractDeepLinksRelease
+2026-11-14T02:11:12.9652122Z > Task :root-apk:parseReleaseLocalResources
+2026-11-14T02:11:12.9654946Z 
+2026-11-14T02:11:12.9655576Z > Task :root-apk:processReleaseMainManifest
+2026-11-14T02:11:12.9656412Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/AndroidManifest.xml:12:9-41 Warning:
+2026-11-14T02:11:12.9658273Z 	android:extractNativeLibs should not be specified in this source AndroidManifest.xml file. See https://d.android.com/guide/topics/manifest/application-element#extractNativeLibs for more information.
+2026-11-14T02:11:12.9659490Z The AGP Upgrade Assistant can remove the attribute from the AndroidManifest.xml file and update the build file accordingly. See https://d.android.com/studio/build/agp-upgrade-assistant for more information.
+2026-11-14T02:11:13.1656085Z 
+2026-11-14T02:11:13.1656882Z > Task :root-apk:processReleaseManifest
+2026-11-14T02:11:13.1657289Z > Task :root-apk:extractProguardFiles
+2026-11-14T02:11:13.3652853Z > Task :root-apk:configureNdkBuildRelease[arm64-v8a]
+2026-11-14T02:11:17.2651310Z 
+2026-11-14T02:11:17.2651996Z > Task :root-apk:buildNdkBuildRelease[arm64-v8a] FAILED
+2026-11-14T02:11:17.2668201Z C/C++: In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:19:
+2026-11-14T02:11:17.2669235Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/Stealth.h:185:41: error: use of undeclared identifier 'SYS_fstatat'
+2026-11-14T02:11:17.2669979Z C/C++:     if (!orig_stat) return (int)syscall(SYS_fstatat, AT_FDCWD, path, st, 0);
+2026-11-14T02:11:17.2670367Z C/C++:                                         ^
+2026-11-14T02:11:17.2670960Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/Stealth.h:190:42: error: use of undeclared identifier 'SYS_fstatat'
+2026-11-14T02:11:17.2671713Z C/C++:     if (!orig_lstat) return (int)syscall(SYS_fstatat, AT_FDCWD, path, st, AT_SYMLINK_NOFOLLOW);
+2026-11-14T02:11:17.2672738Z C/C++:                                          ^
+2026-11-14T02:11:17.2673246Z C/C++: In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.2674023Z C/C++: In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.2674742Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:40:24: error: redefinition of 'generate_key'
+2026-11-14T02:11:17.2675167Z C/C++:     constexpr key_type generate_key(key_type seed)
+2026-11-14T02:11:17.2675365Z C/C++:                        ^
+2026-11-14T02:11:17.2675727Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:40:24: note: previous definition is here
+2026-11-14T02:11:17.2676136Z C/C++:     constexpr key_type generate_key(key_type seed)
+2026-11-14T02:11:17.2676319Z C/C++:                        ^
+2026-11-14T02:11:17.2676636Z C/C++: In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.2677158Z C/C++: In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.2677720Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:57:20: error: redefinition of 'cipher'
+2026-11-14T02:11:17.2678535Z C/C++:     constexpr void cipher(char* data, size_type size, key_type key)
+2026-11-14T02:11:17.2678751Z C/C++:                    ^
+2026-11-14T02:11:17.2679278Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:57:20: note: previous definition is here
+2026-11-14T02:11:17.2679713Z C/C++:     constexpr void cipher(char* data, size_type size, key_type key)
+2026-11-14T02:11:17.2679921Z C/C++:                    ^
+2026-11-14T02:11:17.2680233Z C/C++: In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.2680751Z C/C++: In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.2681360Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:68:11: error: redefinition of 'obfuscator'
+2026-11-14T02:11:17.2681879Z C/C++:     class obfuscator
+2026-11-14T02:11:17.2682014Z C/C++:           ^
+2026-11-14T02:11:17.2682354Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:68:11: note: previous definition is here
+2026-11-14T02:11:17.2682918Z C/C++:     class obfuscator
+2026-11-14T02:11:17.2683123Z C/C++:           ^
+2026-11-14T02:11:17.2683675Z C/C++: In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.2684289Z C/C++: In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.2684875Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:107:11: error: redefinition of 'obfuscated_data'
+2026-11-14T02:11:17.2685278Z C/C++:     class obfuscated_data
+2026-11-14T02:11:17.2685439Z C/C++:           ^
+2026-11-14T02:11:17.2685779Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:107:11: note: previous definition is here
+2026-11-14T02:11:17.2686292Z C/C++:     class obfuscated_data
+2026-11-14T02:11:17.2686431Z C/C++:           ^
+2026-11-14T02:11:17.2686734Z C/C++: In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.2687254Z C/C++: In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.2687831Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:181:20: error: redefinition of 'make_obfuscator'
+2026-11-14T02:11:17.2688427Z C/C++:     constexpr auto make_obfuscator(const char(&data)[N])
+2026-11-14T02:11:17.2688618Z C/C++:                    ^
+2026-11-14T02:11:17.2688973Z C/C++: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:181:20: note: previous definition is here
+2026-11-14T02:11:17.2689389Z C/C++:     constexpr auto make_obfuscator(const char(&data)[N])
+2026-11-14T02:11:17.2689575Z C/C++:                    ^
+2026-11-14T02:11:17.2689712Z C/C++: 7 errors generated.
+2026-11-14T02:11:17.2690214Z C/C++: make: *** [/home/runner/android-sdk/ndk/25.2.9519653/build/core/build-binary.mk:424: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/obj/local/arm64-v8a/objs/RAMA_MODZ/Main.o] Error 1
+2026-11-14T02:11:17.3671398Z 
+2026-11-14T02:11:17.3671792Z 
+2026-11-14T02:11:17.3672382Z FAILURE: Build failed with an exception.
+2026-11-14T02:11:17.3673174Z 
+2026-11-14T02:11:17.3673268Z * What went wrong:
+2026-11-14T02:11:17.3673566Z Execution failed for task ':root-apk:buildNdkBuildRelease[arm64-v8a]'.
+2026-11-14T02:11:17.3674166Z > com.android.ide.common.process.ProcessException: [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_impl_android.cpp
+2026-11-14T02:11:17.3674695Z   [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_impl_opengl3.cpp
+2026-11-14T02:11:17.3675078Z   [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_tables.cpp
+2026-11-14T02:11:17.3675436Z   [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_demo.cpp
+2026-11-14T02:11:17.3675748Z   [arm64-v8a] Compile        : RAMA_MODZ <= xdl.c
+2026-11-14T02:11:17.3676061Z   [arm64-v8a] Compile        : RAMA_MODZ <= xdl_iterate.c
+2026-11-14T02:11:17.3676387Z   [arm64-v8a] Compile        : RAMA_MODZ <= xdl_linker.c
+2026-11-14T02:11:17.3676710Z   [arm64-v8a] Compile        : RAMA_MODZ <= xdl_lzma.c
+2026-11-14T02:11:17.3677022Z   [arm64-v8a] Compile        : RAMA_MODZ <= xdl_util.c
+2026-11-14T02:11:17.3677378Z   [arm64-v8a] Compile++      : RAMA_MODZ <= KittyArm64.cpp
+2026-11-14T02:11:17.3677706Z   [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_draw.cpp
+2026-11-14T02:11:17.3678205Z   [arm64-v8a] Compile++      : RAMA_MODZ <= KittyMemory.cpp
+2026-11-14T02:11:17.3678776Z   [arm64-v8a] Compile++      : RAMA_MODZ <= KittyScanner.cpp
+2026-11-14T02:11:17.3679149Z   [arm64-v8a] Compile++      : RAMA_MODZ <= KittyUtils.cpp
+2026-11-14T02:11:17.3679498Z   [arm64-v8a] Compile++      : RAMA_MODZ <= MemoryBackup.cpp
+2026-11-14T02:11:17.3679857Z   [arm64-v8a] Compile++      : RAMA_MODZ <= MemoryPatch.cpp
+2026-11-14T02:11:17.3680222Z   [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_widgets.cpp
+2026-11-14T02:11:17.3680676Z   [arm64-v8a] Compile++      : RAMA_MODZ <= Il2Cpp.cpp
+2026-11-14T02:11:17.3681025Z   [arm64-v8a] Compile++      : RAMA_MODZ <= And64InlineHook.cpp
+2026-11-14T02:11:17.3681380Z   [arm64-v8a] Compile++      : ramaroot <= injector.cpp
+2026-11-14T02:11:17.3681711Z   [arm64-v8a] Compile++      : ramaroot <= memory.cpp
+2026-11-14T02:11:17.3682024Z   [arm64-v8a] SharedLibrary  : libramaroot.so
+2026-11-14T02:11:17.3682336Z   [arm64-v8a] Compile++      : RAMA_MODZ <= imgui.cpp
+2026-11-14T02:11:17.3682656Z   [arm64-v8a] Compile++      : RAMA_MODZ <= Main.cpp
+2026-11-14T02:11:17.3682948Z   
+2026-11-14T02:11:17.3683169Z   C++ build system [build] failed while executing:
+2026-11-14T02:11:17.3683742Z       /home/runner/android-sdk/ndk/25.2.9519653/ndk-build \
+2026-11-14T02:11:17.3684213Z         NDK_PROJECT_PATH=null \
+2026-11-14T02:11:17.3684693Z         APP_BUILD_SCRIPT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/Android.mk \
+2026-11-14T02:11:17.3685431Z         NDK_APPLICATION_MK=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/Application.mk \
+2026-11-14T02:11:17.3685947Z         APP_ABI=arm64-v8a \
+2026-11-14T02:11:17.3686189Z         NDK_ALL_ABIS=arm64-v8a \
+2026-11-14T02:11:17.3686529Z         NDK_DEBUG=0 \
+2026-11-14T02:11:17.3698758Z > Task :root-apk:processReleaseManifestForPackage
+2026-11-14T02:11:17.3731914Z         APP_PLATFORM=android-24 \
+2026-11-14T02:11:17.3790771Z         NDK_OUT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/obj \
+2026-11-14T02:11:17.3818479Z         NDK_LIBS_OUT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/lib \
+2026-11-14T02:11:17.3832944Z         -j4 \
+2026-11-14T02:11:17.3833232Z 15 actionable tasks: 15 executed
+2026-11-14T02:11:17.3835096Z         APP_CFLAGS=-DRAMA_ROOTINJECT \
+2026-11-14T02:11:17.3835550Z         RAMA_MODZ \
+2026-11-14T02:11:17.3839101Z         ramaroot
+2026-11-14T02:11:17.3848623Z     from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk
+2026-11-14T02:11:17.3854680Z   In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:19:
+2026-11-14T02:11:17.3860857Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/Stealth.h:185:41: error: use of undeclared identifier 'SYS_fstatat'
+2026-11-14T02:11:17.3862658Z       if (!orig_stat) return (int)syscall(SYS_fstatat, AT_FDCWD, path, st, 0);
+2026-11-14T02:11:17.3888927Z                                           ^
+2026-11-14T02:11:17.3889852Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/Stealth.h:190:42: error: use of undeclared identifier 'SYS_fstatat'
+2026-11-14T02:11:17.3890601Z       if (!orig_lstat) return (int)syscall(SYS_fstatat, AT_FDCWD, path, st, AT_SYMLINK_NOFOLLOW);
+2026-11-14T02:11:17.3890966Z                                            ^
+2026-11-14T02:11:17.3891409Z   In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.3892036Z   In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.3892728Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:40:24: error: redefinition of 'generate_key'
+2026-11-14T02:11:17.3893238Z       constexpr key_type generate_key(key_type seed)
+2026-11-14T02:11:17.3893521Z                          ^
+2026-11-14T02:11:17.3893983Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:40:24: note: previous definition is here
+2026-11-14T02:11:17.3894473Z       constexpr key_type generate_key(key_type seed)
+2026-11-14T02:11:17.3894750Z                          ^
+2026-11-14T02:11:17.3895167Z   In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.3895779Z   In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.3896438Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:57:20: error: redefinition of 'cipher'
+2026-11-14T02:11:17.3896951Z       constexpr void cipher(char* data, size_type size, key_type key)
+2026-11-14T02:11:17.3897253Z                      ^
+2026-11-14T02:11:17.3897921Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:57:20: note: previous definition is here
+2026-11-14T02:11:17.3898886Z       constexpr void cipher(char* data, size_type size, key_type key)
+2026-11-14T02:11:17.3899220Z                      ^
+2026-11-14T02:11:17.3899716Z   In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.3900417Z   In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.3900983Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:68:11: error: redefinition of 'obfuscator'
+2026-11-14T02:11:17.3901354Z       class obfuscator
+2026-11-14T02:11:17.3901480Z             ^
+2026-11-14T02:11:17.3901813Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:68:11: note: previous definition is here
+2026-11-14T02:11:17.3902185Z       class obfuscator
+2026-11-14T02:11:17.3902308Z             ^
+2026-11-14T02:11:17.3902604Z   In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.3903118Z   In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.3903837Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:107:11: error: redefinition of 'obfuscated_data'
+2026-11-14T02:11:17.3904224Z       class obfuscated_data
+2026-11-14T02:11:17.3904359Z             ^
+2026-11-14T02:11:17.3904688Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:107:11: note: previous definition is here
+2026-11-14T02:11:17.3905070Z       class obfuscated_data
+2026-11-14T02:11:17.3905203Z             ^
+2026-11-14T02:11:17.3905491Z   In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.3906003Z   In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.3906569Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:181:20: error: redefinition of 'make_obfuscator'
+2026-11-14T02:11:17.3906988Z       constexpr auto make_obfuscator(const char(&data)[N])
+2026-11-14T02:11:17.3907172Z                      ^
+2026-11-14T02:11:17.3907515Z   /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:181:20: note: previous definition is here
+2026-11-14T02:11:17.3907917Z       constexpr auto make_obfuscator(const char(&data)[N])
+2026-11-14T02:11:17.3908384Z                      ^
+2026-11-14T02:11:17.3908585Z   7 errors generated.
+2026-11-14T02:11:17.3909374Z   make: *** [/home/runner/android-sdk/ndk/25.2.9519653/build/core/build-binary.mk:424: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/obj/local/arm64-v8a/objs/RAMA_MODZ/Main.o] Error 1
+2026-11-14T02:11:17.3910179Z 
+2026-11-14T02:11:17.3910255Z * Try:
+2026-11-14T02:11:17.3910514Z > Run with --info or --debug option to get more log output.
+2026-11-14T02:11:17.3910860Z > Run with --scan to get full insights.
+2026-11-14T02:11:17.3911170Z > Get more help at https://help.gradle.org.
+2026-11-14T02:11:17.3911356Z 
+2026-11-14T02:11:17.3911444Z * Exception is:
+2026-11-14T02:11:17.3911914Z org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':root-apk:buildNdkBuildRelease[arm64-v8a]'.
+2026-11-14T02:11:17.3912836Z 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:148)
+2026-11-14T02:11:17.3913845Z 	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:282)
+2026-11-14T02:11:17.3914264Z 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:146)
+2026-11-14T02:11:17.3914800Z 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:134)
+2026-11-14T02:11:17.3915339Z 	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+2026-11-14T02:11:17.3915907Z 	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+2026-11-14T02:11:17.3916481Z 	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+2026-11-14T02:11:17.3917000Z 	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+2026-11-14T02:11:17.3917499Z 	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+2026-11-14T02:11:17.3918007Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+2026-11-14T02:11:17.3918954Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+2026-11-14T02:11:17.3919671Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+2026-11-14T02:11:17.3920633Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+2026-11-14T02:11:17.3921480Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+2026-11-14T02:11:17.3922010Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+2026-11-14T02:11:17.3922480Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+2026-11-14T02:11:17.3922959Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+2026-11-14T02:11:17.3923437Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+2026-11-14T02:11:17.3923906Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+2026-11-14T02:11:17.3924375Z 	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+2026-11-14T02:11:17.3924846Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+2026-11-14T02:11:17.3925283Z 	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+2026-11-14T02:11:17.3925757Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
+2026-11-14T02:11:17.3926316Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
+2026-11-14T02:11:17.3926909Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+2026-11-14T02:11:17.3927446Z 	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:80)
+2026-11-14T02:11:17.3927961Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+2026-11-14T02:11:17.3928990Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+2026-11-14T02:11:17.3929779Z 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
+2026-11-14T02:11:17.3930573Z 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
+2026-11-14T02:11:17.3931220Z 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+2026-11-14T02:11:17.3931877Z 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+2026-11-14T02:11:17.3932708Z Caused by: org.gradle.internal.UncheckedException: com.android.ide.common.process.ProcessException: [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_impl_android.cpp
+2026-11-14T02:11:17.3933394Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_impl_opengl3.cpp
+2026-11-14T02:11:17.3933735Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_tables.cpp
+2026-11-14T02:11:17.3934057Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_demo.cpp
+2026-11-14T02:11:17.3934364Z [arm64-v8a] Compile        : RAMA_MODZ <= xdl.c
+2026-11-14T02:11:17.3934692Z [arm64-v8a] Compile        : RAMA_MODZ <= xdl_iterate.c
+2026-11-14T02:11:17.3935016Z [arm64-v8a] Compile        : RAMA_MODZ <= xdl_linker.c
+2026-11-14T02:11:17.3935342Z [arm64-v8a] Compile        : RAMA_MODZ <= xdl_lzma.c
+2026-11-14T02:11:17.3935649Z [arm64-v8a] Compile        : RAMA_MODZ <= xdl_util.c
+2026-11-14T02:11:17.3935967Z [arm64-v8a] Compile++      : RAMA_MODZ <= KittyArm64.cpp
+2026-11-14T02:11:17.3936339Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_draw.cpp
+2026-11-14T02:11:17.3936673Z [arm64-v8a] Compile++      : RAMA_MODZ <= KittyMemory.cpp
+2026-11-14T02:11:17.3937190Z [arm64-v8a] Compile++      : RAMA_MODZ <= KittyScanner.cpp
+2026-11-14T02:11:17.3937541Z [arm64-v8a] Compile++      : RAMA_MODZ <= KittyUtils.cpp
+2026-11-14T02:11:17.3937891Z [arm64-v8a] Compile++      : RAMA_MODZ <= MemoryBackup.cpp
+2026-11-14T02:11:17.3939284Z [arm64-v8a] Compile++      : RAMA_MODZ <= MemoryPatch.cpp
+2026-11-14T02:11:17.3939647Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_widgets.cpp
+2026-11-14T02:11:17.3940001Z [arm64-v8a] Compile++      : RAMA_MODZ <= Il2Cpp.cpp
+2026-11-14T02:11:17.3940316Z [arm64-v8a] Compile++      : RAMA_MODZ <= And64InlineHook.cpp
+2026-11-14T02:11:17.3940601Z [arm64-v8a] Compile++      : ramaroot <= injector.cpp
+2026-11-14T02:11:17.3940803Z [arm64-v8a] Compile++      : ramaroot <= memory.cpp
+2026-11-14T02:11:17.3940998Z [arm64-v8a] SharedLibrary  : libramaroot.so
+2026-11-14T02:11:17.3941186Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui.cpp
+2026-11-14T02:11:17.3941382Z [arm64-v8a] Compile++      : RAMA_MODZ <= Main.cpp
+2026-11-14T02:11:17.3941507Z 
+2026-11-14T02:11:17.3941589Z C++ build system [build] failed while executing:
+2026-11-14T02:11:17.3941806Z     /home/runner/android-sdk/ndk/25.2.9519653/ndk-build \
+2026-11-14T02:11:17.3941997Z       NDK_PROJECT_PATH=null \
+2026-11-14T02:11:17.3942277Z       APP_BUILD_SCRIPT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/Android.mk \
+2026-11-14T02:11:17.3942705Z       NDK_APPLICATION_MK=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/Application.mk \
+2026-11-14T02:11:17.3943002Z       APP_ABI=arm64-v8a \
+2026-11-14T02:11:17.3943149Z       NDK_ALL_ABIS=arm64-v8a \
+2026-11-14T02:11:17.3943290Z       NDK_DEBUG=0 \
+2026-11-14T02:11:17.3943426Z       APP_PLATFORM=android-24 \
+2026-11-14T02:11:17.3943720Z       NDK_OUT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/obj \
+2026-11-14T02:11:17.3944172Z       NDK_LIBS_OUT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/lib \
+2026-11-14T02:11:17.3944504Z       -j4 \
+2026-11-14T02:11:17.3944638Z       APP_CFLAGS=-DRAMA_ROOTINJECT \
+2026-11-14T02:11:17.3944792Z       RAMA_MODZ \
+2026-11-14T02:11:17.3944911Z       ramaroot
+2026-11-14T02:11:17.3945088Z   from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk
+2026-11-14T02:11:17.3945466Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:19:
+2026-11-14T02:11:17.3946493Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/Stealth.h:185:41: error: use of undeclared identifier 'SYS_fstatat'
+2026-11-14T02:11:17.3946960Z     if (!orig_stat) return (int)syscall(SYS_fstatat, AT_FDCWD, path, st, 0);
+2026-11-14T02:11:17.3947181Z                                         ^
+2026-11-14T02:11:17.3947569Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/Stealth.h:190:42: error: use of undeclared identifier 'SYS_fstatat'
+2026-11-14T02:11:17.3948220Z     if (!orig_lstat) return (int)syscall(SYS_fstatat, AT_FDCWD, path, st, AT_SYMLINK_NOFOLLOW);
+2026-11-14T02:11:17.3948604Z                                          ^
+2026-11-14T02:11:17.3949116Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.3949950Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.3950890Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:40:24: error: redefinition of 'generate_key'
+2026-11-14T02:11:17.3951619Z     constexpr key_type generate_key(key_type seed)
+2026-11-14T02:11:17.3951932Z                        ^
+2026-11-14T02:11:17.3952513Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:40:24: note: previous definition is here
+2026-11-14T02:11:17.3953088Z     constexpr key_type generate_key(key_type seed)
+2026-11-14T02:11:17.3953259Z                        ^
+2026-11-14T02:11:17.3953562Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.3954077Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.3954633Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:57:20: error: redefinition of 'cipher'
+2026-11-14T02:11:17.3955048Z     constexpr void cipher(char* data, size_type size, key_type key)
+2026-11-14T02:11:17.3955246Z                    ^
+2026-11-14T02:11:17.3955591Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:57:20: note: previous definition is here
+2026-11-14T02:11:17.3956009Z     constexpr void cipher(char* data, size_type size, key_type key)
+2026-11-14T02:11:17.3956209Z                    ^
+2026-11-14T02:11:17.3956502Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.3957012Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.3957569Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:68:11: error: redefinition of 'obfuscator'
+2026-11-14T02:11:17.3957943Z     class obfuscator
+2026-11-14T02:11:17.3958219Z           ^
+2026-11-14T02:11:17.3958663Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:68:11: note: previous definition is here
+2026-11-14T02:11:17.3959038Z     class obfuscator
+2026-11-14T02:11:17.3959162Z           ^
+2026-11-14T02:11:17.3959450Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.3959981Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.3960640Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:107:11: error: redefinition of 'obfuscated_data'
+2026-11-14T02:11:17.3961020Z     class obfuscated_data
+2026-11-14T02:11:17.3961154Z           ^
+2026-11-14T02:11:17.3961482Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:107:11: note: previous definition is here
+2026-11-14T02:11:17.3961859Z     class obfuscated_data
+2026-11-14T02:11:17.3961987Z           ^
+2026-11-14T02:11:17.3962431Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.3963229Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.3964150Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:181:20: error: redefinition of 'make_obfuscator'
+2026-11-14T02:11:17.3964838Z     constexpr auto make_obfuscator(const char(&data)[N])
+2026-11-14T02:11:17.3965138Z                    ^
+2026-11-14T02:11:17.3965714Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:181:20: note: previous definition is here
+2026-11-14T02:11:17.3966426Z     constexpr auto make_obfuscator(const char(&data)[N])
+2026-11-14T02:11:17.3966721Z                    ^
+2026-11-14T02:11:17.3967116Z 7 errors generated.
+2026-11-14T02:11:17.3968000Z make: *** [/home/runner/android-sdk/ndk/25.2.9519653/build/core/build-binary.mk:424: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/obj/local/arm64-v8a/objs/RAMA_MODZ/Main.o] Error 1
+2026-11-14T02:11:17.3969432Z 	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:68)
+2026-11-14T02:11:17.3970186Z 	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:41)
+2026-11-14T02:11:17.3970793Z 	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:128)
+2026-11-14T02:11:17.3971436Z 	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.doExecute(StandardTaskAction.java:58)
+2026-11-14T02:11:17.3972214Z 	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
+2026-11-14T02:11:17.3972980Z 	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
+2026-11-14T02:11:17.3973672Z 	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:248)
+2026-11-14T02:11:17.3974395Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+2026-11-14T02:11:17.3975206Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
+2026-11-14T02:11:17.3976019Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+2026-11-14T02:11:17.3976808Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+2026-11-14T02:11:17.3977595Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+2026-11-14T02:11:17.3978539Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+2026-11-14T02:11:17.3979296Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
+2026-11-14T02:11:17.3980062Z 	at org.gradle.internal.operations.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:68)
+2026-11-14T02:11:17.3980803Z 	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:233)
+2026-11-14T02:11:17.3981519Z 	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:216)
+2026-11-14T02:11:17.3982190Z 	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:199)
+2026-11-14T02:11:17.3982637Z 	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:166)
+2026-11-14T02:11:17.3983020Z 	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:105)
+2026-11-14T02:11:17.3983389Z 	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:44)
+2026-11-14T02:11:17.3983761Z 	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:59)
+2026-11-14T02:11:17.3984089Z 	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:56)
+2026-11-14T02:11:17.3984553Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+2026-11-14T02:11:17.3985142Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+2026-11-14T02:11:17.3985674Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+2026-11-14T02:11:17.3986142Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+2026-11-14T02:11:17.3986613Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+2026-11-14T02:11:17.3987085Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+2026-11-14T02:11:17.3987695Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+2026-11-14T02:11:17.3988353Z 	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+2026-11-14T02:11:17.3988765Z 	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:56)
+2026-11-14T02:11:17.3989105Z 	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:44)
+2026-11-14T02:11:17.3989507Z 	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:67)
+2026-11-14T02:11:17.3989983Z 	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:37)
+2026-11-14T02:11:17.3990495Z 	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:41)
+2026-11-14T02:11:17.3990911Z 	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:74)
+2026-11-14T02:11:17.3991289Z 	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+2026-11-14T02:11:17.3991657Z 	at org.gradle.internal.execution.steps.CreateOutputsStep.execute(CreateOutputsStep.java:50)
+2026-11-14T02:11:17.3992057Z 	at org.gradle.internal.execution.steps.CreateOutputsStep.execute(CreateOutputsStep.java:28)
+2026-11-14T02:11:17.3992606Z 	at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.executeDelegateBroadcastingChanges(CaptureStateAfterExecutionStep.java:100)
+2026-11-14T02:11:17.3993230Z 	at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.execute(CaptureStateAfterExecutionStep.java:72)
+2026-11-14T02:11:17.3993767Z 	at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.execute(CaptureStateAfterExecutionStep.java:50)
+2026-11-14T02:11:17.3994268Z 	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:40)
+2026-11-14T02:11:17.3994735Z 	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:29)
+2026-11-14T02:11:17.3995193Z 	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:179)
+2026-11-14T02:11:17.3995609Z 	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:70)
+2026-11-14T02:11:17.3995931Z 	at org.gradle.internal.Either$Right.fold(Either.java:175)
+2026-11-14T02:11:17.3996317Z 	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:59)
+2026-11-14T02:11:17.3996668Z 	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:68)
+2026-11-14T02:11:17.3997034Z 	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:46)
+2026-11-14T02:11:17.3997443Z 	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:36)
+2026-11-14T02:11:17.3997893Z 	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:25)
+2026-11-14T02:11:17.3998638Z 	at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:36)
+2026-11-14T02:11:17.3999028Z 	at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:22)
+2026-11-14T02:11:17.3999438Z 	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:91)
+2026-11-14T02:11:17.3999865Z 	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:55)
+2026-11-14T02:11:17.4000276Z 	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:55)
+2026-11-14T02:11:17.4000671Z 	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:37)
+2026-11-14T02:11:17.4001071Z 	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:65)
+2026-11-14T02:11:17.4001475Z 	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:36)
+2026-11-14T02:11:17.4002086Z 	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+2026-11-14T02:11:17.4002697Z 	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+2026-11-14T02:11:17.4003228Z 	at org.gradle.internal.execution.steps.ResolveCachingStateStep.execute(ResolveCachingStateStep.java:76)
+2026-11-14T02:11:17.4003695Z 	at org.gradle.internal.execution.steps.ResolveCachingStateStep.execute(ResolveCachingStateStep.java:37)
+2026-11-14T02:11:17.4004099Z 	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:108)
+2026-11-14T02:11:17.4004450Z 	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:55)
+2026-11-14T02:11:17.4004900Z 	at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:71)
+2026-11-14T02:11:17.4005438Z 	at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:45)
+2026-11-14T02:11:17.4005965Z 	at org.gradle.internal.execution.steps.SkipEmptyWorkStep.executeWithNonEmptySources(SkipEmptyWorkStep.java:177)
+2026-11-14T02:11:17.4006419Z 	at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:81)
+2026-11-14T02:11:17.4006822Z 	at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:53)
+2026-11-14T02:11:17.4007299Z 	at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:32)
+2026-11-14T02:11:17.4007860Z 	at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:21)
+2026-11-14T02:11:17.4008561Z 	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+2026-11-14T02:11:17.4009130Z 	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+2026-11-14T02:11:17.4009667Z 	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+2026-11-14T02:11:17.4010164Z 	at org.gradle.internal.execution.steps.CleanupStaleOutputsStep.execute(CleanupStaleOutputsStep.java:75)
+2026-11-14T02:11:17.4010616Z 	at org.gradle.internal.execution.steps.CleanupStaleOutputsStep.execute(CleanupStaleOutputsStep.java:41)
+2026-11-14T02:11:17.4011256Z 	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:66)
+2026-11-14T02:11:17.4011863Z 	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:66)
+2026-11-14T02:11:17.4012448Z 	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:38)
+2026-11-14T02:11:17.4012967Z 	at org.gradle.internal.execution.steps.AssignWorkspaceStep.lambda$execute$0(AssignWorkspaceStep.java:32)
+2026-11-14T02:11:17.4013402Z 	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:293)
+2026-11-14T02:11:17.4013810Z 	at org.gradle.internal.execution.steps.AssignWorkspaceStep.execute(AssignWorkspaceStep.java:30)
+2026-11-14T02:11:17.4014223Z 	at org.gradle.internal.execution.steps.AssignWorkspaceStep.execute(AssignWorkspaceStep.java:21)
+2026-11-14T02:11:17.4014627Z 	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:37)
+2026-11-14T02:11:17.4015022Z 	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:27)
+2026-11-14T02:11:17.4015393Z 	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:47)
+2026-11-14T02:11:17.4015742Z 	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34)
+2026-11-14T02:11:17.4016140Z 	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
+2026-11-14T02:11:17.4016725Z 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
+2026-11-14T02:11:17.4017259Z 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:134)
+2026-11-14T02:11:17.4017786Z 	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+2026-11-14T02:11:17.4018462Z 	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+2026-11-14T02:11:17.4019013Z 	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+2026-11-14T02:11:17.4019513Z 	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+2026-11-14T02:11:17.4020007Z 	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+2026-11-14T02:11:17.4020499Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+2026-11-14T02:11:17.4020966Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+2026-11-14T02:11:17.4021424Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+2026-11-14T02:11:17.4021940Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+2026-11-14T02:11:17.4022529Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+2026-11-14T02:11:17.4023060Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+2026-11-14T02:11:17.4023518Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+2026-11-14T02:11:17.4023986Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+2026-11-14T02:11:17.4024460Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+2026-11-14T02:11:17.4024927Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+2026-11-14T02:11:17.4025558Z 	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+2026-11-14T02:11:17.4026033Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+2026-11-14T02:11:17.4026464Z 	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+2026-11-14T02:11:17.4026930Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
+2026-11-14T02:11:17.4027482Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
+2026-11-14T02:11:17.4028220Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+2026-11-14T02:11:17.4028749Z 	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:80)
+2026-11-14T02:11:17.4029268Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+2026-11-14T02:11:17.4029866Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+2026-11-14T02:11:17.4030374Z 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
+2026-11-14T02:11:17.4030781Z 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
+2026-11-14T02:11:17.4031297Z 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+2026-11-14T02:11:17.4031719Z 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+2026-11-14T02:11:17.4032173Z Caused by: com.android.ide.common.process.ProcessException: [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_impl_android.cpp
+2026-11-14T02:11:17.4032546Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_impl_opengl3.cpp
+2026-11-14T02:11:17.4032772Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_tables.cpp
+2026-11-14T02:11:17.4032991Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_demo.cpp
+2026-11-14T02:11:17.4033193Z [arm64-v8a] Compile        : RAMA_MODZ <= xdl.c
+2026-11-14T02:11:17.4033392Z [arm64-v8a] Compile        : RAMA_MODZ <= xdl_iterate.c
+2026-11-14T02:11:17.4033597Z [arm64-v8a] Compile        : RAMA_MODZ <= xdl_linker.c
+2026-11-14T02:11:17.4033793Z [arm64-v8a] Compile        : RAMA_MODZ <= xdl_lzma.c
+2026-11-14T02:11:17.4033991Z [arm64-v8a] Compile        : RAMA_MODZ <= xdl_util.c
+2026-11-14T02:11:17.4034193Z [arm64-v8a] Compile++      : RAMA_MODZ <= KittyArm64.cpp
+2026-11-14T02:11:17.4034408Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_draw.cpp
+2026-11-14T02:11:17.4034616Z [arm64-v8a] Compile++      : RAMA_MODZ <= KittyMemory.cpp
+2026-11-14T02:11:17.4034830Z [arm64-v8a] Compile++      : RAMA_MODZ <= KittyScanner.cpp
+2026-11-14T02:11:17.4035046Z [arm64-v8a] Compile++      : RAMA_MODZ <= KittyUtils.cpp
+2026-11-14T02:11:17.4035255Z [arm64-v8a] Compile++      : RAMA_MODZ <= MemoryBackup.cpp
+2026-11-14T02:11:17.4035472Z [arm64-v8a] Compile++      : RAMA_MODZ <= MemoryPatch.cpp
+2026-11-14T02:11:17.4035690Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui_widgets.cpp
+2026-11-14T02:11:17.4035897Z [arm64-v8a] Compile++      : RAMA_MODZ <= Il2Cpp.cpp
+2026-11-14T02:11:17.4036108Z [arm64-v8a] Compile++      : RAMA_MODZ <= And64InlineHook.cpp
+2026-11-14T02:11:17.4036329Z [arm64-v8a] Compile++      : ramaroot <= injector.cpp
+2026-11-14T02:11:17.4036531Z [arm64-v8a] Compile++      : ramaroot <= memory.cpp
+2026-11-14T02:11:17.4036721Z [arm64-v8a] SharedLibrary  : libramaroot.so
+2026-11-14T02:11:17.4036909Z [arm64-v8a] Compile++      : RAMA_MODZ <= imgui.cpp
+2026-11-14T02:11:17.4037100Z [arm64-v8a] Compile++      : RAMA_MODZ <= Main.cpp
+2026-11-14T02:11:17.4037225Z 
+2026-11-14T02:11:17.4037300Z C++ build system [build] failed while executing:
+2026-11-14T02:11:17.4037600Z     /home/runner/android-sdk/ndk/25.2.9519653/ndk-build \
+2026-11-14T02:11:17.4037784Z       NDK_PROJECT_PATH=null \
+2026-11-14T02:11:17.4038178Z       APP_BUILD_SCRIPT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/Android.mk \
+2026-11-14T02:11:17.4038598Z       NDK_APPLICATION_MK=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/Application.mk \
+2026-11-14T02:11:17.4038893Z       APP_ABI=arm64-v8a \
+2026-11-14T02:11:17.4039040Z       NDK_ALL_ABIS=arm64-v8a \
+2026-11-14T02:11:17.4039182Z       NDK_DEBUG=0 \
+2026-11-14T02:11:17.4039318Z       APP_PLATFORM=android-24 \
+2026-11-14T02:11:17.4039612Z       NDK_OUT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/obj \
+2026-11-14T02:11:17.4040055Z       NDK_LIBS_OUT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/lib \
+2026-11-14T02:11:17.4040364Z       -j4 \
+2026-11-14T02:11:17.4040499Z       APP_CFLAGS=-DRAMA_ROOTINJECT \
+2026-11-14T02:11:17.4040654Z       RAMA_MODZ \
+2026-11-14T02:11:17.4040776Z       ramaroot
+2026-11-14T02:11:17.4040954Z   from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk
+2026-11-14T02:11:17.4041332Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:19:
+2026-11-14T02:11:17.4041904Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/Stealth.h:185:41: error: use of undeclared identifier 'SYS_fstatat'
+2026-11-14T02:11:17.4042453Z     if (!orig_stat) return (int)syscall(SYS_fstatat, AT_FDCWD, path, st, 0);
+2026-11-14T02:11:17.4042670Z                                         ^
+2026-11-14T02:11:17.4043062Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/Stealth.h:190:42: error: use of undeclared identifier 'SYS_fstatat'
+2026-11-14T02:11:17.4043543Z     if (!orig_lstat) return (int)syscall(SYS_fstatat, AT_FDCWD, path, st, AT_SYMLINK_NOFOLLOW);
+2026-11-14T02:11:17.4043793Z                                          ^
+2026-11-14T02:11:17.4044115Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.4044624Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.4045188Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:40:24: error: redefinition of 'generate_key'
+2026-11-14T02:11:17.4045596Z     constexpr key_type generate_key(key_type seed)
+2026-11-14T02:11:17.4045771Z                        ^
+2026-11-14T02:11:17.4046114Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:40:24: note: previous definition is here
+2026-11-14T02:11:17.4046506Z     constexpr key_type generate_key(key_type seed)
+2026-11-14T02:11:17.4046677Z                        ^
+2026-11-14T02:11:17.4046976Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.4047552Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.4048214Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:57:20: error: redefinition of 'cipher'
+2026-11-14T02:11:17.4048634Z     constexpr void cipher(char* data, size_type size, key_type key)
+2026-11-14T02:11:17.4048836Z                    ^
+2026-11-14T02:11:17.4049169Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:57:20: note: previous definition is here
+2026-11-14T02:11:17.4049681Z     constexpr void cipher(char* data, size_type size, key_type key)
+2026-11-14T02:11:17.4049879Z                    ^
+2026-11-14T02:11:17.4050173Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.4050683Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.4051237Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:68:11: error: redefinition of 'obfuscator'
+2026-11-14T02:11:17.4051608Z     class obfuscator
+2026-11-14T02:11:17.4051732Z           ^
+2026-11-14T02:11:17.4052057Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:68:11: note: previous definition is here
+2026-11-14T02:11:17.4052421Z     class obfuscator
+2026-11-14T02:11:17.4052551Z           ^
+2026-11-14T02:11:17.4052836Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.4053344Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.4053909Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:107:11: error: redefinition of 'obfuscated_data'
+2026-11-14T02:11:17.4054388Z     class obfuscated_data
+2026-11-14T02:11:17.4054520Z           ^
+2026-11-14T02:11:17.4054845Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:107:11: note: previous definition is here
+2026-11-14T02:11:17.4055217Z     class obfuscated_data
+2026-11-14T02:11:17.4055348Z           ^
+2026-11-14T02:11:17.4055634Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Main.cpp:20:
+2026-11-14T02:11:17.4056148Z In file included from /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/HookTable.h:4:
+2026-11-14T02:11:17.4056712Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:181:20: error: redefinition of 'make_obfuscator'
+2026-11-14T02:11:17.4057190Z     constexpr auto make_obfuscator(const char(&data)[N])
+2026-11-14T02:11:17.4057374Z                    ^
+2026-11-14T02:11:17.4057708Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/../../../../app/src/main/jni/Struct/obfuscate.h:181:20: note: previous definition is here
+2026-11-14T02:11:17.4058217Z     constexpr auto make_obfuscator(const char(&data)[N])
+2026-11-14T02:11:17.4058397Z                    ^
+2026-11-14T02:11:17.4058522Z 7 errors generated.
+2026-11-14T02:11:17.4059012Z make: *** [/home/runner/android-sdk/ndk/25.2.9519653/build/core/build-binary.mk:424: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/obj/local/arm64-v8a/objs/RAMA_MODZ/Main.o] Error 1
+2026-11-14T02:11:17.4059671Z 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.execute(ExecuteProcess.kt:288)
+2026-11-14T02:11:17.4060122Z 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt$executeProcess$1.invoke(ExecuteProcess.kt:108)
+2026-11-14T02:11:17.4060589Z 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt$executeProcess$1.invoke(ExecuteProcess.kt:106)
+2026-11-14T02:11:17.4061040Z 	at com.android.build.gradle.internal.cxx.timing.TimingEnvironmentKt.time(TimingEnvironment.kt:32)
+2026-11-14T02:11:17.4061486Z 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.executeProcess(ExecuteProcess.kt:106)
+2026-11-14T02:11:17.4061957Z 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.executeProcess$default(ExecuteProcess.kt:85)
+2026-11-14T02:11:17.4062549Z 	at com.android.build.gradle.internal.cxx.build.CxxRegularBuilder.executeProcessBatch(CxxRegularBuilder.kt:332)
+2026-11-14T02:11:17.4063007Z 	at com.android.build.gradle.internal.cxx.build.CxxRegularBuilder.build(CxxRegularBuilder.kt:129)
+2026-11-14T02:11:17.4063468Z 	at com.android.build.gradle.tasks.ExternalNativeBuildTask$doTaskAction$$inlined$recordTaskAction$1.invoke(BaseTask.kt:70)
+2026-11-14T02:11:17.4063880Z 	at com.android.build.gradle.internal.tasks.Blocks.recordSpan(Blocks.java:51)
+2026-11-14T02:11:17.4064270Z 	at com.android.build.gradle.tasks.ExternalNativeBuildTask.doTaskAction(ExternalNativeBuildTask.kt:145)
+2026-11-14T02:11:17.4064747Z 	at com.android.build.gradle.internal.tasks.UnsafeOutputsTask$taskAction$$inlined$recordTaskAction$1.invoke(BaseTask.kt:65)
+2026-11-14T02:11:17.4065157Z 	at com.android.build.gradle.internal.tasks.Blocks.recordSpan(Blocks.java:51)
+2026-11-14T02:11:17.4065531Z 	at com.android.build.gradle.internal.tasks.UnsafeOutputsTask.taskAction(UnsafeOutputsTask.kt:63)
+2026-11-14T02:11:17.4065913Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2026-11-14T02:11:17.4066298Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+2026-11-14T02:11:17.4066740Z 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+2026-11-14T02:11:17.4067126Z 	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
+2026-11-14T02:11:17.4067342Z 	... 118 more
+2026-11-14T02:11:17.4069006Z Caused by: com.android.ide.common.process.ProcessException: Error while executing process /home/runner/android-sdk/ndk/25.2.9519653/ndk-build with arguments {NDK_PROJECT_PATH=null APP_BUILD_SCRIPT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/Android.mk NDK_APPLICATION_MK=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jni/Application.mk APP_ABI=arm64-v8a NDK_ALL_ABIS=arm64-v8a NDK_DEBUG=0 APP_PLATFORM=android-24 NDK_OUT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/obj NDK_LIBS_OUT=/home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/build/intermediates/cxx/Release/1tr2np5f/lib -j4 APP_CFLAGS=-DRAMA_ROOTINJECT RAMA_MODZ ramaroot}
+2026-11-14T02:11:17.4070667Z 	at com.android.build.gradle.internal.process.GradleProcessResult.buildProcessException(GradleProcessResult.java:73)
+2026-11-14T02:11:17.4071193Z 	at com.android.build.gradle.internal.process.GradleProcessResult.assertNormalExitValue(GradleProcessResult.java:48)
+2026-11-14T02:11:17.4071673Z 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.execute(ExecuteProcess.kt:277)
+2026-11-14T02:11:17.4071958Z 	... 135 more
+2026-11-14T02:11:17.4072305Z Caused by: org.gradle.process.internal.ExecException: Process 'command '/home/runner/android-sdk/ndk/25.2.9519653/ndk-build'' finished with non-zero exit value 2
+2026-11-14T02:11:17.4072843Z 	at org.gradle.process.internal.DefaultExecHandle$ExecResultImpl.assertNormalExitValue(DefaultExecHandle.java:431)
+2026-11-14T02:11:17.4073350Z 	at com.android.build.gradle.internal.process.GradleProcessResult.assertNormalExitValue(GradleProcessResult.java:46)
+2026-11-14T02:11:17.4073684Z 	... 136 more
+2026-11-14T02:11:17.4073754Z 
+2026-11-14T02:11:17.4073757Z 
+2026-11-14T02:11:17.4073812Z BUILD FAILED in 11s
+2026-11-14T02:11:17.7116562Z ##[error]Process completed with exit code 1.
