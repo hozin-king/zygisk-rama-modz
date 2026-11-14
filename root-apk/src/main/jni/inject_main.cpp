@@ -33,6 +33,7 @@ static void setup_call(regs_t &r, uintptr_t fn, uintptr_t a0, uintptr_t a1, uint
 }
 static uintptr_t retval(const regs_t &r) { return r.regs[0]; }
 static uintptr_t curpc(const regs_t &r) { return r.pc; }
+static uintptr_t stack_ptr(const regs_t &r) { return r.sp; }
 #elif defined(__arm__)
 struct rama_arm_regs { unsigned long uregs[18]; };  // layout 72 byte, tidak bergantung sys/user.h
 typedef struct rama_arm_regs regs_t;
@@ -46,6 +47,7 @@ static void setup_call(regs_t &r, uintptr_t fn, uintptr_t a0, uintptr_t a1, uint
 }
 static uintptr_t retval(const regs_t &r) { return r.uregs[0]; }
 static uintptr_t curpc(const regs_t &r) { return r.uregs[15]; }
+static uintptr_t stack_ptr(const regs_t &r) { return r.uregs[13]; }
 #else
 #error "arsitektur tidak didukung"
 #endif
@@ -105,7 +107,7 @@ static bool do_inject(pid_t pid, const char *lib, uintptr_t caller) {
     if (!fn) { printf("INJECT_FAIL resolve dlopen di target\n"); goto restore; }
     {
         work = saved;
-        uintptr_t str = (saved.sp - 0x1000) & ~15ULL;
+        uintptr_t str = (stack_ptr(saved) - 0x1000) & ~15ULL;
         char buf[512];
         snprintf(buf, sizeof buf, "%s", lib);
         if (!mem_write(pid, str, buf, strlen(buf) + 1)) {
