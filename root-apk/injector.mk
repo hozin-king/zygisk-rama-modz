@@ -4,7 +4,7 @@ LOCAL_PATH := $(call my-dir)/src/main/jni
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := rama_inject
-LOCAL_MODULE_FILENAME := librama_inject.so   # dinamai lib*.so agar diekstrak PackageManager ke nativeLibraryDir
+LOCAL_MODULE_FILENAME := librama_inject      # TANPA ekstensi (assert NDK build-executable); di-rename .so sesudah build
 LOCAL_SRC_FILES := inject_main.cpp memory.cpp
 LOCAL_LDLIBS := -llog
 LOCAL_CPPFLAGS := -std=c++17 -O2 -Wall

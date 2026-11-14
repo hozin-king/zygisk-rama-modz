@@ -11,4 +11,7 @@ NDK="${ANDROID_NDK_HOME:-${ANDROID_HOME:-$HOME/android-sdk}/ndk/25.2.9519653}"
   NDK_LIBS_OUT="$PWD/root-apk/src/main/jniLibs" \
   NDK_OUT="$PWD/build/injector-obj" \
   -j4
+for f in root-apk/src/main/jniLibs/*/librama_inject; do
+  if [ -f "$f" ]; then mv "$f" "$f.so"; fi
+done
 find root-apk/src/main/jniLibs -type f -exec ls -la {} \;
