@@ -9,9 +9,7 @@ public class RootHelper {
     private static DataOutputStream out;
     private static BufferedReader in;
 
-    static {
-        System.loadLibrary("ramaroot");
-    }
+    static { System.loadLibrary("ramaroot"); }
 
     public static native String nativeAttachStatus(String pkg);
     public static native boolean nativeAttach(int pid);
@@ -25,31 +23,36 @@ public class RootHelper {
             su = Runtime.getRuntime().exec("su");
             out = new DataOutputStream(su.getOutputStream());
             in = new BufferedReader(new InputStreamReader(su.getInputStream()));
-            out.writeBytes("id\n");
-            out.flush();
+            out.writeBytes("id\n"); out.flush();
             String line = in.readLine();
             return line != null && line.contains("uid=0");
-        } catch (Exception e) {
-            return false;
-        }
+        } catch (Exception e) { return false; }
     }
 
     public static String exec(String cmd) {
         try {
-            out.writeBytes(cmd + "\n");
-            out.flush();
+            out.writeBytes(cmd + "\n"); out.flush();
             Thread.sleep(50);
             StringBuilder sb = new StringBuilder();
             while (in.ready()) sb.append(in.readLine()).append('\n');
             return sb.toString().trim();
-        } catch (Exception e) {
-            return "";
-        }
+        } catch (Exception e) { return ""; }
     }
 
-    // ==================== Root injector flow ====================
-    // Salin payload ke /data/local/tmp + label SELinux agar bisa dibaca+dieksekusi game,
-    // lalu jalankan injector ptrace (executable librama_inject.so) sebagai root.
+    public static int findPidRoot(String pkg) {
+        String out = exec("pidof " + pkg);
+        java.util.StringTokenizer st = new java.util.StringTokenizer(out == null ? "" : out);
+        while (st.hasMoreTokens()) { try { return Integer.parseInt(st.nextToken()); } catch (Exception e) {} }
+        return -1;
+    }
+
+    public static void launch(String pkg) { exec("monkey -p " + pkg + " -c android.intent.category.LAUNCHER 1"); }
+
+    public static boolean mapsHas(int pid, String name) {
+        String out = exec("cat /proc/" + pid + "/maps | grep -c " + name);
+        try { return Integer.parseInt(out.trim()) > 0; } catch (Exception e) { return false; }
+    }
+
     public static String injectSo(android.content.Context ctx, String pkg) {
         try {
             int pid = findPidRoot(pkg);
@@ -62,32 +65,17 @@ public class RootHelper {
             exec("rm -f " + log);
             exec("cp " + payload + " " + tmp);
             exec("chmod 755 " + tmp);
-            // Label apk_data_file: untrusted_app (game) boleh read+execute. Tanpa ini dlopen EACCES.
             exec("chcon u:object_r:apk_data_file:s0 " + tmp);
             exec("( " + inj + " " + pid + " " + tmp + " > " + log + " 2>&1; echo DONE_$? >> " + log + " ) &");
             for (int i = 0; i < 60; i++) {
                 Thread.sleep(500);
-                String out = exec("cat " + log);
-                if (out.contains("DONE_")) return out;
+                String o = exec("cat " + log);
+                if (o.contains("DONE_")) return o;
             }
             return "timeout inject; log:\n" + exec("cat " + log);
-        } catch (Exception e) {
-            return "inject error: " + e;
-        }
+        } catch (Exception e) { return "inject error: " + e; }
     }
 
-    // ==== penanganan game ala trafficrider-mod (semua via root) ====
-    public static int findPidRoot(String pkg) {
-        String out = exec("pidof " + pkg);
-        java.util.regex.Matcher m = java.util.regex.Pattern.compile("\\d+").matcher(out == null ? "" : out);
-        if (m.find()) { try { return Integer.parseInt(m.group()); } catch (Exception e) {} }
-        return -1;
-    }
-    public static void launch(String pkg) { exec("monkey -p " + pkg + " -c android.intent.category.LAUNCHER 1"); }
-    public static boolean mapsHas(int pid, String name) {
-        String out = exec("cat /proc/" + pid + "/maps | grep -c " + name);
-        try { return Integer.parseInt(out.trim()) > 0; } catch (Exception e) { return false; }
-    }
     public static String autoInject(android.content.Context ctx, String pkg) {
         if (findPidRoot(pkg) <= 0) launch(pkg);
         String last = "";
@@ -102,12 +90,16 @@ public class RootHelper {
         launch(pkg);
         return last.isEmpty() ? "game tidak siap (lobby?)" : last;
     }
+
     public static String dumpAC(android.content.Context ctx, int pid) {
         String inj = ctx.getApplicationInfo().nativeLibraryDir + "/librama_inject.so";
         exec("mkdir -p /data/local/tmp/rama_dump");
         exec("( " + inj + " dump " + pid + " /data/local/tmp/rama_dump > /data/local/tmp/rama_dump.log 2>&1; echo DONE_$? >> /data/local/tmp/rama_dump.log ) &");
-        for (int i = 0; i < 40; i++) { try { Thread.sleep(500); } catch (InterruptedException e) { break; }
-            String o = exec("cat /data/local/tmp/rama_dump.log"); if (o.contains("DONE_")) return o; }
+        for (int i = 0; i < 40; i++) {
+            try { Thread.sleep(500); } catch (InterruptedException e) { break; }
+            String o = exec("cat /data/local/tmp/rama_dump.log");
+            if (o.contains("DONE_")) return o;
+        }
         return "timeout dump";
     }
 }
