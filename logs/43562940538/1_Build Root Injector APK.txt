@@ -1,0 +1,717 @@
+﻿2026-11-14T05:44:04.3821831Z Current runner version: '2.338.2'
+2026-11-14T05:44:04.3847673Z ##[group]Runner Image Provisioner
+2026-11-14T05:44:04.3849014Z Hosted Compute Agent
+2026-11-14T05:44:04.3849937Z Version: 20261103.629
+2026-11-14T05:44:04.3850641Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-14T05:44:04.3851475Z Build Date: 2026-11-03T17:26:59Z
+2026-11-14T05:44:04.3852174Z Worker ID: {a6a22ef9-aca1-4097-aad6-fa6072fb82ee}
+2026-11-14T05:44:04.3852956Z Region: eastus2
+2026-11-14T05:44:04.3853524Z Cloud: Azure
+2026-11-14T05:44:04.3854057Z ##[endgroup]
+2026-11-14T05:44:04.3855933Z ##[group]Operating System
+2026-11-14T05:44:04.3856582Z Ubuntu
+2026-11-14T05:44:04.3857130Z 26.04.1
+2026-11-14T05:44:04.3857707Z LTS
+2026-11-14T05:44:04.3858219Z ##[endgroup]
+2026-11-14T05:44:04.3858798Z ##[group]Runner Image
+2026-11-14T05:44:04.3859456Z Image: ubuntu-26.04
+2026-11-14T05:44:04.3860040Z Version: 20261111.196.1
+2026-11-14T05:44:04.3861355Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261111.196/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-14T05:44:04.3863368Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261111.196
+2026-11-14T05:44:04.3864385Z ##[endgroup]
+2026-11-14T05:44:04.3865884Z ##[group]GITHUB_TOKEN Permissions
+2026-11-14T05:44:04.3868089Z Contents: write
+2026-11-14T05:44:04.3868763Z Metadata: read
+2026-11-14T05:44:04.3869495Z ##[endgroup]
+2026-11-14T05:44:04.3872140Z Secret source: Actions
+2026-11-14T05:44:04.3873251Z Cache mode: write
+2026-11-14T05:44:04.3874302Z Prepare workflow directory
+2026-11-14T05:44:04.4204855Z Prepare all required actions
+2026-11-14T05:44:04.4251869Z Getting action download info
+2026-11-14T05:44:04.6298111Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-14T05:44:04.7378785Z Download action repository 'actions/setup-java@v4' (SHA:cf277c60eb25467037889841efdb72551f06f6c3)
+2026-11-14T05:44:04.9537353Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-14T05:44:05.1424843Z Complete job name: Build Root Injector APK
+2026-11-14T05:44:05.2292884Z ##[group]Run actions/checkout@v4
+2026-11-14T05:44:05.2293813Z with:
+2026-11-14T05:44:05.2294277Z   repository: hozin-king/zygisk-rama-modz
+2026-11-14T05:44:05.2298031Z   token: ***
+2026-11-14T05:44:05.2298473Z   ssh-strict: true
+2026-11-14T05:44:05.2298905Z   ssh-user: git
+2026-11-14T05:44:05.2299342Z   persist-credentials: true
+2026-11-14T05:44:05.2299830Z   clean: true
+2026-11-14T05:44:05.2300270Z   sparse-checkout-cone-mode: true
+2026-11-14T05:44:05.2300787Z   fetch-depth: 1
+2026-11-14T05:44:05.2301210Z   fetch-tags: false
+2026-11-14T05:44:05.2301650Z   show-progress: true
+2026-11-14T05:44:05.2302094Z   lfs: false
+2026-11-14T05:44:05.2302497Z   submodules: false
+2026-11-14T05:44:05.2302940Z   set-safe-directory: true
+2026-11-14T05:44:05.2303453Z   allow-unsafe-pr-checkout: false
+2026-11-14T05:44:05.2304216Z ##[endgroup]
+2026-11-14T05:44:05.5172110Z Syncing repository: hozin-king/zygisk-rama-modz
+2026-11-14T05:44:05.5174266Z ##[group]Getting Git version info
+2026-11-14T05:44:05.5175409Z Working directory is '/home/runner/work/zygisk-rama-modz/zygisk-rama-modz'
+2026-11-14T05:44:05.5177341Z [command]/usr/bin/git version
+2026-11-14T05:44:05.5187669Z git version 2.56.1
+2026-11-14T05:44:05.5217203Z ##[endgroup]
+2026-11-14T05:44:05.5225543Z Temporarily overriding HOME='/home/runner/work/_temp/0219e3de-d872-459e-a4cd-d689cdb6fc8d' before making global git config changes
+2026-11-14T05:44:05.5227940Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-14T05:44:05.5230985Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/zygisk-rama-modz/zygisk-rama-modz
+2026-11-14T05:44:05.5324002Z Deleting the contents of '/home/runner/work/zygisk-rama-modz/zygisk-rama-modz'
+2026-11-14T05:44:05.5338960Z ##[group]Initializing the repository
+2026-11-14T05:44:05.5344464Z [command]/usr/bin/git init /home/runner/work/zygisk-rama-modz/zygisk-rama-modz
+2026-11-14T05:44:05.5467829Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-14T05:44:05.5471047Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-14T05:44:05.5473039Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-14T05:44:05.5474625Z hint: call:
+2026-11-14T05:44:05.5475941Z hint:
+2026-11-14T05:44:05.5476878Z hint: 	git config --global init.defaultBranch <name>
+2026-11-14T05:44:05.5477531Z hint:
+2026-11-14T05:44:05.5478427Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-14T05:44:05.5479478Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-14T05:44:05.5480216Z hint:
+2026-11-14T05:44:05.5480633Z hint: 	git branch -m <name>
+2026-11-14T05:44:05.5481135Z hint:
+2026-11-14T05:44:05.5482427Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-14T05:44:05.5484567Z Initialized empty Git repository in /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/.git/
+2026-11-14T05:44:05.5496438Z [command]/usr/bin/git remote add origin https://github.com/hozin-king/zygisk-rama-modz
+2026-11-14T05:44:05.5549576Z ##[endgroup]
+2026-11-14T05:44:05.5550662Z ##[group]Disabling automatic garbage collection
+2026-11-14T05:44:05.5553077Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-14T05:44:05.5588463Z ##[endgroup]
+2026-11-14T05:44:05.5589240Z ##[group]Setting up auth
+2026-11-14T05:44:05.5596546Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-14T05:44:05.5631085Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-14T05:44:05.6101880Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-14T05:44:05.6140497Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-14T05:44:05.6413679Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-14T05:44:05.6448542Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-14T05:44:05.6712487Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-14T05:44:05.6752277Z ##[endgroup]
+2026-11-14T05:44:05.6761394Z ##[group]Fetching the repository
+2026-11-14T05:44:05.6762934Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +ca4a09f4b3a8701a61b0a743e6913ff8308c5b51:refs/remotes/origin/main
+2026-11-14T05:44:07.4338101Z From https://github.com/hozin-king/zygisk-rama-modz
+2026-11-14T05:44:07.4341496Z  * [new ref]         ca4a09f4b3a8701a61b0a743e6913ff8308c5b51 -> origin/main
+2026-11-14T05:44:07.4344607Z ##[endgroup]
+2026-11-14T05:44:07.4346083Z ##[group]Determining the checkout info
+2026-11-14T05:44:07.4347687Z ##[endgroup]
+2026-11-14T05:44:07.4353424Z [command]/usr/bin/git sparse-checkout disable
+2026-11-14T05:44:07.4407387Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-14T05:44:07.4448148Z ##[group]Checking out the ref
+2026-11-14T05:44:07.4449564Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-11-14T05:44:07.5636012Z Switched to a new branch 'main'
+2026-11-14T05:44:07.5640892Z branch 'main' set up to track 'origin/main'.
+2026-11-14T05:44:07.5653154Z ##[endgroup]
+2026-11-14T05:44:07.5701284Z [command]/usr/bin/git log -1 --format=%H
+2026-11-14T05:44:07.5726009Z ca4a09f4b3a8701a61b0a743e6913ff8308c5b51
+2026-11-14T05:44:07.6250590Z ##[group]Run actions/setup-java@v4
+2026-11-14T05:44:07.6251725Z with:
+2026-11-14T05:44:07.6252510Z   java-version: 17
+2026-11-14T05:44:07.6253386Z   distribution: temurin
+2026-11-14T05:44:07.6254511Z   java-package: jdk
+2026-11-14T05:44:07.6255565Z   check-latest: false
+2026-11-14T05:44:07.6256462Z   server-id: github
+2026-11-14T05:44:07.6257356Z   server-username: GITHUB_ACTOR
+2026-11-14T05:44:07.6258399Z   server-password: GITHUB_TOKEN
+2026-11-14T05:44:07.6259469Z   overwrite-settings: true
+2026-11-14T05:44:07.6260443Z   job-status: success
+2026-11-14T05:44:07.6269848Z   token: ***
+2026-11-14T05:44:07.6270660Z ##[endgroup]
+2026-11-14T05:44:07.8028164Z ##[warning]setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+2026-11-14T05:44:07.8044798Z ##[group]Installed distributions
+2026-11-14T05:44:07.8071482Z Resolved Java 17.0.21+9 from tool-cache
+2026-11-14T05:44:07.8083119Z (node:2531) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-14T05:44:07.8087041Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-14T05:44:07.8089615Z Setting Java 17.0.21+9 as the default
+2026-11-14T05:44:07.8091041Z Creating toolchains.xml for JDK version 17 from temurin
+2026-11-14T05:44:07.8158494Z Writing to /home/runner/.m2/toolchains.xml
+2026-11-14T05:44:07.8161345Z 
+2026-11-14T05:44:07.8162014Z Java configuration:
+2026-11-14T05:44:07.8163550Z   Distribution: temurin
+2026-11-14T05:44:07.8164852Z   Version: 17.0.21+9
+2026-11-14T05:44:07.8167139Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T05:44:07.8169098Z 
+2026-11-14T05:44:07.8170751Z ##[endgroup]
+2026-11-14T05:44:07.8195725Z Creating settings.xml with server-id: github
+2026-11-14T05:44:07.8217554Z Writing to /home/runner/.m2/settings.xml
+2026-11-14T05:44:07.8448308Z ##[group]Run set -e
+2026-11-14T05:44:07.8449373Z [36;1mset -e[0m
+2026-11-14T05:44:07.8450245Z [36;1msudo apt-get update -qq[0m
+2026-11-14T05:44:07.8451556Z [36;1msudo apt-get install -y -qq wget unzip >/dev/null[0m
+2026-11-14T05:44:07.8453069Z [36;1mmkdir -p "$HOME/android-sdk/cmdline-tools"[0m
+2026-11-14T05:44:07.8454315Z [36;1mcd /tmp[0m
+2026-11-14T05:44:07.8456489Z [36;1mwget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O cmdtools.zip[0m
+2026-11-14T05:44:07.8459072Z [36;1munzip -q cmdtools.zip -d "$HOME/android-sdk/cmdline-tools"[0m
+2026-11-14T05:44:07.8461311Z [36;1mmv "$HOME/android-sdk/cmdline-tools/cmdline-tools" "$HOME/android-sdk/cmdline-tools/latest"[0m
+2026-11-14T05:44:07.8463481Z [36;1mecho "ANDROID_HOME=$HOME/android-sdk" >> "$GITHUB_ENV"[0m
+2026-11-14T05:44:07.8465405Z [36;1mecho "ANDROID_SDK_ROOT=$HOME/android-sdk" >> "$GITHUB_ENV"[0m
+2026-11-14T05:44:07.8467660Z [36;1mecho "$HOME/android-sdk/cmdline-tools/latest/bin" >> "$GITHUB_PATH"[0m
+2026-11-14T05:44:07.8469587Z [36;1mecho "$HOME/android-sdk/platform-tools" >> "$GITHUB_PATH"[0m
+2026-11-14T05:44:07.8547659Z shell: /usr/bin/bash -e {0}
+2026-11-14T05:44:07.8549095Z env:
+2026-11-14T05:44:07.8550509Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T05:44:07.8553000Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T05:44:07.8555862Z ##[endgroup]
+2026-11-14T05:44:12.4490057Z ##[group]Run set +e
+2026-11-14T05:44:12.4490400Z [36;1mset +e[0m
+2026-11-14T05:44:12.4490807Z [36;1myes | sdkmanager --sdk_root=$HOME/android-sdk --licenses >/dev/null[0m
+2026-11-14T05:44:12.4491294Z [36;1msdkmanager --sdk_root=$HOME/android-sdk \[0m
+2026-11-14T05:44:12.4491805Z [36;1m  "platform-tools" "build-tools;34.0.0" "platforms;android-34" "ndk;25.2.9519653"[0m
+2026-11-14T05:44:12.4492281Z [36;1mset -e[0m
+2026-11-14T05:44:12.4492669Z [36;1mecho "ANDROID_NDK_HOME=$HOME/android-sdk/ndk/25.2.9519653" >> "$GITHUB_ENV"[0m
+2026-11-14T05:44:12.4493191Z [36;1mecho "sdk.dir=$HOME/android-sdk" > local.properties[0m
+2026-11-14T05:44:12.4493578Z [36;1mcat local.properties[0m
+2026-11-14T05:44:12.4545774Z shell: /usr/bin/bash -e {0}
+2026-11-14T05:44:12.4546079Z env:
+2026-11-14T05:44:12.4546448Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T05:44:12.4547285Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T05:44:12.4547755Z   ANDROID_HOME: /home/runner/android-sdk
+2026-11-14T05:44:12.4548114Z   ANDROID_SDK_ROOT: /home/runner/android-sdk
+2026-11-14T05:44:12.4548459Z ##[endgroup]
+2026-11-14T05:44:19.7946360Z yes: standard output: Broken pipe
+2026-11-14T05:44:20.0550426Z Loading package information...                                                  
+2026-11-14T05:44:20.0603121Z Loading local repository...                                                     
+2026-11-14T05:44:20.0606249Z [                                       ] 3% Loading local repository...        
+2026-11-14T05:44:20.0806759Z [                                       ] 3% Fetch remote repository...         
+2026-11-14T05:44:20.6973438Z [=                                      ] 3% Fetch remote repository...         
+2026-11-14T05:44:20.7532625Z [=                                      ] 4% Fetch remote repository...         
+2026-11-14T05:44:20.7878425Z [=                                      ] 5% Fetch remote repository...         
+2026-11-14T05:44:20.8362551Z [==                                     ] 5% Fetch remote repository...         
+2026-11-14T05:44:20.9166172Z [==                                     ] 6% Fetch remote repository...         
+2026-11-14T05:44:20.9706555Z [==                                     ] 7% Fetch remote repository...         
+2026-11-14T05:44:20.9709792Z [==                                     ] 7% Computing updates...               
+2026-11-14T05:44:20.9901871Z [===                                    ] 8% Computing updates...               
+2026-11-14T05:44:21.0210262Z [===                                    ] 10% Computing updates...              
+2026-11-14T05:44:21.3946582Z [===                                    ] 10% Installing NDK (Side by side) 25.2
+2026-11-14T05:44:21.6658957Z [===                                    ] 10% Downloading android-ndk-r25c-linux
+2026-11-14T05:44:22.1861575Z [====                                   ] 10% Downloading android-ndk-r25c-linux
+2026-11-14T05:44:22.5598253Z [====                                   ] 11% Downloading android-ndk-r25c-linux
+2026-11-14T05:44:22.8586327Z [====                                   ] 12% Downloading android-ndk-r25c-linux
+2026-11-14T05:44:23.1593814Z [=====                                  ] 13% Downloading android-ndk-r25c-linux
+2026-11-14T05:44:23.4771944Z [=====                                  ] 14% Downloading android-ndk-r25c-linux
+2026-11-14T05:44:23.6282424Z [=====                                  ] 15% Downloading android-ndk-r25c-linux
+2026-11-14T05:44:23.7577223Z [======                                 ] 15% Downloading android-ndk-r25c-linux
+2026-11-14T05:44:23.7918626Z [======                                 ] 16% Downloading android-ndk-r25c-linux
+2026-11-14T05:44:24.0812631Z [======                                 ] 16% Unzipping...                      
+2026-11-14T05:44:24.0813907Z [======                                 ] 16% Unzipping... android-ndk-r25c/    
+2026-11-14T05:44:24.0837369Z [======                                 ] 16% Unzipping... android-ndk-r25c/CHAN
+2026-11-14T05:44:24.0844038Z [======                                 ] 16% Unzipping... android-ndk-r25c/wrap
+2026-11-14T05:44:24.1746774Z [======                                 ] 16% Unzipping... android-ndk-r25c/preb
+2026-11-14T05:44:24.2006597Z [======                                 ] 16% Unzipping... android-ndk-r25c/buil
+2026-11-14T05:44:24.2036631Z [======                                 ] 16% Unzipping... android-ndk-r25c/NOTI
+2026-11-14T05:44:24.2055729Z [======                                 ] 16% Unzipping... android-ndk-r25c/ndk-
+2026-11-14T05:44:24.2086765Z [======                                 ] 16% Unzipping... android-ndk-r25c/NOTI
+2026-11-14T05:44:24.2087518Z [======                                 ] 16% Unzipping... android-ndk-r25c/meta
+2026-11-14T05:44:24.2133108Z [======                                 ] 16% Unzipping... android-ndk-r25c/ndk-
+2026-11-14T05:44:24.2134998Z [======                                 ] 16% Unzipping... android-ndk-r25c/pyth
+2026-11-14T05:44:24.6881216Z [======                                 ] 16% Unzipping... android-ndk-r25c/sour
+2026-11-14T05:44:24.8884343Z [======                                 ] 16% Unzipping... android-ndk-r25c/simp
+2026-11-14T05:44:24.8888555Z [======                                 ] 16% Unzipping... android-ndk-r25c/ndk-
+2026-11-14T05:44:24.8889236Z [======                                 ] 16% Unzipping... android-ndk-r25c/READ
+2026-11-14T05:44:25.6366295Z [======                                 ] 16% Unzipping... android-ndk-r25c/tool
+2026-11-14T05:44:26.8416396Z [======                                 ] 17% Unzipping... android-ndk-r25c/tool
+2026-11-14T05:44:28.6401942Z [=======                                ] 18% Unzipping... android-ndk-r25c/tool
+2026-11-14T05:44:30.1740240Z [=======                                ] 19% Unzipping... android-ndk-r25c/tool
+2026-11-14T05:44:30.8088193Z [=======                                ] 20% Unzipping... android-ndk-r25c/tool
+2026-11-14T05:44:31.3892479Z [========                               ] 20% Unzipping... android-ndk-r25c/tool
+2026-11-14T05:44:32.2209283Z [========                               ] 21% Unzipping... android-ndk-r25c/tool
+2026-11-14T05:44:32.2210630Z [========                               ] 21% Unzipping... android-ndk-r25c/ndk-
+2026-11-14T05:44:32.4136654Z [========                               ] 21% Unzipping... android-ndk-r25c/shad
+2026-11-14T05:44:32.8715655Z [============                           ] 33% Unzipping... android-ndk-r25c/shad
+2026-11-14T05:44:32.9246208Z [============                           ] 33% Installing Android SDK Platform 34
+2026-11-14T05:44:32.9566990Z [============                           ] 33% Downloading platform-34-ext7_r03.z
+2026-11-14T05:44:32.9999447Z [=============                          ] 33% Downloading platform-34-ext7_r03.z
+2026-11-14T05:44:33.0323794Z [=============                          ] 34% Downloading platform-34-ext7_r03.z
+2026-11-14T05:44:33.0505907Z [=============                          ] 35% Downloading platform-34-ext7_r03.z
+2026-11-14T05:44:33.0692500Z [==============                         ] 35% Downloading platform-34-ext7_r03.z
+2026-11-14T05:44:33.1019907Z [==============                         ] 36% Downloading platform-34-ext7_r03.z
+2026-11-14T05:44:33.1291979Z [==============                         ] 37% Downloading platform-34-ext7_r03.z
+2026-11-14T05:44:33.1467664Z [===============                        ] 38% Downloading platform-34-ext7_r03.z
+2026-11-14T05:44:33.4630214Z [===============                        ] 38% Unzipping... android-ndk-r25c/shad
+2026-11-14T05:44:33.4631277Z [===============                        ] 38% Unzipping... android-34/          
+2026-11-14T05:44:33.4915393Z [===============                        ] 38% Unzipping... android-34/android.ja
+2026-11-14T05:44:33.5471965Z [===============                        ] 39% Unzipping... android-34/android.ja
+2026-11-14T05:44:33.5655349Z [===============                        ] 40% Unzipping... android-34/android.ja
+2026-11-14T05:44:33.5862623Z [================                       ] 40% Unzipping... android-34/android.ja
+2026-11-14T05:44:33.5863556Z [================                       ] 40% Unzipping... android-34/optional/ 
+2026-11-14T05:44:33.5867281Z [================                       ] 40% Unzipping... android-34/optional/a
+2026-11-14T05:44:33.5881253Z [================                       ] 40% Unzipping... android-34/optional/l
+2026-11-14T05:44:33.5897183Z [================                       ] 40% Unzipping... android-34/optional/o
+2026-11-14T05:44:33.5898920Z [================                       ] 40% Unzipping... android-34/optional/a
+2026-11-14T05:44:33.5917978Z [================                       ] 40% Unzipping... android-34/optional/o
+2026-11-14T05:44:33.5954047Z [================                       ] 40% Unzipping... android-34/templates/
+2026-11-14T05:44:33.6020102Z [================                       ] 40% Unzipping... android-34/core-for-s
+2026-11-14T05:44:33.6022388Z [================                       ] 40% Unzipping... android-34/build.prop
+2026-11-14T05:44:33.6067711Z [================                       ] 40% Unzipping... android-34/android-st
+2026-11-14T05:44:33.6397019Z [================                       ] 41% Unzipping... android-34/android-st
+2026-11-14T05:44:33.6399782Z [================                       ] 41% Unzipping... android-34/uiautomato
+2026-11-14T05:44:33.6401401Z [================                       ] 41% Unzipping... android-34/source.pro
+2026-11-14T05:44:33.6402360Z [================                       ] 41% Unzipping... android-34/data/     
+2026-11-14T05:44:33.6403955Z [================                       ] 41% Unzipping... android-34/data/servi
+2026-11-14T05:44:33.6440280Z [================                       ] 41% Unzipping... android-34/data/NOTIC
+2026-11-14T05:44:33.6441967Z [================                       ] 41% Unzipping... android-34/data/widge
+2026-11-14T05:44:33.6444923Z [================                       ] 41% Unzipping... android-34/data/broad
+2026-11-14T05:44:33.6582934Z [================                       ] 41% Unzipping... android-34/data/api-v
+2026-11-14T05:44:33.6584834Z [================                       ] 41% Unzipping... android-34/data/featu
+2026-11-14T05:44:33.6598504Z [================                       ] 41% Unzipping... android-34/data/annot
+2026-11-14T05:44:33.6599061Z [================                       ] 41% Unzipping... android-34/data/res/ 
+2026-11-14T05:44:33.6613402Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T05:44:33.6620488Z [================                       ] 41% Unzipping... android-34/data/res/l
+2026-11-14T05:44:33.6810765Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T05:44:33.6814590Z [================                       ] 41% Unzipping... android-34/data/res/m
+2026-11-14T05:44:33.6916433Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T05:44:33.6933063Z [================                       ] 41% Unzipping... android-34/data/res/a
+2026-11-14T05:44:33.7029695Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T05:44:33.7278145Z [================                       ] 41% Unzipping... android-34/data/res/d
+2026-11-14T05:44:33.7334775Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T05:44:33.7345918Z [================                       ] 41% Unzipping... android-34/data/res/x
+2026-11-14T05:44:33.7358965Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T05:44:33.7360735Z [================                       ] 41% Unzipping... android-34/data/res/l
+2026-11-14T05:44:33.7363295Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T05:44:33.7894392Z [================                       ] 41% Unzipping... android-34/data/res/l
+2026-11-14T05:44:33.7944322Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T05:44:33.7948059Z [================                       ] 41% Unzipping... android-34/data/res/r
+2026-11-14T05:44:33.8147348Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T05:44:33.8149954Z [================                       ] 41% Unzipping... android-34/data/res/x
+2026-11-14T05:44:33.8220517Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T05:44:33.8223876Z [================                       ] 41% Unzipping... android-34/data/res/r
+2026-11-14T05:44:33.8322077Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T05:44:33.8664352Z [================                       ] 41% Unzipping... android-34/data/res/a
+2026-11-14T05:44:33.8830322Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T05:44:33.8833049Z [================                       ] 41% Unzipping... android-34/data/res/r
+2026-11-14T05:44:33.8862491Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T05:44:33.8866595Z [================                       ] 41% Unzipping... android-34/data/res/c
+2026-11-14T05:44:33.8868722Z [================                       ] 41% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.0613071Z [================                       ] 41% Unzipping... android-34/data/res/d
+2026-11-14T05:44:34.0703248Z [================                       ] 42% Unzipping... android-34/data/res/d
+2026-11-14T05:44:34.0726207Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.0740297Z [================                       ] 42% Unzipping... android-34/data/res/t
+2026-11-14T05:44:34.0871147Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.0879106Z [================                       ] 42% Unzipping... android-34/data/res/x
+2026-11-14T05:44:34.1009913Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.1016086Z [================                       ] 42% Unzipping... android-34/data/res/r
+2026-11-14T05:44:34.1169905Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.1173088Z [================                       ] 42% Unzipping... android-34/data/res/r
+2026-11-14T05:44:34.1182142Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.1184052Z [================                       ] 42% Unzipping... android-34/data/res/l
+2026-11-14T05:44:34.1425443Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.1428951Z [================                       ] 42% Unzipping... android-34/data/res/r
+2026-11-14T05:44:34.1436598Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.1480203Z [================                       ] 42% Unzipping... android-34/data/res/d
+2026-11-14T05:44:34.1560350Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.1595513Z [================                       ] 42% Unzipping... android-34/data/res/d
+2026-11-14T05:44:34.1924494Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.1928153Z [================                       ] 42% Unzipping... android-34/data/res/r
+2026-11-14T05:44:34.2008287Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.2011761Z [================                       ] 42% Unzipping... android-34/data/res/r
+2026-11-14T05:44:34.2286527Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.2288686Z [================                       ] 42% Unzipping... android-34/data/res/m
+2026-11-14T05:44:34.2300130Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.2303187Z [================                       ] 42% Unzipping... android-34/data/res/r
+2026-11-14T05:44:34.2330893Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.2337143Z [================                       ] 42% Unzipping... android-34/data/res/c
+2026-11-14T05:44:34.2342972Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.2346706Z [================                       ] 42% Unzipping... android-34/data/res/r
+2026-11-14T05:44:34.2378905Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.2382125Z [================                       ] 42% Unzipping... android-34/data/res/r
+2026-11-14T05:44:34.2569990Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.3510136Z [================                       ] 42% Unzipping... android-34/data/res/d
+2026-11-14T05:44:34.3584747Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.3588152Z [================                       ] 42% Unzipping... android-34/data/res/r
+2026-11-14T05:44:34.3618744Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.3624723Z [================                       ] 42% Unzipping... android-34/data/res/c
+2026-11-14T05:44:34.3764527Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.3769002Z [================                       ] 42% Unzipping... android-34/data/res/m
+2026-11-14T05:44:34.3850897Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.3854541Z [================                       ] 42% Unzipping... android-34/data/res/r
+2026-11-14T05:44:34.3994755Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.3997772Z [================                       ] 42% Unzipping... android-34/data/res/r
+2026-11-14T05:44:34.4038818Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.4044595Z [================                       ] 42% Unzipping... android-34/data/res/i
+2026-11-14T05:44:34.4118577Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.4141403Z [================                       ] 42% Unzipping... android-34/data/res/d
+2026-11-14T05:44:34.4191386Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.4196656Z [================                       ] 42% Unzipping... android-34/data/res/m
+2026-11-14T05:44:34.4203504Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.4999643Z [================                       ] 42% Unzipping... android-34/data/res/d
+2026-11-14T05:44:34.5092303Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.5095521Z [================                       ] 42% Unzipping... android-34/data/res/d
+2026-11-14T05:44:34.5141350Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.5207653Z [================                       ] 42% Unzipping... android-34/data/res/d
+2026-11-14T05:44:34.5280823Z [================                       ] 42% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.5316097Z [================                       ] 42% Unzipping... android-34/data/res/d
+2026-11-14T05:44:34.5343948Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T05:44:34.5390145Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.5430085Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T05:44:34.5483154Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.5497445Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T05:44:34.5516113Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.5551718Z [=================                      ] 43% Unzipping... android-34/data/res/x
+2026-11-14T05:44:34.5638245Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.5640231Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T05:44:34.5713850Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.7722104Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T05:44:34.7903240Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.7907376Z [=================                      ] 43% Unzipping... android-34/data/res/a
+2026-11-14T05:44:34.8302364Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.8305873Z [=================                      ] 43% Unzipping... android-34/data/res/r
+2026-11-14T05:44:34.8357331Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.8361590Z [=================                      ] 43% Unzipping... android-34/data/res/m
+2026-11-14T05:44:34.8365612Z [=================                      ] 43% Unzipping... android-34/data/res/x
+2026-11-14T05:44:34.8489807Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.8518070Z [=================                      ] 43% Unzipping... android-34/data/res/a
+2026-11-14T05:44:34.8712346Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.8795029Z [=================                      ] 43% Unzipping... android-34/data/res/i
+2026-11-14T05:44:34.8981817Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.8985625Z [=================                      ] 43% Unzipping... android-34/data/res/r
+2026-11-14T05:44:34.9019095Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.9022461Z [=================                      ] 43% Unzipping... android-34/data/res/r
+2026-11-14T05:44:34.9033609Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.9037219Z [=================                      ] 43% Unzipping... android-34/data/res/r
+2026-11-14T05:44:34.9145976Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.9154598Z [=================                      ] 43% Unzipping... android-34/data/res/l
+2026-11-14T05:44:34.9163725Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.9166211Z [=================                      ] 43% Unzipping... android-34/data/res/l
+2026-11-14T05:44:34.9256389Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.9290730Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T05:44:34.9293021Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.9297626Z [=================                      ] 43% Unzipping... android-34/data/res/l
+2026-11-14T05:44:34.9376221Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.9379176Z [=================                      ] 43% Unzipping... android-34/data/res/m
+2026-11-14T05:44:34.9450928Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.9460505Z [=================                      ] 43% Unzipping... android-34/data/res/r
+2026-11-14T05:44:34.9472212Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.9486119Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T05:44:34.9654395Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.9656864Z [=================                      ] 43% Unzipping... android-34/data/res/l
+2026-11-14T05:44:34.9689934Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.9707364Z [=================                      ] 43% Unzipping... android-34/data/res/l
+2026-11-14T05:44:34.9789739Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.9791667Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T05:44:34.9801182Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.9806262Z [=================                      ] 43% Unzipping... android-34/data/res/l
+2026-11-14T05:44:34.9811774Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:34.9941827Z [=================                      ] 43% Unzipping... android-34/data/res/c
+2026-11-14T05:44:35.0040510Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:35.0043699Z [=================                      ] 43% Unzipping... android-34/data/res/r
+2026-11-14T05:44:35.0049911Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:35.1894814Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T05:44:35.1953000Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:35.1958199Z [=================                      ] 43% Unzipping... android-34/data/res/m
+2026-11-14T05:44:35.2029468Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:35.2032683Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T05:44:35.2039023Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:35.2042968Z [=================                      ] 43% Unzipping... android-34/data/res/m
+2026-11-14T05:44:35.2059619Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:35.2062728Z [=================                      ] 43% Unzipping... android-34/data/res/r
+2026-11-14T05:44:35.2073453Z [=================                      ] 43% Unzipping... android-34/data/res/l
+2026-11-14T05:44:35.2102244Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:35.2105698Z [=================                      ] 43% Unzipping... android-34/data/res/r
+2026-11-14T05:44:35.2140889Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:35.3311138Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T05:44:35.3552958Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:35.3556994Z [=================                      ] 43% Unzipping... android-34/data/res/r
+2026-11-14T05:44:35.3678512Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:35.3696559Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T05:44:35.3715669Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:35.3726283Z [=================                      ] 43% Unzipping... android-34/data/res/d
+2026-11-14T05:44:35.3859675Z [=================                      ] 43% Unzipping... android-34/data/res/v
+2026-11-14T05:44:35.3860865Z [=================                      ] 43% Unzipping... android-34/data/categ
+2026-11-14T05:44:35.3863474Z [=================                      ] 43% Unzipping... android-34/data/activ
+2026-11-14T05:44:35.3865442Z [=================                      ] 43% Unzipping... android-34/sdk.proper
+2026-11-14T05:44:35.3866220Z [=================                      ] 43% Unzipping... android-34/skins/    
+2026-11-14T05:44:35.3886146Z [=================                      ] 43% Unzipping... android-34/skins/WXGA
+2026-11-14T05:44:35.3909948Z [=================                      ] 43% Unzipping... android-34/skins/WQVG
+2026-11-14T05:44:35.3942663Z [=================                      ] 43% Unzipping... android-34/skins/NOTI
+2026-11-14T05:44:35.3960733Z [=================                      ] 43% Unzipping... android-34/skins/HVGA
+2026-11-14T05:44:35.3986065Z [=================                      ] 43% Unzipping... android-34/skins/WVGA
+2026-11-14T05:44:35.4003426Z [=================                      ] 43% Unzipping... android-34/skins/WQVG
+2026-11-14T05:44:35.4021757Z [=================                      ] 43% Unzipping... android-34/skins/WVGA
+2026-11-14T05:44:35.4039402Z [=================                      ] 43% Unzipping... android-34/skins/QVGA
+2026-11-14T05:44:35.4058394Z [=================                      ] 43% Unzipping... android-34/skins/WXGA
+2026-11-14T05:44:35.4078588Z [=================                      ] 43% Unzipping... android-34/skins/WSVG
+2026-11-14T05:44:35.4098672Z [=================                      ] 43% Unzipping... android-34/skins/WXGA
+2026-11-14T05:44:35.4102255Z [=================                      ] 43% Unzipping... android-34/framework.
+2026-11-14T05:44:35.4238273Z [=================                      ] 44% Unzipping... android-34/framework.
+2026-11-14T05:44:35.4304367Z [=====================                  ] 55% Unzipping... android-34/framework.
+2026-11-14T05:44:35.4551695Z [=====================                  ] 55% Installing Android SDK Build-Tools
+2026-11-14T05:44:35.4591557Z [=====================                  ] 55% Downloading build-tools_r34-linux.
+2026-11-14T05:44:35.4714238Z [======================                 ] 55% Downloading build-tools_r34-linux.
+2026-11-14T05:44:35.4951690Z [======================                 ] 56% Downloading build-tools_r34-linux.
+2026-11-14T05:44:35.5192928Z [======================                 ] 57% Downloading build-tools_r34-linux.
+2026-11-14T05:44:35.5410007Z [=======================                ] 58% Downloading build-tools_r34-linux.
+2026-11-14T05:44:35.5632552Z [=======================                ] 59% Downloading build-tools_r34-linux.
+2026-11-14T05:44:35.5742644Z [=======================                ] 60% Downloading build-tools_r34-linux.
+2026-11-14T05:44:35.5868122Z [========================               ] 60% Downloading build-tools_r34-linux.
+2026-11-14T05:44:35.5893055Z [========================               ] 61% Downloading build-tools_r34-linux.
+2026-11-14T05:44:35.5961021Z [========================               ] 61% Unzipping... android-34/framework.
+2026-11-14T05:44:35.5997900Z [========================               ] 61% Unzipping... android-14/NOTICE.txt
+2026-11-14T05:44:35.6077017Z [========================               ] 61% Unzipping... android-14/aapt      
+2026-11-14T05:44:35.6347748Z [========================               ] 61% Unzipping... android-14/aapt2     
+2026-11-14T05:44:35.6349028Z [========================               ] 61% Unzipping... android-14/aarch64-li
+2026-11-14T05:44:35.6517764Z [========================               ] 61% Unzipping... android-14/aidl      
+2026-11-14T05:44:35.6519180Z [========================               ] 61% Unzipping... android-14/apksigner 
+2026-11-14T05:44:35.6520558Z [========================               ] 61% Unzipping... android-14/arm-linux-
+2026-11-14T05:44:35.6524066Z [========================               ] 61% Unzipping... android-14/bcc_compat
+2026-11-14T05:44:35.6526409Z [========================               ] 61% Unzipping... android-14/core-lambd
+2026-11-14T05:44:35.6527926Z [========================               ] 61% Unzipping... android-14/d8        
+2026-11-14T05:44:35.6856943Z [========================               ] 61% Unzipping... android-14/dexdump   
+2026-11-14T05:44:35.6859392Z [========================               ] 61% Unzipping... android-14/i686-linux
+2026-11-14T05:44:35.6860222Z [========================               ] 61% Unzipping... android-14/lld       
+2026-11-14T05:44:35.6911302Z [========================               ] 61% Unzipping... android-14/llvm-rs-cc
+2026-11-14T05:44:35.6933644Z [========================               ] 61% Unzipping... android-14/mipsel-lin
+2026-11-14T05:44:35.6934414Z [========================               ] 61% Unzipping... android-14/runtime.pr
+2026-11-14T05:44:35.6935307Z [========================               ] 61% Unzipping... android-14/source.pro
+2026-11-14T05:44:35.6992912Z [========================               ] 61% Unzipping... android-14/split-sele
+2026-11-14T05:44:35.6994305Z [========================               ] 61% Unzipping... android-14/x86_64-lin
+2026-11-14T05:44:35.7010515Z [========================               ] 61% Unzipping... android-14/zipalign  
+2026-11-14T05:44:35.7060664Z [========================               ] 61% Unzipping... android-14/lib/apksig
+2026-11-14T05:44:35.7102559Z [========================               ] 61% Unzipping... android-14/lib/d8.jar
+2026-11-14T05:44:35.7747482Z [========================               ] 62% Unzipping... android-14/lib/d8.jar
+2026-11-14T05:44:35.7820543Z [========================               ] 62% Unzipping... android-14/lib64/libL
+2026-11-14T05:44:35.9124800Z [=========================              ] 63% Unzipping... android-14/lib64/libL
+2026-11-14T05:44:35.9172450Z [=========================              ] 63% Unzipping... android-14/lib64/libb
+2026-11-14T05:44:35.9201982Z [=========================              ] 63% Unzipping... android-14/lib64/libc
+2026-11-14T05:44:36.0363736Z [=========================              ] 64% Unzipping... android-14/lib64/libc
+2026-11-14T05:44:36.0489003Z [=========================              ] 64% Unzipping... android-14/lld-bin/ll
+2026-11-14T05:44:36.1110796Z [=========================              ] 65% Unzipping... android-14/lld-bin/ll
+2026-11-14T05:44:36.1863382Z [==========================             ] 65% Unzipping... android-14/lld-bin/ll
+2026-11-14T05:44:36.1895885Z [==========================             ] 66% Unzipping... android-14/lld-bin/ll
+2026-11-14T05:44:36.3226839Z [==========================             ] 66% Unzipping... android-14/renderscri
+2026-11-14T05:44:36.3268432Z [==============================         ] 78% Unzipping... android-14/renderscri
+2026-11-14T05:44:36.3837208Z [==============================         ] 78% Installing Android SDK Platform-To
+2026-11-14T05:44:36.3839459Z [==============================         ] 78% Downloading platform-tools_r37.0.1
+2026-11-14T05:44:36.3883877Z [===============================        ] 78% Downloading platform-tools_r37.0.1
+2026-11-14T05:44:36.3927471Z [===============================        ] 79% Downloading platform-tools_r37.0.1
+2026-11-14T05:44:36.3948562Z [===============================        ] 80% Downloading platform-tools_r37.0.1
+2026-11-14T05:44:36.3969554Z [================================       ] 80% Downloading platform-tools_r37.0.1
+2026-11-14T05:44:36.4004009Z [================================       ] 81% Downloading platform-tools_r37.0.1
+2026-11-14T05:44:36.4030401Z [================================       ] 82% Downloading platform-tools_r37.0.1
+2026-11-14T05:44:36.4048527Z [=================================      ] 83% Downloading platform-tools_r37.0.1
+2026-11-14T05:44:36.4052243Z [=================================      ] 83% Unzipping... android-14/renderscri
+2026-11-14T05:44:36.4097585Z [=================================      ] 83% Unzipping... platform-tools/NOTICE
+2026-11-14T05:44:36.4133028Z [=================================      ] 83% Unzipping... platform-tools/adb   
+2026-11-14T05:44:36.4323451Z [=================================      ] 84% Unzipping... platform-tools/adb   
+2026-11-14T05:44:36.4426669Z [=================================      ] 85% Unzipping... platform-tools/adb   
+2026-11-14T05:44:36.4513491Z [==================================     ] 85% Unzipping... platform-tools/adb   
+2026-11-14T05:44:36.4604353Z [==================================     ] 86% Unzipping... platform-tools/adb   
+2026-11-14T05:44:36.4623726Z [==================================     ] 86% Unzipping... platform-tools/etc1to
+2026-11-14T05:44:36.4686395Z [==================================     ] 86% Unzipping... platform-tools/fastbo
+2026-11-14T05:44:36.4775347Z [==================================     ] 87% Unzipping... platform-tools/fastbo
+2026-11-14T05:44:36.4777893Z [==================================     ] 87% Unzipping... platform-tools/hprof-
+2026-11-14T05:44:36.4843861Z [==================================     ] 87% Unzipping... platform-tools/lib64/
+2026-11-14T05:44:36.4879397Z [==================================     ] 87% Unzipping... platform-tools/make_f
+2026-11-14T05:44:36.4887412Z [==================================     ] 87% Unzipping... platform-tools/mke2fs
+2026-11-14T05:44:36.4933563Z [===================================    ] 88% Unzipping... platform-tools/mke2fs
+2026-11-14T05:44:36.4934639Z [===================================    ] 88% Unzipping... platform-tools/source
+2026-11-14T05:44:36.5079119Z [===================================    ] 88% Unzipping... platform-tools/sqlite
+2026-11-14T05:44:36.5147990Z [===================================    ] 89% Unzipping... platform-tools/sqlite
+2026-11-14T05:44:36.5148687Z [=======================================] 100% Unzipping... platform-tools/sqlit
+2026-11-14T05:44:36.5191134Z 
+2026-11-14T05:44:36.5664653Z sdk.dir=/home/runner/android-sdk
+2026-11-14T05:44:36.5704428Z ##[group]Run wget -q https://services.gradle.org/distributions/gradle-8.5-bin.zip -O /tmp/g.zip
+2026-11-14T05:44:36.5705506Z [36;1mwget -q https://services.gradle.org/distributions/gradle-8.5-bin.zip -O /tmp/g.zip[0m
+2026-11-14T05:44:36.5706030Z [36;1msudo unzip -q /tmp/g.zip -d /opt[0m
+2026-11-14T05:44:36.5706400Z [36;1m/opt/gradle-8.5/bin/gradle wrapper --gradle-version 8.5[0m
+2026-11-14T05:44:36.5706756Z [36;1mchmod +x gradlew[0m
+2026-11-14T05:44:36.5706996Z [36;1m./gradlew --version[0m
+2026-11-14T05:44:36.5756100Z shell: /usr/bin/bash -e {0}
+2026-11-14T05:44:36.5756364Z env:
+2026-11-14T05:44:36.5756681Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T05:44:36.5757199Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T05:44:36.5757612Z   ANDROID_HOME: /home/runner/android-sdk
+2026-11-14T05:44:36.5757916Z   ANDROID_SDK_ROOT: /home/runner/android-sdk
+2026-11-14T05:44:36.5758308Z   ANDROID_NDK_HOME: /home/runner/android-sdk/ndk/25.2.9519653
+2026-11-14T05:44:36.5758651Z ##[endgroup]
+2026-11-14T05:44:38.6322194Z 
+2026-11-14T05:44:38.6324128Z Welcome to Gradle 8.5!
+2026-11-14T05:44:38.6332692Z 
+2026-11-14T05:44:38.6333059Z Here are the highlights of this release:
+2026-11-14T05:44:38.6333403Z  - Support for running on Java 21
+2026-11-14T05:44:38.6333698Z  - Faster first use with Kotlin DSL
+2026-11-14T05:44:38.6334254Z  - Improved error and warning messages
+2026-11-14T05:44:38.6334688Z 
+2026-11-14T05:44:38.6335269Z For more details see https://docs.gradle.org/8.5/release-notes.html
+2026-11-14T05:44:38.6335781Z 
+2026-11-14T05:44:38.8326331Z Starting a Gradle Daemon (subsequent builds will be faster)
+2026-11-14T05:44:59.8343005Z > Task :wrapper
+2026-11-14T05:44:59.8361817Z 
+2026-11-14T05:44:59.8370185Z BUILD SUCCESSFUL in 21s
+2026-11-14T05:44:59.8370723Z 1 actionable task: 1 executed
+2026-11-14T05:45:00.2514949Z Downloading https://services.gradle.org/distributions/gradle-8.5-bin.zip
+2026-11-14T05:45:01.4448316Z ............10%.............20%............30%.............40%.............50%............60%.............70%.............80%............90%.............100%
+2026-11-14T05:45:02.4715942Z 
+2026-11-14T05:45:02.4718811Z ------------------------------------------------------------
+2026-11-14T05:45:02.4719445Z Gradle 8.5
+2026-11-14T05:45:02.4722509Z ------------------------------------------------------------
+2026-11-14T05:45:02.4722929Z 
+2026-11-14T05:45:02.4724087Z Build time:   2023-11-29 14:08:57 UTC
+2026-11-14T05:45:02.4726632Z Revision:     28aca86a7180baa17117e0e5ba01d8ea9feca598
+2026-11-14T05:45:02.4727056Z 
+2026-11-14T05:45:02.4727392Z Kotlin:       1.9.20
+2026-11-14T05:45:02.4728270Z Groovy:       3.0.17
+2026-11-14T05:45:02.4730821Z Ant:          Apache Ant(TM) version 1.10.13 compiled on January 4 2023
+2026-11-14T05:45:02.4733077Z JVM:          17.0.21 (Eclipse Adoptium 17.0.21+9)
+2026-11-14T05:45:02.4734064Z OS:           Linux 7.0.0-1019-azure amd64
+2026-11-14T05:45:02.4734401Z 
+2026-11-14T05:45:02.4901357Z ##[group]Run set -e
+2026-11-14T05:45:02.4901647Z [36;1mset -e[0m
+2026-11-14T05:45:02.4901879Z [36;1m"$ANDROID_NDK_HOME/ndk-build" \[0m
+2026-11-14T05:45:02.4902177Z [36;1m  NDK_PROJECT_PATH=null \[0m
+2026-11-14T05:45:02.4902687Z [36;1m  APP_BUILD_SCRIPT="$PWD/root-apk/injector.mk" \[0m
+2026-11-14T05:45:02.4903113Z [36;1m  NDK_APPLICATION_MK="$PWD/root-apk/injector-app.mk" \[0m
+2026-11-14T05:45:02.4903527Z [36;1m  NDK_LIBS_OUT="$PWD/root-apk/src/main/jniLibs" \[0m
+2026-11-14T05:45:02.4903894Z [36;1m  NDK_OUT="$PWD/build/injector-obj" \[0m
+2026-11-14T05:45:02.4904184Z [36;1m  -j4[0m
+2026-11-14T05:45:02.4904468Z [36;1mfor f in root-apk/src/main/jniLibs/*/librama_inject; do[0m
+2026-11-14T05:45:02.4904847Z [36;1m  if [ -f "$f" ]; then mv "$f" "$f.so"; fi[0m
+2026-11-14T05:45:02.4905555Z [36;1mdone[0m
+2026-11-14T05:45:02.4905863Z [36;1mfind root-apk/src/main/jniLibs -type f -exec ls -la {} \;[0m
+2026-11-14T05:45:02.4955574Z shell: /usr/bin/bash -e {0}
+2026-11-14T05:45:02.4955852Z env:
+2026-11-14T05:45:02.4956181Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T05:45:02.4956707Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T05:45:02.4957128Z   ANDROID_HOME: /home/runner/android-sdk
+2026-11-14T05:45:02.4957426Z   ANDROID_SDK_ROOT: /home/runner/android-sdk
+2026-11-14T05:45:02.4957783Z   ANDROID_NDK_HOME: /home/runner/android-sdk/ndk/25.2.9519653
+2026-11-14T05:45:02.4958112Z ##[endgroup]
+2026-11-14T05:45:02.9616304Z [arm64-v8a] Compile++      : rama_inject <= inject_main.cpp
+2026-11-14T05:45:03.0056644Z [arm64-v8a] Compile++      : rama_inject <= memory.cpp
+2026-11-14T05:45:03.0308244Z [arm64-v8a] Executable     : librama_inject
+2026-11-14T05:45:03.0380148Z [arm64-v8a] Install        : librama_inject => /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/jniLibs/arm64-v8a/librama_inject
+2026-11-14T05:45:03.0448351Z -rwxr-xr-x 1 runner runner 191280 Nov 14 05:45 root-apk/src/main/jniLibs/arm64-v8a/librama_inject.so
+2026-11-14T05:45:03.0496293Z ##[group]Run ./gradlew :root-apk:assembleRelease --no-daemon --stacktrace
+2026-11-14T05:45:03.0496867Z [36;1m./gradlew :root-apk:assembleRelease --no-daemon --stacktrace[0m
+2026-11-14T05:45:03.0497265Z [36;1mmkdir -p dist[0m
+2026-11-14T05:45:03.0497642Z [36;1mfind root-apk/build/outputs/apk -name '*.apk' -exec cp -v {} dist/ \;[0m
+2026-11-14T05:45:03.0498036Z [36;1mls -la dist/[0m
+2026-11-14T05:45:03.0546195Z shell: /usr/bin/bash -e {0}
+2026-11-14T05:45:03.0546447Z env:
+2026-11-14T05:45:03.0546759Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T05:45:03.0547294Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T05:45:03.0547712Z   ANDROID_HOME: /home/runner/android-sdk
+2026-11-14T05:45:03.0548016Z   ANDROID_SDK_ROOT: /home/runner/android-sdk
+2026-11-14T05:45:03.0548366Z   ANDROID_NDK_HOME: /home/runner/android-sdk/ndk/25.2.9519653
+2026-11-14T05:45:03.0548687Z ##[endgroup]
+2026-11-14T05:45:03.6894794Z To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+2026-11-14T05:45:04.6894526Z Daemon will be stopped at the end of the build 
+2026-11-14T05:45:11.0896910Z > Task :root-apk:preBuild UP-TO-DATE
+2026-11-14T05:45:11.0897780Z > Task :root-apk:preReleaseBuild UP-TO-DATE
+2026-11-14T05:45:11.1888348Z > Task :root-apk:javaPreCompileRelease
+2026-11-14T05:45:11.1915933Z > Task :root-apk:checkReleaseAarMetadata
+2026-11-14T05:45:11.1935796Z > Task :root-apk:generateReleaseResValues
+2026-11-14T05:45:11.1936535Z > Task :root-apk:mapReleaseSourceSetPaths
+2026-11-14T05:45:11.1937250Z > Task :root-apk:generateReleaseResources
+2026-11-14T05:45:12.3883577Z > Task :root-apk:packageReleaseResources
+2026-11-14T05:45:12.3886176Z > Task :root-apk:mergeReleaseResources
+2026-11-14T05:45:12.8919098Z > Task :root-apk:createReleaseCompatibleScreenManifests
+2026-11-14T05:45:12.8935841Z > Task :root-apk:extractDeepLinksRelease
+2026-11-14T05:45:12.9881709Z > Task :root-apk:parseReleaseLocalResources
+2026-11-14T05:45:12.9888287Z 
+2026-11-14T05:45:12.9889101Z > Task :root-apk:processReleaseMainManifest
+2026-11-14T05:45:12.9890236Z /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/AndroidManifest.xml:12:9-41 Warning:
+2026-11-14T05:45:12.9892056Z 	android:extractNativeLibs should not be specified in this source AndroidManifest.xml file. See https://d.android.com/guide/topics/manifest/application-element#extractNativeLibs for more information.
+2026-11-14T05:45:12.9894566Z The AGP Upgrade Assistant can remove the attribute from the AndroidManifest.xml file and update the build file accordingly. See https://d.android.com/studio/build/agp-upgrade-assistant for more information.
+2026-11-14T05:45:13.2884959Z 
+2026-11-14T05:45:13.2885965Z > Task :root-apk:processReleaseManifest
+2026-11-14T05:45:13.2886776Z > Task :root-apk:extractProguardFiles
+2026-11-14T05:45:13.4886346Z > Task :root-apk:configureNdkBuildRelease[arm64-v8a]
+2026-11-14T05:45:22.4882149Z > Task :root-apk:buildNdkBuildRelease[arm64-v8a]
+2026-11-14T05:45:22.5914403Z > Task :root-apk:mergeReleaseJniLibFolders
+2026-11-14T05:45:22.5921661Z > Task :root-apk:checkReleaseDuplicateClasses
+2026-11-14T05:45:22.5922505Z > Task :root-apk:desugarReleaseFileDependencies
+2026-11-14T05:45:22.5923205Z > Task :root-apk:mergeReleaseNativeLibs
+2026-11-14T05:45:22.5923828Z > Task :root-apk:mergeExtDexRelease
+2026-11-14T05:45:22.5924559Z > Task :root-apk:processReleaseManifestForPackage
+2026-11-14T05:45:22.6928462Z > Task :root-apk:stripReleaseDebugSymbols
+2026-11-14T05:45:22.6929448Z > Task :root-apk:mergeReleaseArtProfile
+2026-11-14T05:45:22.6955747Z > Task :root-apk:mergeReleaseShaders
+2026-11-14T05:45:22.6985743Z > Task :root-apk:compileReleaseShaders NO-SOURCE
+2026-11-14T05:45:22.7017000Z > Task :root-apk:generateReleaseAssets UP-TO-DATE
+2026-11-14T05:45:22.7929602Z > Task :root-apk:mergeReleaseAssets
+2026-11-14T05:45:22.7956484Z > Task :root-apk:compressReleaseAssets
+2026-11-14T05:45:22.7985852Z > Task :root-apk:processReleaseJavaRes NO-SOURCE
+2026-11-14T05:45:22.8015915Z > Task :root-apk:extractReleaseNativeSymbolTables
+2026-11-14T05:45:22.8016853Z > Task :root-apk:collectReleaseDependencies
+2026-11-14T05:45:22.8887106Z > Task :root-apk:mergeReleaseJavaResource
+2026-11-14T05:45:22.8894945Z > Task :root-apk:processReleaseResources
+2026-11-14T05:45:22.8896156Z > Task :root-apk:sdkReleaseDependencyData
+2026-11-14T05:45:22.9882073Z > Task :root-apk:mergeReleaseNativeDebugMetadata
+2026-11-14T05:45:26.3907019Z Note: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/root-apk/src/main/java/com/bench/ramamodz/OverlayService.java uses or overrides a deprecated API.
+2026-11-14T05:45:26.3908229Z 
+2026-11-14T05:45:26.3926416Z > Task :root-apk:compileReleaseJavaWithJavac
+2026-11-14T05:45:26.3955832Z Note: Recompile with -Xlint:deprecation for details.
+2026-11-14T05:45:28.9881290Z 
+2026-11-14T05:45:28.9882549Z > Task :root-apk:generateReleaseLintVitalReportModel
+2026-11-14T05:45:34.4889007Z > Task :root-apk:dexBuilderRelease
+2026-11-14T05:45:34.4889396Z > Task :root-apk:mergeReleaseGlobalSynthetics
+2026-11-14T05:45:34.6896043Z > Task :root-apk:mergeDexRelease
+2026-11-14T05:45:35.1896122Z > Task :root-apk:validateSigningRelease
+2026-11-14T05:45:35.1915718Z > Task :root-apk:compileReleaseArtProfile
+2026-11-14T05:45:35.1945690Z > Task :root-apk:writeReleaseAppMetadata
+2026-11-14T05:45:35.1973235Z > Task :root-apk:writeReleaseSigningConfigVersions
+2026-11-14T05:45:35.1977949Z > Task :root-apk:optimizeReleaseResources
+2026-11-14T05:45:35.4899051Z > Task :root-apk:packageRelease
+2026-11-14T05:45:35.4904207Z > Task :root-apk:createReleaseApkListingFileRedirect
+2026-11-14T05:45:36.9881711Z > Task :root-apk:lintVitalAnalyzeRelease
+2026-11-14T05:45:36.9884111Z > Task :root-apk:lintVitalReportRelease
+2026-11-14T05:45:36.9887731Z > Task :root-apk:lintVitalRelease
+2026-11-14T05:45:36.9894121Z > Task :root-apk:assembleRelease
+2026-11-14T05:45:36.9894689Z 
+2026-11-14T05:45:36.9895042Z BUILD SUCCESSFUL in 33s
+2026-11-14T05:45:36.9896077Z 46 actionable tasks: 46 executed
+2026-11-14T05:45:37.3361398Z 'root-apk/build/outputs/apk/release/root-apk-release.apk' -> 'dist/root-apk-release.apk'
+2026-11-14T05:45:37.3399001Z total 840
+2026-11-14T05:45:37.3399454Z drwxr-xr-x  2 runner runner   4096 Nov 14 05:45 .
+2026-11-14T05:45:37.3400067Z drwxr-xr-x 13 runner runner   4096 Nov 14 05:45 ..
+2026-11-14T05:45:37.3400748Z -rw-r--r--  1 runner runner 848469 Nov 14 05:45 root-apk-release.apk
+2026-11-14T05:45:37.3475534Z ##[group]Run actions/upload-artifact@v4
+2026-11-14T05:45:37.3475859Z with:
+2026-11-14T05:45:37.3476067Z   name: RAMA_MODZ-RootAPK
+2026-11-14T05:45:37.3476302Z   path: dist/*.apk
+2026-11-14T05:45:37.3476528Z   if-no-files-found: error
+2026-11-14T05:45:37.3476770Z   compression-level: 6
+2026-11-14T05:45:37.3476986Z   overwrite: false
+2026-11-14T05:45:37.3477202Z   include-hidden-files: false
+2026-11-14T05:45:37.3477433Z env:
+2026-11-14T05:45:37.3477738Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T05:45:37.3478255Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-14T05:45:37.3478675Z   ANDROID_HOME: /home/runner/android-sdk
+2026-11-14T05:45:37.3478980Z   ANDROID_SDK_ROOT: /home/runner/android-sdk
+2026-11-14T05:45:37.3479330Z   ANDROID_NDK_HOME: /home/runner/android-sdk/ndk/25.2.9519653
+2026-11-14T05:45:37.3479650Z ##[endgroup]
+2026-11-14T05:45:37.5428566Z (node:3437) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-14T05:45:37.5429312Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-14T05:45:37.5502123Z With the provided path, there will be 1 file uploaded
+2026-11-14T05:45:37.5517568Z Artifact name is valid!
+2026-11-14T05:45:37.5519007Z Root directory input is valid!
+2026-11-14T05:45:37.7453408Z Beginning upload of artifact content to blob storage
+2026-11-14T05:45:37.8053960Z (node:3437) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-14T05:45:37.8920383Z Uploaded bytes 841752
+2026-11-14T05:45:37.9110350Z Finished uploading artifact content to blob storage!
+2026-11-14T05:45:37.9111030Z SHA256 digest of uploaded artifact zip is 6bf0bda165b569472de527ddc210053fa5c9616f0de7396016c74bea696822fd
+2026-11-14T05:45:37.9112768Z Finalizing artifact upload
+2026-11-14T05:45:38.2503299Z Artifact RAMA_MODZ-RootAPK.zip successfully finalized. Artifact ID 14100189463
+2026-11-14T05:45:38.2505408Z Artifact RAMA_MODZ-RootAPK has been successfully uploaded! Final size is 841752 bytes. Artifact ID is 14100189463
+2026-11-14T05:45:38.2512409Z Artifact download URL: https://github.com/hozin-king/zygisk-rama-modz/actions/runs/43562940538/artifacts/14100189463
+2026-11-14T05:45:38.2741749Z Post job cleanup.
+2026-11-14T05:45:38.4068856Z (node:3451) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-14T05:45:38.4069669Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-14T05:45:38.4259024Z Post job cleanup.
+2026-11-14T05:45:38.5256006Z [command]/usr/bin/git version
+2026-11-14T05:45:38.5309304Z git version 2.56.1
+2026-11-14T05:45:38.5356186Z Temporarily overriding HOME='/home/runner/work/_temp/09c61a5a-93af-424b-9263-2a13be36aea4' before making global git config changes
+2026-11-14T05:45:38.5357974Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-14T05:45:38.5359908Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/zygisk-rama-modz/zygisk-rama-modz
+2026-11-14T05:45:38.5416881Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-14T05:45:38.5470652Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-14T05:45:38.5851846Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-14T05:45:38.5878637Z http.https://github.com/.extraheader
+2026-11-14T05:45:38.5891133Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-14T05:45:38.5926902Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-14T05:45:38.6248171Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-14T05:45:38.6284339Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-14T05:45:38.6690691Z Cleaning up orphan processes
+2026-11-14T05:45:38.7036193Z Terminate orphan process: pid (2867) (java)
+2026-11-14T05:45:38.7106879Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

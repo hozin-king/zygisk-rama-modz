@@ -1,0 +1,160 @@
+﻿2026-11-14T05:45:44.3125830Z Current runner version: '2.338.2'
+2026-11-14T05:45:44.3150948Z ##[group]Runner Image Provisioner
+2026-11-14T05:45:44.3151859Z Hosted Compute Agent
+2026-11-14T05:45:44.3152530Z Version: 20261103.629
+2026-11-14T05:45:44.3153232Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-14T05:45:44.3154004Z Build Date: 2026-11-03T17:26:59Z
+2026-11-14T05:45:44.3154713Z Worker ID: {00398c81-ca53-46aa-b87a-4aa4271eb82c}
+2026-11-14T05:45:44.3155792Z Region: westus2
+2026-11-14T05:45:44.3156422Z Cloud: Azure
+2026-11-14T05:45:44.3156996Z ##[endgroup]
+2026-11-14T05:45:44.3158781Z ##[group]Operating System
+2026-11-14T05:45:44.3159520Z Ubuntu
+2026-11-14T05:45:44.3160040Z 26.04.1
+2026-11-14T05:45:44.3160581Z LTS
+2026-11-14T05:45:44.3161184Z ##[endgroup]
+2026-11-14T05:45:44.3161715Z ##[group]Runner Image
+2026-11-14T05:45:44.3162373Z Image: ubuntu-26.04
+2026-11-14T05:45:44.3162973Z Version: 20261111.196.1
+2026-11-14T05:45:44.3164318Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261111.196/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-14T05:45:44.3166196Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261111.196
+2026-11-14T05:45:44.3167259Z ##[endgroup]
+2026-11-14T05:45:44.3168729Z ##[group]GITHUB_TOKEN Permissions
+2026-11-14T05:45:44.3171008Z Contents: write
+2026-11-14T05:45:44.3171601Z Metadata: read
+2026-11-14T05:45:44.3172245Z ##[endgroup]
+2026-11-14T05:45:44.3174388Z Secret source: Actions
+2026-11-14T05:45:44.3175852Z Cache mode: write
+2026-11-14T05:45:44.3176614Z Prepare workflow directory
+2026-11-14T05:45:44.3517723Z Prepare all required actions
+2026-11-14T05:45:44.3567740Z Getting action download info
+2026-11-14T05:45:44.6689890Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-14T05:45:44.7871928Z Download action repository 'actions/download-artifact@v4' (SHA:d3f86a106a0bac45b974a628896c90dbdf5c8093)
+2026-11-14T05:45:45.1499497Z Complete job name: GitHub Release
+2026-11-14T05:45:45.2356125Z ##[group]Run actions/checkout@v4
+2026-11-14T05:45:45.2357174Z with:
+2026-11-14T05:45:45.2357645Z   repository: hozin-king/zygisk-rama-modz
+2026-11-14T05:45:45.2361639Z   token: ***
+2026-11-14T05:45:45.2362082Z   ssh-strict: true
+2026-11-14T05:45:45.2362526Z   ssh-user: git
+2026-11-14T05:45:45.2362975Z   persist-credentials: true
+2026-11-14T05:45:45.2363464Z   clean: true
+2026-11-14T05:45:45.2363914Z   sparse-checkout-cone-mode: true
+2026-11-14T05:45:45.2364447Z   fetch-depth: 1
+2026-11-14T05:45:45.2364881Z   fetch-tags: false
+2026-11-14T05:45:45.2365485Z   show-progress: true
+2026-11-14T05:45:45.2365955Z   lfs: false
+2026-11-14T05:45:45.2366374Z   submodules: false
+2026-11-14T05:45:45.2366835Z   set-safe-directory: true
+2026-11-14T05:45:45.2367339Z   allow-unsafe-pr-checkout: false
+2026-11-14T05:45:45.2368106Z ##[endgroup]
+2026-11-14T05:45:45.5082500Z Syncing repository: hozin-king/zygisk-rama-modz
+2026-11-14T05:45:45.5084922Z ##[group]Getting Git version info
+2026-11-14T05:45:45.5089061Z Working directory is '/home/runner/work/zygisk-rama-modz/zygisk-rama-modz'
+2026-11-14T05:45:45.5091040Z [command]/usr/bin/git version
+2026-11-14T05:45:45.5112891Z git version 2.56.1
+2026-11-14T05:45:45.5136351Z ##[endgroup]
+2026-11-14T05:45:45.5154461Z Temporarily overriding HOME='/home/runner/work/_temp/70bda90c-7f16-4bbb-837b-04be78aaa401' before making global git config changes
+2026-11-14T05:45:45.5157723Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-14T05:45:45.5160876Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/zygisk-rama-modz/zygisk-rama-modz
+2026-11-14T05:45:45.5231462Z Deleting the contents of '/home/runner/work/zygisk-rama-modz/zygisk-rama-modz'
+2026-11-14T05:45:45.5234157Z ##[group]Initializing the repository
+2026-11-14T05:45:45.5239886Z [command]/usr/bin/git init /home/runner/work/zygisk-rama-modz/zygisk-rama-modz
+2026-11-14T05:45:45.5373667Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-14T05:45:45.5375562Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-14T05:45:45.5377638Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-14T05:45:45.5378963Z hint: call:
+2026-11-14T05:45:45.5379903Z hint:
+2026-11-14T05:45:45.5380846Z hint: 	git config --global init.defaultBranch <name>
+2026-11-14T05:45:45.5381796Z hint:
+2026-11-14T05:45:45.5382461Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-14T05:45:45.5383457Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-14T05:45:45.5384270Z hint:
+2026-11-14T05:45:45.5384783Z hint: 	git branch -m <name>
+2026-11-14T05:45:45.5385638Z hint:
+2026-11-14T05:45:45.5386344Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-14T05:45:45.5389528Z Initialized empty Git repository in /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/.git/
+2026-11-14T05:45:45.5402640Z [command]/usr/bin/git remote add origin https://github.com/hozin-king/zygisk-rama-modz
+2026-11-14T05:45:45.5456730Z ##[endgroup]
+2026-11-14T05:45:45.5458066Z ##[group]Disabling automatic garbage collection
+2026-11-14T05:45:45.5460195Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-14T05:45:45.5497022Z ##[endgroup]
+2026-11-14T05:45:45.5498259Z ##[group]Setting up auth
+2026-11-14T05:45:45.5504793Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-14T05:45:45.5542908Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-14T05:45:45.6036166Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-14T05:45:45.6070310Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-14T05:45:45.6374465Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-14T05:45:45.6403196Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-14T05:45:45.6687553Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-14T05:45:45.6729360Z ##[endgroup]
+2026-11-14T05:45:45.6740377Z ##[group]Fetching the repository
+2026-11-14T05:45:45.6742949Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +ca4a09f4b3a8701a61b0a743e6913ff8308c5b51:refs/remotes/origin/main
+2026-11-14T05:45:47.5066945Z From https://github.com/hozin-king/zygisk-rama-modz
+2026-11-14T05:45:47.5068449Z  * [new ref]         ca4a09f4b3a8701a61b0a743e6913ff8308c5b51 -> origin/main
+2026-11-14T05:45:47.5080599Z ##[endgroup]
+2026-11-14T05:45:47.5083214Z ##[group]Determining the checkout info
+2026-11-14T05:45:47.5086325Z ##[endgroup]
+2026-11-14T05:45:47.5088460Z [command]/usr/bin/git sparse-checkout disable
+2026-11-14T05:45:47.5142231Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-14T05:45:47.5172810Z ##[group]Checking out the ref
+2026-11-14T05:45:47.5211308Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-11-14T05:45:47.6404883Z Switched to a new branch 'main'
+2026-11-14T05:45:47.6408876Z branch 'main' set up to track 'origin/main'.
+2026-11-14T05:45:47.6421198Z ##[endgroup]
+2026-11-14T05:45:47.6470195Z [command]/usr/bin/git log -1 --format=%H
+2026-11-14T05:45:47.6496661Z ca4a09f4b3a8701a61b0a743e6913ff8308c5b51
+2026-11-14T05:45:47.6855924Z ##[group]Run actions/download-artifact@v4
+2026-11-14T05:45:47.6857412Z with:
+2026-11-14T05:45:47.6858363Z   path: artifacts
+2026-11-14T05:45:47.6859440Z   merge-multiple: false
+2026-11-14T05:45:47.6860667Z   repository: hozin-king/zygisk-rama-modz
+2026-11-14T05:45:47.6862030Z   run-id: 43562940538
+2026-11-14T05:45:47.6863263Z ##[endgroup]
+2026-11-14T05:45:47.8711123Z (node:2938) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-14T05:45:47.8713042Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-14T05:45:48.1140345Z Found 1 artifact(s)
+2026-11-14T05:45:48.1141875Z No input name, artifact-ids or pattern filtered specified, downloading all artifacts
+2026-11-14T05:45:48.1143153Z An extra directory with the artifact name will be created for each download
+2026-11-14T05:45:48.1144219Z Preparing to download the following artifacts:
+2026-11-14T05:45:48.1146054Z - RAMA_MODZ-RootAPK (ID: 14100189463, Size: 841752, Expected Digest: sha256:6bf0bda165b569472de527ddc210053fa5c9616f0de7396016c74bea696822fd)
+2026-11-14T05:45:48.3710601Z Redirecting to blob download url: https://productionresultssa13.blob.core.windows.net/actions-results/a3c6595a-5a50-82e7-a7dd-91fe3e2f0283/workflow-job-run-30df4fda-e74c-5db2-a77c-1572f87d3b7f/artifacts/8a84e914ded3a17f18acbaf661cb1f48ecd83aab526ebb0b2183b9bb9b112548.zip
+2026-11-14T05:45:48.3712576Z Starting download of artifact to: /home/runner/work/zygisk-rama-modz/zygisk-rama-modz/artifacts/RAMA_MODZ-RootAPK
+2026-11-14T05:45:48.6553408Z (node:2938) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-11-14T05:45:49.0143412Z SHA256 digest of downloaded artifact is 6bf0bda165b569472de527ddc210053fa5c9616f0de7396016c74bea696822fd
+2026-11-14T05:45:49.0144509Z Artifact download completed successfully.
+2026-11-14T05:45:49.0145533Z Total of 1 artifact(s) downloaded
+2026-11-14T05:45:49.0156348Z Download artifact has finished successfully
+2026-11-14T05:45:49.0320241Z ##[group]Run mkdir -p release-assets
+2026-11-14T05:45:49.0320696Z [36;1mmkdir -p release-assets[0m
+2026-11-14T05:45:49.0321101Z [36;1mfind artifacts -name '*.apk' -exec cp -v {} release-assets/ \;[0m
+2026-11-14T05:45:49.0321624Z [36;1mVER=$(grep '^version=' module.prop | cut -d= -f2 | tr -d '\r')[0m
+2026-11-14T05:45:49.0322033Z [36;1mTAG="v${VER}-root-$(date -u +%Y%m%d%H%M)"[0m
+2026-11-14T05:45:49.0322388Z [36;1mtest -n "$(ls -A release-assets)" || exit 1[0m
+2026-11-14T05:45:49.0322743Z [36;1mgh release create "$TAG" release-assets/* \[0m
+2026-11-14T05:45:49.0323101Z [36;1m  --title "RAMA MODZ Root APK $TAG" \[0m
+2026-11-14T05:45:49.0323526Z [36;1m  --notes "Root injector APK (Zygisk CI off). Credits: RAMA MODZ." \[0m
+2026-11-14T05:45:49.0323930Z [36;1m  --latest[0m
+2026-11-14T05:45:49.0377306Z shell: /usr/bin/bash -e {0}
+2026-11-14T05:45:49.0450273Z env:
+2026-11-14T05:45:49.0453410Z   GH_TOKEN: ***
+2026-11-14T05:45:49.0453652Z ##[endgroup]
+2026-11-14T05:45:49.0603818Z 'artifacts/RAMA_MODZ-RootAPK/root-apk-release.apk' -> 'release-assets/root-apk-release.apk'
+2026-11-14T05:45:49.4731256Z a release with the same tag name already exists: vOB55-v1-root-202611140545
+2026-11-14T05:45:49.4773544Z ##[error]Process completed with exit code 1.
+2026-11-14T05:45:49.4925290Z Post job cleanup.
+2026-11-14T05:45:49.5769076Z [command]/usr/bin/git version
+2026-11-14T05:45:49.5812350Z git version 2.56.1
+2026-11-14T05:45:49.5854576Z Temporarily overriding HOME='/home/runner/work/_temp/c5967f4d-1daa-4b3b-ba47-c683b0326554' before making global git config changes
+2026-11-14T05:45:49.5856002Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-14T05:45:49.5860736Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/zygisk-rama-modz/zygisk-rama-modz
+2026-11-14T05:45:49.5908643Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-14T05:45:49.5948808Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-14T05:45:49.6274803Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-14T05:45:49.6303091Z http.https://github.com/.extraheader
+2026-11-14T05:45:49.6317083Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-14T05:45:49.6362214Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-14T05:45:49.6673368Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-14T05:45:49.6708642Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-14T05:45:49.7122134Z Cleaning up orphan processes
+2026-11-14T05:45:49.7526726Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/download-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
