@@ -609,7 +609,8 @@ typedef unsigned long DWORD;
 
 
 inline void StartGUI() {
-    void *ptr_eglSwapBuffer = DobbySymbolResolver("/system/lib/libEGL.so", "eglSwapBuffers");
+    void *ptr_eglSwapBuffer = dlsym(RTLD_DEFAULT, "eglSwapBuffers");
+    if (!ptr_eglSwapBuffer) ptr_eglSwapBuffer = DobbySymbolResolver("/system/lib64/libEGL.so", "eglSwapBuffers");
     if (ptr_eglSwapBuffer != nullptr) {
         DobbyHook((void *)ptr_eglSwapBuffer, (void *)hook_eglSwapBuffers, (void **)&old_eglSwapBuffers);
         LOGD("GUI started successfully");

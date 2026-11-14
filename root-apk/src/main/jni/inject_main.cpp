@@ -14,6 +14,10 @@
 #include <sys/uio.h>
 #include <string>
 #include "memory.h"
+#include <vector>
+#include <algorithm>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 #if defined(__aarch64__)
 #include <asm/ptrace.h>
@@ -142,9 +146,53 @@ restore:
     return ok;
 }
 
-int main(int argc, char **argv) {
-    if (argc < 3) { fprintf(stderr, "usage: %s <pid> <lib_path>\n", argv[0]); return 2; }
-    if (getuid() != 0) { printf("INJECT_FAIL harus root\n"); return 4; }
+
+static bool dump_region(int memfd, uintptr_t start, size_t len, const char* out) {
+    if (len == 0 || len > (64u << 20)) return false;
+    int fd = open(out, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    if (fd < 0) return false;
+    std::vector<char> buf(1 << 20); size_t off = 0; bool ok = true;
+    while (off < len) {
+        size_t want = std::min(buf.size(), len - off);
+        ssize_t r = pread(memfd, buf.data(), want, (off_t)(start + off));
+        if (r <= 0) { memset(buf.data(), 0, want); r = (ssize_t)want; }
+        if (write(fd, buf.data(), (size_t)r) != r) { ok = false; break; }
+        off += (size_t)r;
+    }
+    close(fd); return ok;
+}
+static int do_dump(pid_t pid, const char* outdir) {
+    if (pid <= 0) { printf("DUMP_FAIL pid\n"); return 2; }
+    mkdir(outdir, 0755);
+    char mempath[64], mapspath[64], mapsout[512];
+    snprintf(mempath, sizeof mempath, "/proc/%d/mem", pid);
+    snprintf(mapspath, sizeof mapspath, "/proc/%d/maps", pid);
+    snprintf(mapsout, sizeof mapsout, "%s/maps.txt", outdir);
+    int memfd = open(mempath, O_RDONLY);
+    if (memfd < 0) { printf("DUMP_FAIL open mem: %s\n", strerror(errno)); return 3; }
+    FILE* f = fopen(mapspath, "r");
+    if (!f) { close(memfd); printf("DUMP_FAIL maps\n"); return 3; }
+    FILE* mf = fopen(mapsout, "w");
+    char line[512]; int n = 0;
+    while (fgets(line, sizeof line, f)) {
+        if (mf) fputs(line, mf);
+        unsigned long lo, hi; char perms[8];
+        if (sscanf(line, "%lx-%lx %7s", &lo, &hi, perms) != 3) continue;
+        bool isGGP = strstr(line, "libGGP.so") || strstr(line, "libBifrost.so");
+        bool isRWX = (perms[0]=='r' && perms[1]=='w' && perms[2]=='x');
+        if (!isGGP && !isRWX) continue;
+        char out[512]; snprintf(out, sizeof out, "%s/%s_%lx_%s.bin", outdir, isGGP?"ggp":"rwx", lo, perms);
+        if (dump_region(memfd, lo, hi-lo, out)) { printf("DUMP_OK %s\n", out); n++; }
+    }
+    if (mf) fclose(mf); fclose(f); close(memfd);
+    printf("DUMP_DONE %d region -> %s\n", n, outdir);
+    return n > 0 ? 0 : 1;
+}
+int main(int argc, char** argv) {
+    if (getuid() != 0) { printf("FAIL harus root\n"); return 4; }
+    if (argc >= 2 && strcmp(argv[1], "dump") == 0)
+        return do_dump(argc >= 3 ? (pid_t)atoi(argv[2]) : 0, argc >= 4 ? argv[3] : "/data/local/tmp/rama_dump");
+    if (argc < 3) { fprintf(stderr, "usage: %s <pid> <lib> | %s dump <pid> [outdir]\n", argv[0], argv[0]); return 2; }
     pid_t pid = (pid_t)atoi(argv[1]);
     if (get_module_base(pid, "libRAMA_MODZ.so")) { printf("ALREADY_LOADED\n"); return 0; }
     uintptr_t il2 = get_module_base(pid, "libil2cpp.so");
