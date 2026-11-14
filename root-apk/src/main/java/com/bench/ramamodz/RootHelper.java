@@ -46,4 +46,33 @@ public class RootHelper {
             return "";
         }
     }
+
+    // ==================== Root injector flow ====================
+    // Salin payload ke /data/local/tmp + label SELinux agar bisa dibaca+dieksekusi game,
+    // lalu jalankan injector ptrace (executable librama_inject.so) sebagai root.
+    public static String injectSo(android.content.Context ctx, String pkg) {
+        try {
+            int pid = nativeFindPid(pkg);
+            if (pid <= 0) return "game belum jalan (pid tidak ada): " + pkg;
+            String libDir = ctx.getApplicationInfo().nativeLibraryDir;
+            String payload = libDir + "/libRAMA_MODZ.so";
+            String inj = libDir + "/librama_inject.so";
+            String tmp = "/data/local/tmp/libRAMA_MODZ.so";
+            String log = "/data/local/tmp/rama_inject.log";
+            exec("rm -f " + log);
+            exec("cp " + payload + " " + tmp);
+            exec("chmod 755 " + tmp);
+            // Label apk_data_file: untrusted_app (game) boleh read+execute. Tanpa ini dlopen EACCES.
+            exec("chcon u:object_r:apk_data_file:s0 " + tmp);
+            exec("( " + inj + " " + pid + " " + tmp + " > " + log + " 2>&1; echo DONE_$? >> " + log + " ) &");
+            for (int i = 0; i < 60; i++) {
+                Thread.sleep(500);
+                String out = exec("cat " + log);
+                if (out.contains("DONE_")) return out;
+            }
+            return "timeout inject; log:\n" + exec("cat " + log);
+        } catch (Exception e) {
+            return "inject error: " + e;
+        }
+    }
 }

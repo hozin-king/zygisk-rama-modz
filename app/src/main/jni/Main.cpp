@@ -16,6 +16,8 @@
 #include "imgui/Toggle.h"
 #include "zygisk.hpp"
 #include "Struct/RamaModzTeam.h"
+#include "Struct/Stealth.h"
+#include "Struct/HookTable.h"
     // CREADIT: BY RAMA MODZ
     // CREADIT: BY RAMA MODZ
     // CREADIT: BY RAMA MODZ
@@ -102,6 +104,7 @@ class MyModule : public zygisk::ModuleBase {
        genv->GetJavaVM(&jvm);
       g_gameVersion = GetAppVersion(genv, g_gamePkg.c_str());
       LOGD("Game %s version %s", g_gamePkg.c_str(), g_gameVersion.c_str());
+      stealth::Install();
       std::thread{hack}.detach();
     }
   }
@@ -637,14 +640,14 @@ void hack_thread(pid_t pid) {
     // TELEGRAM OWNER: @RAMA_MODZ
     // CHANEL TELEGRAM: t.me/ramachanel
     // FUCK YOU DELETE CREDIT 
-HookChecked("Camera (FollowCamera.get_OffsetForNormal)", Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("FollowCamera"), OBFUSCATE("get_OffsetForNormal"), 0),(void *)_GetCameraHeightRateValue, (void **)&GetCameraHeightRateValue);
-HookChecked("ResetGuest (GameConfig.get_ResetGuest)", Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW"), OBFUSCATE("GameConfig"), OBFUSCATE("get_ResetGuest"), 0), (void *)_ResetGuest, (void **)&ResetGuest);
-HookChecked("DashSpeed (Player.GetCurrentDashSpeed)", (void *)Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("GetCurrentDashSpeed"), 0),(void *)hook_Rama_Modz,(void **)&old_Rama_Modz);
+HookChecked("Camera (FollowCamera.get_OffsetForNormal)", (void*)hooktable::Resolve("Camera"),(void *)_GetCameraHeightRateValue, (void **)&GetCameraHeightRateValue);
+HookChecked("ResetGuest (GameConfig.get_ResetGuest)", (void*)hooktable::Resolve("ResetGuest"), (void *)_ResetGuest, (void **)&ResetGuest);
+HookChecked("DashSpeed (Player.GetCurrentDashSpeed)", (void*)hooktable::Resolve("DashSpeed"),(void *)hook_Rama_Modz,(void **)&old_Rama_Modz);
 
-HookChecked("Jump (Player.get_MaxJumpHeight)", Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("get_MaxJumpHeight"), 0), (void*)my_get_MaxJumpHeight, (void**)&orig_get_MaxJumpHeight);
-HookChecked("Gravity (Player.get_CustomGravity)", Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("get_CustomGravity"), 0), (void*)my_get_CustomGravity, (void**)&orig_get_CustomGravity);
-HookChecked("Gravity (Player.get_RisingGravity)", Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("get_RisingGravity"), 0), (void*)my_get_RisingGravity, (void**)&orig_get_RisingGravity);
-HookChecked("Gravity (Player.get_FallingGravity)", Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("get_FallingGravity"), 0), (void*)my_get_FallingGravity, (void**)&orig_get_FallingGravity);
+HookChecked("Jump (Player.get_MaxJumpHeight)", (void*)hooktable::Resolve("Jump"), (void*)my_get_MaxJumpHeight, (void**)&orig_get_MaxJumpHeight);
+HookChecked("Gravity (Player.get_CustomGravity)", (void*)hooktable::Resolve("GravityCustom"), (void*)my_get_CustomGravity, (void**)&orig_get_CustomGravity);
+HookChecked("Gravity (Player.get_RisingGravity)", (void*)hooktable::Resolve("GravityRising"), (void*)my_get_RisingGravity, (void**)&orig_get_RisingGravity);
+HookChecked("Gravity (Player.get_FallingGravity)", (void*)hooktable::Resolve("GravityFalling"), (void*)my_get_FallingGravity, (void**)&orig_get_FallingGravity);
 
 
     StartGUI();
@@ -661,3 +664,35 @@ void hack() {
 
 REGISTER_ZYGISK_MODULE(MyModule)
 
+// ==================== Entry root-injector (aktif hanya dengan -DRAMA_ROOTINJECT) ====================
+#ifdef RAMA_ROOTINJECT
+#include <jni.h>
+#include <fcntl.h>
+#include <dlfcn.h>
+
+static void root_entry() {
+    char cmd[256] = {0};
+    int fd = open("/proc/self/cmdline", O_RDONLY);
+    if (fd >= 0) { ssize_t n = read(fd, cmd, sizeof(cmd) - 1); (void)n; close(fd); }
+    g_gamePkg = cmd[0] ? cmd : "com.dts.freefiremax";
+
+    JavaVM *vm = nullptr; jsize nvm = 0;
+    auto getVMs = (jint(*)(JavaVM**, jsize, jsize*))dlsym(RTLD_DEFAULT, "JNI_GetCreatedJavaVMs");
+    if (getVMs && getVMs(&vm, 1, &nvm) == JNI_OK && nvm > 0 && vm) {
+        JNIEnv *env = nullptr;
+        if (vm->AttachCurrentThread(&env, nullptr) == JNI_OK && env) {
+            genv = env;
+            jvm = vm;
+            g_gameVersion = GetAppVersion(env, g_gamePkg.c_str());
+        }
+    }
+    stealth::Install();
+    LOGD("[RootInject] Game %s version %s", g_gamePkg.c_str(), g_gameVersion.c_str());
+    std::thread{hack}.detach();
+}
+
+__attribute__((constructor)) static void rama_root_ctor() {
+    std::thread(root_entry).detach(); // jangan kerja berat di constructor loader
+}
+#endif
+// =====================================================================================

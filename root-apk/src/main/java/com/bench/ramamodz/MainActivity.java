@@ -1,22 +1,73 @@
 package com.bench.ramamodz;
-import android.app.Activity; import android.content.Intent; import android.net.Uri;
-import android.os.Build; import android.os.Bundle; import android.provider.Settings; import android.widget.Toast;
+
+import android.app.Activity;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.ScrollView;
+import android.widget.TextView;
+
 public class MainActivity extends Activity {
-    private static final int REQ = 1001;
+    private TextView status;
+    private String pkg = "com.dts.freefiremax";
+
     @Override protected void onCreate(Bundle s) {
         super.onCreate(s);
-        if (!RootHelper.init()) { Toast.makeText(this, "root required", Toast.LENGTH_LONG).show(); finish(); return; }
-        if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(this)) {
-            startActivityForResult(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName())), REQ);
+        LinearLayout root = new LinearLayout(this);
+        root.setOrientation(LinearLayout.VERTICAL);
+        root.setPadding(40, 40, 40, 40);
+        root.setBackgroundColor(Color.parseColor("#0A0A18"));
+
+        TextView title = new TextView(this);
+        title.setText("RAMA MODZ — Root Injector (OB55)\nCredit fitur: RAMA MODZ / @RAMA_MODZ");
+        title.setTextColor(Color.WHITE);
+        title.setTextSize(16f);
+        root.addView(title);
+
+        RadioGroup rg = new RadioGroup(this);
+        RadioButton max = new RadioButton(this);
+        max.setText("Free Fire MAX (com.dts.freefiremax)");
+        max.setTextColor(Color.WHITE);
+        max.setChecked(true);
+        RadioButton th = new RadioButton(this);
+        th.setText("Free Fire TH (com.dts.freefireth)");
+        th.setTextColor(Color.WHITE);
+        rg.addView(max); rg.addView(th);
+        rg.setOnCheckedChangeListener((g, id) ->
+                pkg = (id == max.getId()) ? "com.dts.freefiremax" : "com.dts.freefireth");
+        root.addView(rg);
+
+        Button inject = new Button(this);
+        inject.setText("INJECT (setelah masuk lobby)");
+        root.addView(inject);
+
+        status = new TextView(this);
+        status.setTextColor(Color.parseColor("#9FB4FF"));
+        status.setText("1. Buka FF sampai lobby\n2. Balik ke sini, tekan INJECT\n"
+                + "3. Balik ke game — menu ImGui muncul ±10-20 detik\n"
+                + "Butuh root (Magisk/KernelSU). Tanpa Zygisk/LSPosed.");
+        ScrollView sv = new ScrollView(this);
+        sv.addView(status);
+        root.addView(sv);
+        setContentView(root);
+
+        if (!RootHelper.init()) {
+            status.setText("ROOT TIDAK ADA / ditolak. Grant root untuk app ini.");
+            inject.setEnabled(false);
             return;
         }
-        startService(new Intent(this, OverlayService.class));
-        Toast.makeText(this, "menu started", Toast.LENGTH_SHORT).show();
-        finish();
-    }
-    @Override protected void onActivityResult(int req, int res, Intent data) {
-        if (req == REQ && Build.VERSION.SDK_INT >= 23 && Settings.canDrawOverlays(this)) {
-            startService(new Intent(this, OverlayService.class)); finish();
-        } else if (req == REQ) { Toast.makeText(this, "overlay required", Toast.LENGTH_LONG).show(); finish(); }
+
+        inject.setOnClickListener(v -> {
+            inject.setEnabled(false);
+            status.setText("inject berjalan... (tunggu, bisa ~30 detik)");
+            final String target = pkg;
+            new Thread(() -> {
+                String res = RootHelper.injectSo(getApplicationContext(), target);
+                runOnUiThread(() -> { status.setText(res); inject.setEnabled(true); });
+            }).start();
+        });
     }
 }
