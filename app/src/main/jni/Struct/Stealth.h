@@ -182,12 +182,12 @@ static int my_faccessat(int dirfd, const char *path, int mode, int flags) {
 }
 static int my_stat(const char *path, struct stat *st) {
     if (isRootPath(path)) { errno = ENOENT; return -1; }
-    if (!orig_stat) return (int)syscall(SYS_fstatat, AT_FDCWD, path, st, 0);
+    if (!orig_stat) return fstatat(AT_FDCWD, path, st, 0);
     return orig_stat(path, st);
 }
 static int my_lstat(const char *path, struct stat *st) {
     if (isRootPath(path)) { errno = ENOENT; return -1; }
-    if (!orig_lstat) return (int)syscall(SYS_fstatat, AT_FDCWD, path, st, AT_SYMLINK_NOFOLLOW);
+    if (!orig_lstat) return fstatat(AT_FDCWD, path, st, AT_SYMLINK_NOFOLLOW);
     return orig_lstat(path, st);
 }
 static int my_prop_get(const char *name, char *value) {
